@@ -1,7 +1,6 @@
 package com.smartlock.server.lock.presentation.controller;
 
 
-import com.smartlock.server.lock.presentation.dto.AddUserToLockDto;
 import com.smartlock.server.lock.presentation.dto.CreateLockDto;
 import com.smartlock.server.lock.service.LockService;
 import com.smartlock.server.security.service.UserPrinciple;

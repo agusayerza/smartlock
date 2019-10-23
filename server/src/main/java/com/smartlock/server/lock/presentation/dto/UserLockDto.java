@@ -1,6 +1,6 @@
 package com.smartlock.server.lock.presentation.dto;
 
-public class AddUserToLockDto {
+public class UserLockDto {
     private Long lockId;
     private Long userId;
 

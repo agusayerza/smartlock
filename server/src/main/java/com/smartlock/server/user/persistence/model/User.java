@@ -17,7 +17,6 @@ public class User{
     @Column(length=1000000)
     @ElementCollection(targetClass=Long.class, fetch = FetchType.EAGER)
     private List<Long> locksId;
-    private boolean active;
 
     public String getPassword() {
         return this.password;
@@ -47,14 +46,6 @@ public class User{
         this.password = password;
     }
 
-    public boolean isActive() {
-        return active;
-    }
-
-    public void setActive(boolean active) {
-        this.active = active;
-    }
-
     public List<Long> getLocksId() {
         return locksId;
     }
@@ -73,7 +64,6 @@ public class User{
         this.email = createUserDto.getEmail();
         this.password = createUserDto.getPassword();
         this.locksId = new ArrayList<>();
-        this.active = true;
     }
 
     public User() {

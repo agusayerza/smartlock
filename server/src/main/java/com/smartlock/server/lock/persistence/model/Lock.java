@@ -13,10 +13,10 @@ public class Lock {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-//    todo validar que esto sea unique. si existe y active false, pasarlo a true y setear nuevo admin
     private String uid;
     private long userAdminId;
     private boolean active;
+    private String name;
 
     public long getId() {
         return id;
@@ -50,9 +50,18 @@ public class Lock {
         this.active = active;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public Lock(CreateLockDto createLockDto, Long userAdminId) {
         this.uid = createLockDto.getUid();
         this.userAdminId = userAdminId;
         this.active = true;
+        this.name = createLockDto.getName();
     }
 }

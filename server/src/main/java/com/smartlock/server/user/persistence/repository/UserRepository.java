@@ -6,16 +6,15 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-//todo active true no more
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
 
 //    todo testear
-    User findFirstByEmailAndActiveTrue(String email);
+    User findFirstByEmail(String email);
 
     boolean existsByEmail(String email);
 
 //    todo testear
-    List<User> findAllByLocksIdContainingAndActiveTrue(Long lockId);
+    List<User> findAllByLocksIdContaining(Long lockId);
 
 }

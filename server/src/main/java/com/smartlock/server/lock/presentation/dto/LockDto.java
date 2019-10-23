@@ -6,6 +6,7 @@ public class LockDto {
     private Long id;
     private String uid;
     private Long userAdminId;
+    private String name;
 
     public LockDto() {
     }
@@ -14,6 +15,7 @@ public class LockDto {
         this.id = lock.getId();
         this.uid = lock.getUid();
         this.userAdminId = lock.getUserAdminId();
+        this.name = lock.getName();
     }
 
     public Long getId() {
@@ -38,5 +40,13 @@ public class LockDto {
 
     public void setUserAdminId(Long userAdminId) {
         this.userAdminId = userAdminId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
