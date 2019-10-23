@@ -20,7 +20,7 @@ public class LoginDto {
     }
 
     public LoginDto(@NotNull @Email String email, @NotNull @Size(min = 8, max = 32) @Pattern(regexp = "^[a-zA-Z0-9_.!@#$%^&*()=-]+$") String password) {
-        this.email = email;
+        this.email = email.toLowerCase();
         this.password = password;
     }
 
