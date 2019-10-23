@@ -1,34 +1,26 @@
 package com.smartlock.server.user.service;
 
-import com.smartlock.server.user.model.User;
-import com.smartlock.server.user.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.stereotype.Service;
+import com.smartlock.server.lock.presentation.dto.LockDto;
+import com.smartlock.server.user.presentation.dto.CreateUserDto;
+import com.smartlock.server.user.presentation.dto.UserDto;
 
-@Service
-public class UserService implements UserDetailsService {
+import java.util.List;
 
-    private UserRepository userRepository;
+public interface UserService {
 
-    @Autowired
-    public UserService(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
+    UserDto createUser(CreateUserDto userDto);
 
-    @Override
-    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        final User user = userRepository.findFirstByEmail(email);
-        if(user == null){
-            throw new UsernameNotFoundException("User not Found with email : " + email);
-        }
-        return user;
-    }
+//    todo cuando borro un user, que pasa con los locks del que era admin?
+//    void deleteUser(Long id);
 
-    public static User getUser(){
-        return (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-    }
+    UserDto getUser(Long id);
+
+    Long getMyID();
+
+    List<LockDto> getAllLocksThisUserCanAccess(Long userId);
+//    todo invitar a un user a su lock y sacarlo (verificar que sea el admin del lock)
+//    todo te invitan y vos aceptas o te meten de una? en principio te meten de una, despues con mail
+
+
+//todo get all locks que soy admin
 }

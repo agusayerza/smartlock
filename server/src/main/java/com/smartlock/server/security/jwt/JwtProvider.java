@@ -1,6 +1,6 @@
 package com.smartlock.server.security.jwt;
 
-import com.smartlock.server.user.model.User;
+import com.smartlock.server.security.service.UserPrinciple;
 import io.jsonwebtoken.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -28,10 +28,10 @@ public class JwtProvider {
 
     public String generateJwtToken(Authentication authentication) {
 
-        User user = (User) authentication.getPrincipal();
-        logger.info("Issuing JWT to user with id: " + user.getId());
+        UserPrinciple userPrincipal = (UserPrinciple) authentication.getPrincipal();
+        logger.info("Issuing JWT to user with id: " + userPrincipal.getId());
         return Jwts.builder()
-		                .setSubject((user.getUsername()))
+		                .setSubject((userPrincipal.getUsername()))
 		                .setIssuedAt(new Date())
 		                .setExpiration(new Date((new Date()).getTime() + jwtExpiration*1000))
 		                .signWith(SignatureAlgorithm.HS512, jwtSecret)
@@ -74,7 +74,7 @@ public class JwtProvider {
         return false;
     }
     
-    public String getEmailFromJwtToken(String token) {
+    String getUserNameFromJwtToken(String token) {
         return Jwts.parser()
 			                .setSigningKey(jwtSecret)
 			                .parseClaimsJws(token)
