@@ -14,14 +14,10 @@ public class User{
     private long id;
     private String email;
     private String password;
-//  todo esto cuan largo es?
     @Column(length=1000000)
     @ElementCollection(targetClass=Long.class, fetch = FetchType.EAGER)
     private List<Long> locksId;
     private boolean active;
-
-    @ElementCollection(fetch = FetchType.EAGER)
-    private List<String> roles;
 
     public String getPassword() {
         return this.password;
@@ -68,6 +64,8 @@ public class User{
     }
 
     public List<String> getRoles() {
+        ArrayList<String> roles = new ArrayList<>();
+        roles.add("ROLE_USER");
         return roles;
     }
 
@@ -75,8 +73,6 @@ public class User{
         this.email = createUserDto.getEmail();
         this.password = createUserDto.getPassword();
         this.locksId = new ArrayList<>();
-        this.roles = new ArrayList<>();
-        this.roles.add("ROLE_USER");
         this.active = true;
     }
 

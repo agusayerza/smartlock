@@ -38,51 +38,27 @@ public class LockResource {
         try {
             Long id = UserPrinciple.getUserPrinciple().getId();
             return new ResponseEntity<>(lockService.createLock(lockDto, id), HttpStatus.OK);
-        } catch (IllegalArgumentException e){
+        } catch (NotFoundException | IllegalArgumentException e){
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
     }
 
-//    //    todo cuando borro un user, que pasa con los locks del que era admin?
-//    @DeleteMapping("/{id}")
-//    public ResponseEntity deleteLock(@PathVariable Long id) {
-//        try {
-//            Long userId = UserPrinciple.getUserPrinciple().getId();
-////            todo hacer que solo el admin lo pueda eliminar??
-//            lockService.deleteLock(id, userId);
-//            return new ResponseEntity<>("Candado eliminado", HttpStatus.OK);
-//        } catch (NotFoundException | IllegalArgumentException e){
-//            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
-//        }
-//    }
+    @DeleteMapping("/{id}")
+    public ResponseEntity deleteLock(@PathVariable Long id) {
+        try {
+            Long userId = UserPrinciple.getUserPrinciple().getId();
+            lockService.deleteLock(id, userId);
+            return new ResponseEntity<>("Lock deleted", HttpStatus.OK);
+        } catch (NotFoundException | IllegalArgumentException e){
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+        }
+    }
 
     @GetMapping("/{id}")
     public ResponseEntity getLock(@PathVariable Long id) {
         try {
             return new ResponseEntity<>(lockService.getLock(id), HttpStatus.OK);
-        } catch (NotFoundException | IllegalArgumentException e){
-            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
-        }
-    }
-
-//    TODO ESTOS DOS, ACA O EN USER SERVICE? pasar a user
-    @GetMapping("/users/{id}")
-    public ResponseEntity getAllUsersThatCanAccessToThisLock(@PathVariable Long id){
-        try {
-            Long userId = UserPrinciple.getUserPrinciple().getId();
-            return new ResponseEntity<>(lockService.getAllUsersThatCanAccessToThisLock(id, userId), HttpStatus.OK);
-        } catch (NotFoundException | IllegalArgumentException e){
-            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
-        }
-    }
-
-    @PutMapping("/users/")
-    public ResponseEntity addUserToThisLock(@Valid @RequestBody AddUserToLockDto addUserToLockDto){
-        try {
-            Long userId = UserPrinciple.getUserPrinciple().getId();
-            lockService.addUserToThisLock(addUserToLockDto, userId);
-            return new ResponseEntity<>("Usuario agregado", HttpStatus.OK);
-        } catch (NotFoundException | IllegalArgumentException e){
+        } catch (NotFoundException | IllegalArgumentException e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
     }
