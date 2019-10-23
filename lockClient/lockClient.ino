@@ -27,9 +27,9 @@ const char* wlan_password         = "balto001";
 /**
 * Server settings
 **/
-const char host[]               = "192.168.0.164";
-const int port                 = 8080;
-const char baseURL[]           = "http://192.168.0.164:8080/lock";
+const char host[]               = "192.168.0.163";
+const int port                 = 8180;
+const char baseURL[]           = "http://192.168.0.163:8180/lock";
 
 // Lock UUID
 const char* lock_uuid = "18bfd86f-539e-40e2-a917-64c9ed1d42d9";
@@ -43,9 +43,36 @@ void setup() {
   Serial.begin(115200); //Serial connection
   connect_wifi();
   
-  servo.attach(4); //D2
+  servo.attach(2); //D2
   servo.write(90);
  
+}
+
+void loop() {
+ delay(2500);
+ servo.write(0);
+ 
+ if(WiFi.status() == WL_CONNECTED){   //Check WiFi connection status
+ 
+   HTTPClient http;    //Declare object of class HTTPClient
+ 
+   http.begin(baseURL);  //Specify request destination
+   http.addHeader("Content-Type", "text/plain");  //Specify content-type header
+ 
+   int httpCode = http.POST("Message from ESP8266");   //Send the request
+   String payload = http.getString();                  //Get the response payload
+   http.end();  //Close connection
+   Serial.print("Got:");
+   Serial.print(httpCode);   //Print HTTP return code
+   Serial.print(" payload: ");
+   Serial.println(payload);    //Print request response payload
+ 
+ }else{
+    Serial.println("Error in WiFi connection");   
+    connect_wifi();
+ }
+  delay(2500);
+ servo.write(330);
 }
 
 void connect_wifi(){
@@ -59,28 +86,3 @@ void connect_wifi(){
   }
 }
  
-void loop() {
- delay(2500);
- if(WiFi.status()== WL_CONNECTED){   //Check WiFi connection status
- 
-   HTTPClient http;    //Declare object of class HTTPClient
- 
-   http.begin(baseURL);  //Specify request destination
-   http.addHeader("Content-Type", "text/plain");  //Specify content-type header
- 
-   int httpCode = http.POST("Message from ESP8266");   //Send the request
-   String payload = http.getString();                  //Get the response payload
- 
-   Serial.println(httpCode);   //Print HTTP return code
-   Serial.println(payload);    //Print request response payload
-   http.end();  //Close connection
-   servo.write(0);
- 
- }else{
-    Serial.println("Error in WiFi connection");   
-    connect_wifi();
- }
- 
-  delay(2500);  //Send a request every 30 seconds
-  servo.write(360);
-}
