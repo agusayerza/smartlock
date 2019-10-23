@@ -73,6 +73,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 "/configuration/security",
                 "/swagger-ui.html",
                 "/webjars/**").permitAll()
+                // Lock status
+                .antMatchers("/lock/status/**").permitAll()
 
                 .anyRequest().authenticated()
                 .and()

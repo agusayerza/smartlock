@@ -21,17 +21,21 @@ public class LockResource {
     private static Logger logger = LoggerFactory.getLogger(LockResource.class);
 
     private LockService lockService;
-
+    private boolean bool = true;
     @Autowired
     public LockResource(LockService lockService) {
         this.lockService = lockService;
     }
 
-//    @PostMapping
-//    private String ping(String ping){
-//        logger.info(ping);
-//        return "pong";
-//    }
+    @PostMapping("/status/{uuid}")
+    private String ping(@PathVariable String uuid){
+        //logger.info(uuid);
+        bool = !bool;
+        if(bool){
+            return "CLOSE";
+        }
+        return "OPEN";
+    }
 
     @PostMapping()
     public ResponseEntity createLock(@Valid @RequestBody CreateLockDto lockDto){
