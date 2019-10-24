@@ -11,7 +11,6 @@ import com.smartlock.server.user.persistence.model.User;
 import com.smartlock.server.user.persistence.repository.UserRepository;
 import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -36,7 +35,7 @@ public class LockServiceImpl implements LockService{
     @Override
     public LockDto createLock(CreateLockDto lockDto, Long userAdminId) throws NotFoundException {
         User user = userRepository.getOne(userAdminId);
-        Optional<Lock> opLock= lockRepository.findByUid(lockDto.getUid());
+        Optional<Lock> opLock= lockRepository.findByUuid(lockDto.getUid());
         if (opLock.isPresent()){
             Lock lock = opLock.get();
             if (lock.isActive()) throw new IllegalArgumentException("That lock is already claimed");
@@ -90,7 +89,7 @@ public class LockServiceImpl implements LockService{
     @Override
     public String getLockStatus(final String uuid) throws NotFoundException {
         // Remember this method is only called by the lock it self
-        Lock lock = lockRepository.findByUid(uuid)
+        Lock lock = lockRepository.findByUuid(uuid)
                 .orElseThrow(() -> new NotFoundException("ERR:1"));
 
         return "OPEN";

@@ -15,8 +15,6 @@ public class Lock {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String uuid;
-    //TODO: @Nullable??? @NotNull y cuando lo borras lo pasas a -1?
-    @Nullable
     private Long userAdminId;
     private boolean active;
     private String name;
@@ -38,7 +36,6 @@ public class Lock {
     }
 
     public long getUserAdminId() {
-        // Todo: warning por que puede ser null;
         return userAdminId;
     }
 

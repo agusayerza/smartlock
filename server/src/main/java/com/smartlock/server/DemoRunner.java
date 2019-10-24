@@ -48,6 +48,7 @@ public class DemoRunner implements CommandLineRunner {
         for (int i = 0; i < 5; i++) {
             CreateLockDto createLockDto = new CreateLockDto();
             createLockDto.setUid(uidList.get(i));
+//            crear lock con -1 como admin y guardar en base
             logger.info("Creating lock " + createLockDto.getUid());
         }
         createdData = true;

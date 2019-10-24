@@ -10,7 +10,7 @@ import java.util.Optional;
 @Repository
 public interface LockRepository extends JpaRepository<Lock, Long> {
 
-    Optional<Lock> findByUid(String uid);
+    Optional<Lock> findByUuid(String uuid);
 
     List<Lock> findAllByUserAdminIdAndActiveTrue(Long userId);
 }
