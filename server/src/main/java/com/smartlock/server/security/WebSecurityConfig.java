@@ -75,7 +75,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 "/webjars/**").permitAll()
                 // Lock status
                 .antMatchers("/lock/status/**").permitAll()
-
+                // todo: remember to secure before deploying
+                .antMatchers("/lock/open/**").permitAll()
+                .antMatchers("/lock/close/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
