@@ -1,6 +1,7 @@
 package com.smartlock.server.schedule.service;
 
 import com.smartlock.server.schedule.presentation.dto.CreateScheduleDto;
+import com.smartlock.server.schedule.presentation.dto.GetWeekScheduleDto;
 import com.smartlock.server.schedule.presentation.dto.ScheduleDto;
 import javassist.NotFoundException;
 
@@ -12,6 +13,6 @@ public interface ScheduleService {
 
     void deleteSchedule(Long scheduleId, Long userId) throws NotFoundException;
 
-    List<ScheduleDto> getWeekScheduleOfThisUserAndLock(Long userId, Long lockId, Long id);
+    List<ScheduleDto> getWeekScheduleOfThisUserAndLock(GetWeekScheduleDto getWeekScheduleDto, Long id) throws NotFoundException;
 
 }

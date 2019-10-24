@@ -9,6 +9,7 @@ import com.smartlock.server.user.persistence.model.User;
 import com.smartlock.server.user.persistence.repository.UserRepository;
 import com.smartlock.server.user.presentation.dto.CreateUserDto;
 import com.smartlock.server.user.presentation.dto.UserDto;
+import com.smartlock.server.user.presentation.dto.UserWithoutLocksDto;
 import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -35,7 +36,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserDto createUser(CreateUserDto userData) {
         if(userRepository.existsByEmail(userData.getEmail())){
-            throw new IllegalArgumentException("El email esta en uso");
+            throw new IllegalArgumentException("Email already in use");
         }
         userData.setPassword(passwordEncoder.encode(userData.getPassword()));
         User newUser = new User(userData);
@@ -50,7 +51,7 @@ public class UserServiceImpl implements UserService {
             User user = optionalUser.get();
             return new UserDto(user);
         }
-        throw new IllegalArgumentException("No existe usuario con ese id");    }
+        throw new IllegalArgumentException("User not found");    }
 
     @Override
     public Long getMyID() {
@@ -78,74 +79,59 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<UserDto> getAllUsersThatCanAccessToThisLock(Long lockId, Long userId) throws NotFoundException {
+    public List<UserWithoutLocksDto> getAllUsersThatCanAccessToThisLock(Long lockId, Long userId) throws NotFoundException {
         Optional<Lock> optionalLock = lockRepository.findById(lockId);
-        if (optionalLock.isPresent()){
-            Lock lock = optionalLock.get();
-            if (lock.isActive()){
-                List<UserDto> userDtoList = new ArrayList<>();
-                List<User> userList = userRepository.findAllByLocksIdContaining(lock.getId());
-                for (User user : userList) {
-                    userDtoList.add(new UserDto(user));
-                }
-                return userDtoList;
-            }
+        if (!optionalLock.isPresent()) throw new NotFoundException("Lock not found");
+        Lock lock = optionalLock.get();
+        if (!lock.isActive()) throw new NotFoundException("Lock not found");
+        if(lock.getUserAdminId() != userId) throw new IllegalArgumentException("Only lock admin can perform this operation");
+        List<UserWithoutLocksDto> userDtoList = new ArrayList<>();
+        List<User> userList = userRepository.findAllByLocksIdContaining(lock.getId());
+        for (User user : userList) {
+            userDtoList.add(new UserWithoutLocksDto(user));
         }
-        throw new NotFoundException("Lock not found");
+        return userDtoList;
     }
 
     @Override
     public void addUserToThisLock(UserLockDto userLockDto, Long userId) throws NotFoundException {
         Optional<Lock> optionalLock = lockRepository.findById(userLockDto.getLockId());
-        if (optionalLock.isPresent()) {
-            Lock lock = optionalLock.get();
-            if (lock.getUserAdminId() == userId) {
-                if (lock.isActive()) {
-                    Optional<User> optionalUser = userRepository.findById(userLockDto.getUserId());
-                    if(optionalUser.isPresent()){
-                        User user = optionalUser.get();
-                            user.addNewLock(lock.getId());
-                            userRepository.save(user);
-                            return;
-                    }
-                    throw new IllegalArgumentException("User does not exists");
-                }
-                throw new NotFoundException("Lock not found");
-            }
-            throw new IllegalArgumentException("You are not lock's admin. You can not add users to this lock");
-        }
-        throw new NotFoundException("Lock not found");
+        if (!optionalLock.isPresent()) throw new NotFoundException("Lock not found");
+        Lock lock = optionalLock.get();
+        if (lock.getUserAdminId() != userId)throw new IllegalArgumentException("You are not lock's admin. You can not add users to this lock");
+        if (!lock.isActive()) throw new NotFoundException("Lock not found");
+        Optional<User> optionalUser = userRepository.findByEmail(userLockDto.getEmail());
+        if(!optionalUser.isPresent()) throw new IllegalArgumentException("User does not exist");
+        User user = optionalUser.get();
+        if(userLockDto.getEmail().equals(user.getEmail())) throw new IllegalArgumentException("Cannot add yourself");
+        user.addNewLock(lock.getId());
+        userRepository.save(user);
     }
 
     @Override
     public void removeUserToThisLock(UserLockDto userLockDto, Long userId) throws NotFoundException {
         Optional<Lock> optionalLock = lockRepository.findById(userLockDto.getLockId());
-        if (optionalLock.isPresent()) {
-            Lock lock = optionalLock.get();
-            if (lock.getUserAdminId() == userId) {
-                if (lock.isActive()) {
-                    Optional<User> optionalUser = userRepository.findById(userLockDto.getUserId());
-                    if(optionalUser.isPresent()){
-                        User user = optionalUser.get();
-                        user.removeLock(lock.getId());
-                        userRepository.save(user);
-                        return;
-                    }
-                    throw new IllegalArgumentException("User does not exists");
-                }
-                throw new NotFoundException("Lock not found");
-            }
-            throw new IllegalArgumentException("You are not lock's admin. You can not remove users from this lock");
-        }
-        throw new NotFoundException("Lock not found");
+        if (!optionalLock.isPresent()) throw new NotFoundException("Lock not found");
+        Lock lock = optionalLock.get();
+        if (lock.getUserAdminId() != userId) throw new IllegalArgumentException("You are not lock's admin. You can not remove users from this lock");
+        if (!lock.isActive()) throw new NotFoundException("Lock not found");
+        Optional<User> optionalUser = userRepository.findByEmail(userLockDto.getEmail());
+        if (!optionalUser.isPresent()) throw new IllegalArgumentException("User does not exist");
+        if (lock.getUserAdminId() == userId) throw new IllegalArgumentException("You cannot remove yourself");
+        User user = optionalUser.get();
+        user.removeLock(lock.getId());
+        userRepository.save(user);
     }
 
     @Override
     public void leaveFromThisLock(Long lockId, Long userId) throws NotFoundException {
+        Optional<Lock> optionalLock = lockRepository.findById(lockId);
+        if (!optionalLock.isPresent()) throw new NotFoundException("Lock not found");
+        Lock lock = optionalLock.get();
+        if (!lock.isActive()) throw new NotFoundException("Lock not found");
+        if (lock.getUserAdminId() == userId) throw new IllegalArgumentException("You are the admin of this lock. Delete it, instead of leaving");
         User user = userRepository.getOne(userId);
-        if (user.removeLock(lockId)){
-            return;
-        }
-        throw new NotFoundException("Lock not found");
+        user.removeLock(lockId);
+        userRepository.save(user);
     }
 }

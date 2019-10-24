@@ -1,21 +1,22 @@
-package com.smartlock.server.lock.presentation.dto;
+package com.smartlock.server.schedule.presentation.dto;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 
-public class UserLockDto {
+public class GetWeekScheduleDto {
+
     @NotNull
-    private Long lockId;
+    private long lockId;
 
     @NotNull
     @Email
     private String email;
 
-    public Long getLockId() {
+    public long getLockId() {
         return lockId;
     }
 
-    public void setLockId(Long lockId) {
+    public void setLockId(long lockId) {
         this.lockId = lockId;
     }
 

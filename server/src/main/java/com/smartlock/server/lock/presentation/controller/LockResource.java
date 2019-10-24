@@ -26,6 +26,7 @@ public class LockResource {
         this.lockService = lockService;
     }
 
+//    todo verificar que user.getlocks contains lock y que este en dia y horario de schedule
     @PostMapping("/status/{uuid}")
     private String ping(@PathVariable String uuid){
         //logger.info(uuid);

@@ -82,7 +82,7 @@ public class UserResource {
         try {
             Long userId = UserPrinciple.getUserPrinciple().getId();
             userService.addUserToThisLock(userLockDto, userId);
-            return new ResponseEntity<>("Used added", HttpStatus.OK);
+            return new ResponseEntity<>("User added", HttpStatus.OK);
         } catch (NotFoundException | IllegalArgumentException e){
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
@@ -93,7 +93,7 @@ public class UserResource {
         try {
             Long userId = UserPrinciple.getUserPrinciple().getId();
             userService.removeUserToThisLock(userLockDto, userId);
-            return new ResponseEntity<>("Used deleted", HttpStatus.OK);
+            return new ResponseEntity<>("User deleted", HttpStatus.OK);
         } catch (NotFoundException | IllegalArgumentException e){
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
@@ -104,7 +104,7 @@ public class UserResource {
         try {
             Long userId = UserPrinciple.getUserPrinciple().getId();
             userService.leaveFromThisLock(lockId, userId);
-            return new ResponseEntity<>("Lock deleted", HttpStatus.OK);
+            return new ResponseEntity<>("User left", HttpStatus.OK);
         } catch (NotFoundException e){
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }

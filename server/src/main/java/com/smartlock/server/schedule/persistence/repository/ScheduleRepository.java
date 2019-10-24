@@ -9,10 +9,9 @@ import java.util.List;
 @Repository
 public interface ScheduleRepository extends JpaRepository<Schedule, Long> {
 
-    boolean existsByUserIdAndLockId(Long userId, Long lockId);
+    boolean existsByUserIdAndLockIdAndDay(Long userId, Long lockId, Long Day);
 
     List<Schedule> findAllByLockId(Long lockId);
 
-//    todo falla aca
     List<Schedule> findAllByLockIdAndUserIdOrderByDayAsc(Long lockId, Long userId);
 }

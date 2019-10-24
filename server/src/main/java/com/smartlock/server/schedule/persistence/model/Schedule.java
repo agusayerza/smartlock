@@ -20,12 +20,15 @@ public class Schedule {
     private LocalTime start;
     private LocalTime end;
 
-    public Schedule(CreateScheduleDto createScheduleDto) {
+    public Schedule(CreateScheduleDto createScheduleDto, Long userId) {
         this.lockId = createScheduleDto.getLockId();
-        this.userId = createScheduleDto.getUserId();
+        this.userId = userId;
         this.day = createScheduleDto.getDay();
         this.start = createScheduleDto.getStart();
         this.end = createScheduleDto.getEnd();
+    }
+
+    public Schedule() {
     }
 
     public long getId() {

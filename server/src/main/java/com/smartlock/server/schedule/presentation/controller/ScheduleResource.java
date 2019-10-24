@@ -1,6 +1,7 @@
 package com.smartlock.server.schedule.presentation.controller;
 
 import com.smartlock.server.schedule.presentation.dto.CreateScheduleDto;
+import com.smartlock.server.schedule.presentation.dto.GetWeekScheduleDto;
 import com.smartlock.server.schedule.service.ScheduleService;
 import com.smartlock.server.security.service.UserPrinciple;
 import javassist.NotFoundException;
@@ -43,12 +44,12 @@ public class ScheduleResource {
         }
     }
 
-    @GetMapping("/user/{userId}/lock/{lockID}")
-    public ResponseEntity getWeekScheduleOfThisUserAndLock(@PathVariable Long userId, @PathVariable Long lockId) {
+    @GetMapping("/week")
+    public ResponseEntity getWeekScheduleOfThisUserAndLock(@RequestBody @Valid GetWeekScheduleDto getWeekScheduleDto) {
         try {
             Long id = UserPrinciple.getUserPrinciple().getId();
-            return new ResponseEntity<>(scheduleService.getWeekScheduleOfThisUserAndLock(userId, lockId, id), HttpStatus.OK);
-        } catch (IllegalArgumentException e) {
+            return new ResponseEntity<>(scheduleService.getWeekScheduleOfThisUserAndLock(getWeekScheduleDto, id), HttpStatus.OK);
+        } catch (NotFoundException | IllegalArgumentException e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
     }

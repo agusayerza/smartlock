@@ -9,8 +9,8 @@ public class CreateScheduleDto {
 
     @NotNull @Min(1)
     private long lockId;
-    @NotNull @Min(1)
-    private long userId;
+    @NotNull @Email
+    private String email;
     @Min(1) @Max(7)
     private long day;
     @NotNull @DateTimeFormat(iso = DateTimeFormat.ISO.TIME)
@@ -26,12 +26,12 @@ public class CreateScheduleDto {
         this.lockId = lockId;
     }
 
-    public long getUserId() {
-        return userId;
+    public String getEmail() {
+        return email;
     }
 
-    public void setUserId(long userId) {
-        this.userId = userId;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public long getDay() {

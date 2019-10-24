@@ -9,8 +9,6 @@ import com.smartlock.server.schedule.persistence.repository.ScheduleRepository;
 import com.smartlock.server.schedule.service.ScheduleService;
 import com.smartlock.server.user.persistence.model.User;
 import com.smartlock.server.user.persistence.repository.UserRepository;
-import com.smartlock.server.user.presentation.dto.UserDto;
-import com.smartlock.server.user.service.UserService;
 import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,12 +23,10 @@ public class LockServiceImpl implements LockService{
     private UserRepository userRepository;
     private ScheduleRepository scheduleRepository;
     private ScheduleService scheduleService;
-    private UserService userService;
 
     @Autowired
-    public LockServiceImpl(UserRepository userRepository, UserService userService, LockRepository lockRepository, ScheduleRepository scheduleRepository, ScheduleService scheduleService) {
+    public LockServiceImpl(UserRepository userRepository, LockRepository lockRepository, ScheduleRepository scheduleRepository, ScheduleService scheduleService) {
         this.userRepository = userRepository;
-        this.userService = userService;
         this.lockRepository = lockRepository;
         this.scheduleRepository = scheduleRepository;
         this.scheduleService = scheduleService;
@@ -45,6 +41,7 @@ public class LockServiceImpl implements LockService{
             if (lock.isActive()) throw new IllegalArgumentException("That lock is already claimed");
             lock.setActive(true);
             lock.setUserAdminId(userAdminId);
+            lock.setName(lockDto.getName());
             user.addNewLock(lock.getId());
             lockRepository.save(lock);
             userRepository.save(user);
@@ -59,13 +56,11 @@ public class LockServiceImpl implements LockService{
         if(opLock.isPresent()) {
             Lock lock = opLock.get();
             if (lock.getUserAdminId() == userId){
-                List<UserDto> userDtos = userService.getAllUsersThatCanAccessToThisLock(id, userId);
-                for (UserDto userDto : userDtos) {
-                    User userOfLock = userRepository.getOne(userDto.getId());
-                    userOfLock.removeLock(lock.getId());
-                    userRepository.save(userOfLock);
+                List<User> userList = userRepository.findAllByLocksIdContaining(lock.getId());
+                for (User user : userList) {
+                    user.removeLock(lock.getId());
+                    userRepository.save(user);
                 }
-
                 List<Schedule> scheduleList = scheduleRepository.findAllByLockId(lock.getId());
                 for (Schedule schedule : scheduleList) {
                     scheduleService.deleteSchedule(schedule.getId(), userId);
