@@ -20,21 +20,19 @@ public class LockResource {
     private static Logger logger = LoggerFactory.getLogger(LockResource.class);
 
     private LockService lockService;
-    private boolean bool = true;
+
     @Autowired
     public LockResource(LockService lockService) {
         this.lockService = lockService;
     }
 
-//    todo verificar que user.getlocks contains lock y que este en dia y horario de schedule
-    @PostMapping("/status/{uuid}")
-    private String ping(@PathVariable String uuid){
-        //logger.info(uuid);
-        bool = !bool;
-        if(bool){
-            return "CLOSE";
+    @PostMapping("/status/{uuid}") // todo: not really a post, should be get
+    private String getLockStatus(@PathVariable String uuid){
+        try{
+            return lockService.getLockStatus(uuid);
+        }catch (NotFoundException e){
+            return e.getMessage();
         }
-        return "OPEN";
     }
 
     @PostMapping()
@@ -58,6 +56,7 @@ public class LockResource {
         }
     }
 
+    //  todo verificar que user.getlocks contains lock y que este en dia y horario de schedule
     @GetMapping("/{id}")
     public ResponseEntity getLock(@PathVariable Long id) {
         try {

@@ -13,7 +13,7 @@ public class LockDto {
 
     public LockDto(Lock lock) {
         this.id = lock.getId();
-        this.uid = lock.getUid();
+        this.uid = lock.getUuid();
         this.userAdminId = lock.getUserAdminId();
         this.name = lock.getName();
     }

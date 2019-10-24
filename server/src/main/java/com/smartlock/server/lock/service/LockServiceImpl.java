@@ -11,6 +11,7 @@ import com.smartlock.server.user.persistence.model.User;
 import com.smartlock.server.user.persistence.repository.UserRepository;
 import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -84,6 +85,15 @@ public class LockServiceImpl implements LockService{
             }
         }
         throw new NotFoundException("Lock not found");
+    }
+
+    @Override
+    public String getLockStatus(final String uuid) throws NotFoundException {
+        // Remember this method is only called by the lock it self
+        Lock lock = lockRepository.findByUid(uuid)
+                .orElseThrow(() -> new NotFoundException("ERR:1"));
+
+        return "OPEN";
     }
 
 }

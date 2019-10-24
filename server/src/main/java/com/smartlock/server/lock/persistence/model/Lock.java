@@ -14,7 +14,8 @@ public class Lock {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    private String uid;
+    private String uuid;
+    //TODO: @Nullable??? @NotNull y cuando lo borras lo pasas a -1?
     @Nullable
     private Long userAdminId;
     private boolean active;
@@ -28,15 +29,16 @@ public class Lock {
         this.id = id;
     }
 
-    public String getUid() {
-        return uid;
+    public String getUuid() {
+        return uuid;
     }
 
-    public void setUid(String uid) {
-        this.uid = uid;
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
     }
 
     public long getUserAdminId() {
+        // Todo: warning por que puede ser null;
         return userAdminId;
     }
 
@@ -61,7 +63,7 @@ public class Lock {
     }
 
     public Lock(CreateLockDto createLockDto, Long userAdminId) {
-        this.uid = createLockDto.getUid();
+        this.uuid = createLockDto.getUid();
         this.userAdminId = userAdminId;
         this.active = true;
         this.name = createLockDto.getName();

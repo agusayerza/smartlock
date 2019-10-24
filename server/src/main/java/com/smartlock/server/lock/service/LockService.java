@@ -12,4 +12,6 @@ public interface LockService {
     void deleteLock(Long id, Long userId) throws NotFoundException;
 
     LockDto getLock(Long id) throws NotFoundException;
+
+    String getLockStatus(String uuid) throws NotFoundException;
 }
