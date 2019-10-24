@@ -62,6 +62,13 @@ public class DemoRunner implements CommandLineRunner {
         UserDto userDto = this.userService.createUser(createUserDto);
         logger.info("User created with id: " + userDto.getId());
 
+
+        ArrayList<String> uidList = generateListOfUuid(5);
+        for (int i = 0; i < uidList.size(); i++) {
+            lockService.createLockWithInvalidAdmin(uidList.get(i));
+            logger.info("Creating lock " + uidList.get(i));
+        }
+
         CreateLockDto createLockDto = new CreateLockDto();
         createLockDto.setUid("18bfd86f-539e-40e2-a917-64c9ed1d42d9");
         createLockDto.setName("Test Lock");
@@ -71,13 +78,6 @@ public class DemoRunner implements CommandLineRunner {
             logger.error("Error creating test lock");
         }
 
-        ArrayList<String> uidList = generateListOfUuid(5);
-        for (int i = 0; i < 5; i++) {
-            createLockDto = new CreateLockDto();
-            createLockDto.setUid(uidList.get(i));
-//            crear lock con -1 como admin y guardar en base
-            logger.info("Creating lock " + createLockDto.getUid());
-        }
         createdData = true;
     }
 
@@ -86,6 +86,7 @@ public class DemoRunner implements CommandLineRunner {
         for (int i = 0; i < number; i++) {
             result.add(generateUuid());
         }
+        result.add("18bfd86f-539e-40e2-a917-64c9ed1d42d9"); // demo lock
         return result;
     }
 

@@ -14,4 +14,8 @@ public interface LockService {
     LockDto getLock(Long id) throws NotFoundException;
 
     String getLockStatus(String uuid) throws NotFoundException;
+
+    String getSetLockOpen(String uuid, boolean open) throws NotFoundException;
+
+    void createLockWithInvalidAdmin(String uuid);
 }

@@ -38,6 +38,26 @@ public class LockResource {
         }
     }
 
+    @PostMapping("/open/{uuid}")
+    private String openLock(@PathVariable String uuid){
+        // todo: validacion de permisos
+        try{
+            return lockService.getSetLockOpen(uuid, true);
+        }catch (NotFoundException e){
+            return e.getMessage();
+        }
+    }
+
+    @PostMapping("/close/{uuid}")
+    private String closeLock(@PathVariable String uuid){
+        // todo: validacion de permisos, en el mismo metodo
+        try{
+            return lockService.getSetLockOpen(uuid, false);
+        }catch (NotFoundException e){
+            return e.getMessage();
+        }
+    }
+
     @PostMapping()
     public ResponseEntity createLock(@Valid @RequestBody CreateLockDto lockDto){
         try {
