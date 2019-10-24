@@ -44,7 +44,7 @@ public class DemoRunner implements CommandLineRunner {
 
         logger.info("Creating demo data ...");
 
-        ArrayList<String> uidList = generateListOfUid(5);
+        ArrayList<String> uidList = generateListOfUuid(5);
         for (int i = 0; i < 5; i++) {
             CreateLockDto createLockDto = new CreateLockDto();
             createLockDto.setUid(uidList.get(i));
@@ -54,15 +54,15 @@ public class DemoRunner implements CommandLineRunner {
         createdData = true;
     }
 
-    private ArrayList<String> generateListOfUid(int number) {
+    private ArrayList<String> generateListOfUuid(int number) {
         ArrayList<String> result = new ArrayList<>();
         for (int i = 0; i < number; i++) {
-            result.add(generateUid());
+            result.add(generateUuid());
         }
         return result;
     }
 
-    private String generateUid() {
+    private String generateUuid() {
         Random rand = new Random();
         String result = "";
         for (int i = 0; i < 36; i++) {
