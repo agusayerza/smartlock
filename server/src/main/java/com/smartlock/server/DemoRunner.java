@@ -1,8 +1,12 @@
 package com.smartlock.server;
 
-import com.smartlock.server.lock.persistence.model.Lock;
-import com.smartlock.server.lock.persistence.repository.LockRepository;
 import com.smartlock.server.lock.presentation.dto.CreateLockDto;
+import com.smartlock.server.lock.service.LockService;
+import com.smartlock.server.user.persistence.model.User;
+import com.smartlock.server.user.presentation.dto.CreateUserDto;
+import com.smartlock.server.user.presentation.dto.UserDto;
+import com.smartlock.server.user.service.UserService;
+import javassist.NotFoundException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,13 +24,15 @@ public class DemoRunner implements CommandLineRunner {
     private static final Logger logger = LoggerFactory.getLogger(DemoRunner.class);
 
     private final Environment env;
+    private UserService userService;
+    private LockService lockService;
     private boolean createdData = false;
-    private LockRepository lockRepository;
 
     @Autowired
-    public DemoRunner(Environment env, LockRepository lockRepository) {
+    public DemoRunner(UserService userService, LockService lockService, Environment env) {
+        this.userService = userService;
+        this.lockService = lockService;
         this.env = env;
-        this.lockRepository = lockRepository;
     }
 
     @Override
@@ -48,27 +54,43 @@ public class DemoRunner implements CommandLineRunner {
 
         logger.info("Creating demo data ...");
 
-        ArrayList<String> uidList = generateListOfUid(5);
-        for (int i = 0; i < 5; i++) {
-            CreateLockDto createLockDto = new CreateLockDto();
-            createLockDto.setUuid(uidList.get(i));
-            Lock lock = new Lock(createLockDto, (long) -1);
-            lock.setActive(false);
-            lockRepository.save(lock);
-            logger.info("Creating lock " + createLockDto.getUuid());
+
+
+        CreateUserDto createUserDto = new CreateUserDto();
+        createUserDto.setEmail("a@a.a");
+        createUserDto.setPassword("password");
+        UserDto userDto = this.userService.createUser(createUserDto);
+        logger.info("User created with id: " + userDto.getId());
+
+
+        ArrayList<String> uidList = generateListOfUuid(5);
+        for (int i = 0; i < uidList.size(); i++) {
+            lockService.createLockWithInvalidAdmin(uidList.get(i));
+            logger.info("Creating lock " + uidList.get(i));
         }
+
+        CreateLockDto createLockDto = new CreateLockDto();
+        createLockDto.setUid("18bfd86f-539e-40e2-a917-64c9ed1d42d9");
+        createLockDto.setName("Test Lock");
+        try {
+            lockService.createLock(createLockDto, userDto.getId());
+        } catch (NotFoundException e) {
+            logger.error("Error creating test lock");
+        }
+
         createdData = true;
     }
 
-    private ArrayList<String> generateListOfUid(int number) {
+    private ArrayList<String> generateListOfUuid(int number) {
         ArrayList<String> result = new ArrayList<>();
         for (int i = 0; i < number; i++) {
-            result.add(generateUid());
+            result.add(generateUuid());
         }
+        result.add("18bfd86f-539e-40e2-a917-64c9ed1d42d9"); // demo lock
         return result;
     }
 
-    private String generateUid() {
+    private String generateUuid() {
         Random rand = new Random();
         String result = "";
         for (int i = 0; i < 36; i++) {

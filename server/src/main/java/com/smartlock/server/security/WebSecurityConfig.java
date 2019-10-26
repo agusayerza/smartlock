@@ -71,11 +71,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 "/configuration/ui",
                 "/swagger-resources/**",
                 "/configuration/security",
-                "/swagger-ui.html",
+                "/swagger-ui.html**",
                 "/webjars/**").permitAll()
                 // Lock status
                 .antMatchers("/lock/status/**").permitAll()
-
+                // todo: remember to secure before deploying
+                .antMatchers("/lock/open/**").permitAll()
+                .antMatchers("/lock/close/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()

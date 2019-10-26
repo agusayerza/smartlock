@@ -92,7 +92,30 @@ public class LockServiceImpl implements LockService{
         Lock lock = lockRepository.findByUuid(uuid)
                 .orElseThrow(() -> new NotFoundException("ERR:1"));
 
-        return "OPEN";
+        if(lock.isOpen()){
+            return "OPEN";
+        }
+        return "CLOSE";
     }
 
+    @Override
+    public String getSetLockOpen(String uuid, boolean open) throws NotFoundException {
+        Lock lock = lockRepository.findByUuid(uuid)
+                .orElseThrow(() -> new NotFoundException("ERR:1"));
+
+        lock.setOpen(open);
+        lockRepository.save(lock);
+        // todo: maybe return a lockdto with the isOpen bool?
+        return "garbage";
+    }
+
+    @Override
+    public void createLockWithInvalidAdmin(String uuid) {
+        Lock lock = new Lock();
+        lock.setUserAdminId(-1);
+        lock.setActive(false);
+        lock.setUuid(uuid);
+        lock.setName("Lock #" + uuid.substring(0,8));
+        lockRepository.save(lock);
+    }
 }
