@@ -33,9 +33,9 @@ public class LockServiceImpl implements LockService{
     }
 
     @Override
-    public LockDto createLock(CreateLockDto lockDto, Long userAdminId) throws NotFoundException {
+    public LockDto addLock(CreateLockDto lockDto, Long userAdminId) throws NotFoundException {
         User user = userRepository.getOne(userAdminId);
-        Optional<Lock> opLock= lockRepository.findByUuid(lockDto.getUid());
+        Optional<Lock> opLock= lockRepository.findByUuid(lockDto.getUuid());
         if (opLock.isPresent()){
             Lock lock = opLock.get();
             if (lock.isActive()) throw new IllegalArgumentException("That lock is already claimed");

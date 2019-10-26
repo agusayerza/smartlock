@@ -9,16 +9,16 @@ public class CreateLockDto {
     @NotNull
     @Size(min=36, max=36)
     @Pattern(regexp = "([a-f0-9]{8}(-[a-f0-9]{4}){3}-[a-f0-9]{12})")
-    private String uid;
+    private String uuid;
     @Size(min=4, max=32)
     private String name;
 
-    public String getUid() {
-        return uid;
+    public String getUuid() {
+        return uuid;
     }
 
-    public void setUid(String uid) {
-        this.uid = uid;
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
     }
 
     public String getName() {

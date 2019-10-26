@@ -36,10 +36,10 @@ public class LockResource {
     }
 
     @PostMapping()
-    public ResponseEntity createLock(@Valid @RequestBody CreateLockDto lockDto){
+    public ResponseEntity addLock(@Valid @RequestBody CreateLockDto lockDto){
         try {
             Long id = UserPrinciple.getUserPrinciple().getId();
-            return new ResponseEntity<>(lockService.createLock(lockDto, id), HttpStatus.OK);
+            return new ResponseEntity<>(lockService.addLock(lockDto, id), HttpStatus.OK);
         } catch (NotFoundException | IllegalArgumentException e){
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }

@@ -4,7 +4,7 @@ import com.smartlock.server.lock.persistence.model.Lock;
 
 public class LockDto {
     private Long id;
-    private String uid;
+    private String uuid;
     private Long userAdminId;
     private String name;
 
@@ -13,7 +13,7 @@ public class LockDto {
 
     public LockDto(Lock lock) {
         this.id = lock.getId();
-        this.uid = lock.getUuid();
+        this.uuid = lock.getUuid();
         this.userAdminId = lock.getUserAdminId();
         this.name = lock.getName();
     }
@@ -26,12 +26,12 @@ public class LockDto {
         this.id = id;
     }
 
-    public String getUid() {
-        return uid;
+    public String getUuid() {
+        return uuid;
     }
 
-    public void setUid(String uid) {
-        this.uid = uid;
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
     }
 
     public Long getUserAdminId() {

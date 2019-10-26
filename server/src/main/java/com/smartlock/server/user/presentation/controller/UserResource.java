@@ -78,11 +78,11 @@ public class UserResource {
     }
 
     @PutMapping("/lock")
-    public ResponseEntity addUserToThisLock(@Valid @RequestBody UserLockDto userLockDto){
+    public ResponseEntity inviteUserToThisLock(@Valid @RequestBody UserLockDto userLockDto){
         try {
             Long userId = UserPrinciple.getUserPrinciple().getId();
-            userService.addUserToThisLock(userLockDto, userId);
-            return new ResponseEntity<>("User added", HttpStatus.OK);
+            userService.inviteUserToThisLock(userLockDto, userId);
+            return new ResponseEntity<>("User invited", HttpStatus.OK);
         } catch (NotFoundException | IllegalArgumentException e){
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }

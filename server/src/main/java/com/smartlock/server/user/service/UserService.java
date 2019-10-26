@@ -17,11 +17,9 @@ public interface UserService {
 
     Long getMyID();
 
-//    todo te invitan y vos aceptas o te meten de una? en principio te meten de una, despues con mail
-
     List<UserWithoutLocksDto> getAllUsersThatCanAccessToThisLock(Long lockId, Long userId) throws NotFoundException;
 
-    void addUserToThisLock(UserLockDto userLockDto, Long userId) throws NotFoundException;
+    void inviteUserToThisLock(UserLockDto userLockDto, Long userId) throws NotFoundException;
 
     void removeUserToThisLock(UserLockDto userLockDto, Long userId) throws NotFoundException;
 
@@ -30,6 +28,5 @@ public interface UserService {
     List<LockDto> getAllLocksThisUserCanAccess(Long userId);
 
     List<LockDto> getAllLocksIAmAdmin(Long userId);
-
 
 }

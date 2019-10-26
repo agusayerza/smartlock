@@ -6,8 +6,7 @@ import javassist.NotFoundException;
 
 public interface LockService {
 
-//  todo precargar muchos locks con uid y active=false
-    LockDto createLock(CreateLockDto lockDto, Long userAdminId) throws NotFoundException;
+    LockDto addLock(CreateLockDto lockDto, Long userAdminId) throws NotFoundException;
 
     void deleteLock(Long id, Long userId) throws NotFoundException;
 

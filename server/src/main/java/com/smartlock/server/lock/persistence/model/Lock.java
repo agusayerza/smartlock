@@ -1,7 +1,6 @@
 package com.smartlock.server.lock.persistence.model;
 
 import com.smartlock.server.lock.presentation.dto.CreateLockDto;
-import org.springframework.lang.Nullable;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -60,7 +59,7 @@ public class Lock {
     }
 
     public Lock(CreateLockDto createLockDto, Long userAdminId) {
-        this.uuid = createLockDto.getUid();
+        this.uuid = createLockDto.getUuid();
         this.userAdminId = userAdminId;
         this.active = true;
         this.name = createLockDto.getName();

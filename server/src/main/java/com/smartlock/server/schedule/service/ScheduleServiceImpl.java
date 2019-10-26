@@ -72,7 +72,7 @@ public class ScheduleServiceImpl implements ScheduleService{
             Schedule schedule = optionalSchedule.get();
             Lock lock = lockRepository.getOne(schedule.getLockId());
 
-            if(checkIfIsAdminOfLock(lock, userId)) throw new IllegalArgumentException("You cannot perform this operation");
+            if(!checkIfIsAdminOfLock(lock, userId)) throw new IllegalArgumentException("You cannot perform this operation");
             scheduleRepository.delete(schedule);
             return;
             }

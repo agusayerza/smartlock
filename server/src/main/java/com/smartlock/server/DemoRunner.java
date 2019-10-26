@@ -1,5 +1,7 @@
 package com.smartlock.server;
 
+import com.smartlock.server.lock.persistence.model.Lock;
+import com.smartlock.server.lock.persistence.repository.LockRepository;
 import com.smartlock.server.lock.presentation.dto.CreateLockDto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,10 +21,12 @@ public class DemoRunner implements CommandLineRunner {
 
     private final Environment env;
     private boolean createdData = false;
+    private LockRepository lockRepository;
 
     @Autowired
-    public DemoRunner(Environment env) {
+    public DemoRunner(Environment env, LockRepository lockRepository) {
         this.env = env;
+        this.lockRepository = lockRepository;
     }
 
     @Override
@@ -47,9 +51,11 @@ public class DemoRunner implements CommandLineRunner {
         ArrayList<String> uidList = generateListOfUid(5);
         for (int i = 0; i < 5; i++) {
             CreateLockDto createLockDto = new CreateLockDto();
-            createLockDto.setUid(uidList.get(i));
-//            crear lock con -1 como admin y guardar en base
-            logger.info("Creating lock " + createLockDto.getUid());
+            createLockDto.setUuid(uidList.get(i));
+            Lock lock = new Lock(createLockDto, (long) -1);
+            lock.setActive(false);
+            lockRepository.save(lock);
+            logger.info("Creating lock " + createLockDto.getUuid());
         }
         createdData = true;
     }
