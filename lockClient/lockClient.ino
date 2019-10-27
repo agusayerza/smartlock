@@ -37,6 +37,9 @@ const char baseURL[]           = "http://192.168.43.243:8080/lock/status/18bfd86
 // Lock UUID
 const char* lock_uuid = "18bfd86f-539e-40e2-a917-64c9ed1d42d9";
 
+
+// Lock status
+boolean isOpen = true;
 //////////////////////////////////////////////////////////////////////////////
 void setup() {
   Serial.begin(115200);
@@ -62,7 +65,26 @@ void connect_wifi(){
 
 //////////////////////////////////////////////////////////////////////////////
 void loop() {
-        
+  
+        if (digitalRead(switch_1_pin) == LOW){
+            int i = 20;
+            while(i > 0){
+              i--;
+              stepper.step(-1);
+              led_rgb(0,255,0);
+              yield();
+            }
+        }
+
+        if(digitalRead(switch_2_pin) == LOW){
+          int i = 20;
+            while(i > 0){
+              i--;
+              stepper.step(1);
+              led_rgb(0,255,0);
+              yield();
+            }
+        }
 
         if(WiFi.status() == WL_CONNECTED){   //Check WiFi connection status
          
@@ -90,9 +112,9 @@ void loop() {
 }
 
 void process(String payload){
-  if(payload.equals("OPEN")){
+  if(payload.equals("OPEN") && !isOpen){
     open_lock();
-  } else if(payload.equals("CLOSE")){
+  } else if(payload.equals("CLOSE") && isOpen){
     close_lock();
   }
 }
@@ -112,6 +134,7 @@ void open_lock(){
     led_rgb(0,255,0);
     yield();
   }
+  isOpen = true;
 }
 
 void close_lock(){
@@ -123,4 +146,5 @@ void close_lock(){
     led_rgb(255,0,0);
     yield();
   }
+  isOpen = false;
 }
