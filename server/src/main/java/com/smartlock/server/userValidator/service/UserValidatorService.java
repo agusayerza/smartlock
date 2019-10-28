@@ -1,12 +1,8 @@
 package com.smartlock.server.userValidator.service;
 
-import com.smartlock.server.lock.persistence.repository.LockRepository;
 import com.smartlock.server.lock.presentation.dto.UserLockDto;
-import com.smartlock.server.user.persistence.repository.UserRepository;
-import com.smartlock.server.userValidator.persistence.repository.UserValidatorRepository;
 import com.smartlock.server.userValidator.presentation.dto.UserLockValidatorDto;
 import javassist.NotFoundException;
-import org.springframework.beans.factory.annotation.Autowired;
 
 public interface UserValidatorService {
 
@@ -21,8 +17,9 @@ public interface UserValidatorService {
     /**
      * Method used to invite a user into a lock, create and send the invitation email.
      * @param userLockDto {@code UserLockDto} DTO containing the information of the lock and user to be added to that lock.
-     */
-    void addValidationCode(UserLockDto userLockDto);
+     * @param lockAdminEmail String containing the email of the lock's admin.
+     * @param lockName String containing lock's name.
+     * */
     void addValidationCode(UserLockDto userLockDto, String lockAdminEmail, String lockName);
 
 }

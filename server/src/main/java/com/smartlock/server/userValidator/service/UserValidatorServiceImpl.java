@@ -37,6 +37,8 @@ public class UserValidatorServiceImpl implements UserValidatorService{
     /**
      * Method used to invite a user into a lock, create and send the invitation email.
      * @param userLockDto {@code UserLockDto} DTO containing the information of the lock and user to be added to that lock.
+     * @param lockAdminEmail String containing the email of the lock's admin.
+     * @param lockName String containing lock's name.
      */
     public void addValidationCode(UserLockDto userLockDto, String lockAdminEmail, String lockName) {
         if (userValidatorRepository.existsByLockIdAndEmail(userLockDto.getLockId(), userLockDto.getEmail())) throw new IllegalArgumentException("User already invited");
