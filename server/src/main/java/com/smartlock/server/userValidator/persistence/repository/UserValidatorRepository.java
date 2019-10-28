@@ -7,5 +7,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface UserValidatorRepository extends JpaRepository<UserValidator, String> {
 
-    UserValidator findByEmailAndLockId(String email, Long lockId);
+    UserValidator findByCode(String code);
+
+    boolean existsByLockIdAndEmail(Long lockId, String email);
 }

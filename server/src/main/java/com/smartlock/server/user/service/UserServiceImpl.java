@@ -103,7 +103,8 @@ public class UserServiceImpl implements UserService {
         if(!optionalUser.isPresent()) throw new IllegalArgumentException("User does not exist");
         User user = optionalUser.get();
         if(user.getId() == userId) throw new IllegalArgumentException("Cannot invite yourself");
-        userValidatorService.addValidationCode(userLockDto);
+        User adminUser = userRepository.getOne(userId);
+        userValidatorService.addValidationCode(userLockDto, adminUser.getEmail(), lock.getName());
     }
 
     @Override

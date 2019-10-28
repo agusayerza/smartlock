@@ -61,7 +61,7 @@ public class UserValidator implements Serializable {
         StringBuilder code = new StringBuilder();
         char randomLetter;
         int random;
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 10; i++) {
             random = (int) Math.floor(Math.random() * 26 + 65);
             randomLetter = (char) random;
             code.append(randomLetter);

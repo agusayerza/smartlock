@@ -9,6 +9,6 @@ public interface UserValidatorService {
 
     void validateUserAndLock(UserLockValidatorDto userLockValidatorDto, Long userId) throws NotFoundException;
 
-    void addValidationCode(UserLockDto userLockDto);
+    void addValidationCode(UserLockDto userLockDto, String lockAdminEmail, String lockName);
 
 }
