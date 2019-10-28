@@ -31,6 +31,14 @@ public class UserServiceImpl implements UserService {
     private ScheduleRepository scheduleRepository;
     private UserValidatorService userValidatorService;
 
+    /**
+     * Class constructor
+     * @param userRepository {@code UserRepository} instantiated class corresponding to the current Spring profile.
+     * @param passwordEncoder {@code PasswordEncoder} instantiated class corresponding to the current Spring profile.
+     * @param lockRepository {@code LockRepository} instantiated class corresponding to the current Spring profile.
+     * @param userValidatorService {@code UserValidatorService} instantiated class corresponding to the current Spring profile.
+     * @param scheduleRepository {@code ScheduleRepository} instantiated class corresponding to the current Spring profile.
+     */
     @Autowired
     public UserServiceImpl(UserRepository userRepository, PasswordEncoder passwordEncoder, LockRepository lockRepository, UserValidatorService userValidatorService, ScheduleRepository scheduleRepository) {
         this.userRepository = userRepository;
@@ -40,6 +48,11 @@ public class UserServiceImpl implements UserService {
         this.userValidatorService = userValidatorService;
     }
 
+    /**
+     * Used to create a User
+     * @param userData DTO containing the data for the user to be created.
+     * @return {@code UserDTO} containing the info of the successfully created user.
+     */
     @Override
     public UserDto createUser(CreateUserDto userData) {
         if (userRepository.existsByEmail(userData.getEmail())) {
@@ -51,6 +64,11 @@ public class UserServiceImpl implements UserService {
         return new UserDto(newUser);
     }
 
+    /**
+     * Searches a user by his Id and returns it.
+     * @param id corresponding to the user to be searched.
+     * @return {@code UserDTO} containing the info of the found user.
+     */
     @Override
     public UserDto getUser(Long id) {
         Optional<User> optionalUser = userRepository.findById(id);
@@ -58,11 +76,20 @@ public class UserServiceImpl implements UserService {
         return new UserDto(optionalUser.get());
     }
 
+    /**
+     * Gives the Id for the user who requested this.
+     * @return the user's Id.
+     */
     @Override
     public Long getMyID() {
         return UserPrinciple.getUserPrinciple().getId();
     }
 
+    /**
+     * Get's all the {@code Lock}s added to the library of the given user, identified by his Id.
+     * @param userId the user's Id
+     * @return a list of all the locks this user has on his library.
+     */
     @Override
     public List<LockDto> getAllLocksThisUserCanAccess(Long userId) {
         User user = userRepository.getOne(userId);
@@ -73,6 +100,11 @@ public class UserServiceImpl implements UserService {
         return lockDtoList;
     }
 
+    /**
+     * Gives all the locks for which this user is owner.
+     * @param userId the Id of the user for which the locks are being searched.
+     * @return a list of all the locks the user owns.
+     */
     @Override
     public List<LockDto> getAllLocksIAmAdmin(Long userId) {
         List<Lock> lockList = lockRepository.findAllByUserAdminIdAndActiveTrue(userId);
@@ -83,6 +115,14 @@ public class UserServiceImpl implements UserService {
         return lockDtoList;
     }
 
+    /**
+     * For a specific {@code Lock} returns all the users who have permission to access it.
+     * Only the admin can ask for this information.
+     * @param lockId the Id for the lock
+     * @param userId the user, presumably the lock owner, who requested the information.
+     * @return a {@code List} of {@code UserWithoutLocksDto} who can access the given lock.
+     * @throws NotFoundException when the Lock does not exist.
+     */
     @Override
     public List<UserWithoutLocksDto> getAllUsersThatCanAccessToThisLock(Long lockId, Long userId) throws NotFoundException {
         Lock lock = getLockIfPresentAndActive(lockId);
@@ -95,6 +135,12 @@ public class UserServiceImpl implements UserService {
         return userDtoList;
     }
 
+    /**
+     * Used by and admin to invite a user to use a {@code Lock} he owns.
+     * @param userLockDto DTO that contains the user to be added to the lock and the lock information.
+     * @param userId the Id for the user that performed the action.
+     * @throws NotFoundException when the Lock does not exist.
+     */
     @Override
     public void inviteUserToThisLock(UserLockDto userLockDto, Long userId) throws NotFoundException {
         Lock lock = getLockIfPresentAndActive(userLockDto.getLockId());
@@ -107,6 +153,12 @@ public class UserServiceImpl implements UserService {
         userValidatorService.addValidationCode(userLockDto, adminUser.getEmail(), lock.getName());
     }
 
+    /**
+     * Removes a {@code User} from a {@code Lock}. Can only be performed by the Lock owner.
+     * @param userLockDto DTO that contains the user to be removed from the lock and the lock information.
+     * @param userId the Id for the user that performed the action.
+     * @throws NotFoundException when the Lock does not exist.
+     */
     @Override
     public void removeUserToThisLock(UserLockDto userLockDto, Long userId) throws NotFoundException {
         Lock lock = getLockIfPresentAndActive(userLockDto.getLockId());
@@ -124,6 +176,12 @@ public class UserServiceImpl implements UserService {
         userRepository.save(user);
     }
 
+    /**
+     * Removes the {@code User} that requested it from a {@code Lock}. Can NOT be performed by the Lock owner.
+     * @param lockId the Id of the {@code Lock} that the user wants to remove from his library.
+     * @param userId the Id for the user that performed the action.
+     * @throws NotFoundException when the Lock does not exist.
+     */
     @Override
     public void leaveFromThisLock(Long lockId, Long userId) throws NotFoundException {
         Lock lock = getLockIfPresentAndActive(lockId);

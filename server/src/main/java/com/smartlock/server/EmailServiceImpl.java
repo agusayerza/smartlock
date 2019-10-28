@@ -17,6 +17,13 @@ public class EmailServiceImpl {
     @Autowired
     public JavaMailSender emailSender;
 
+    /**
+     * Send a simple text email
+     * @param to email address for the recipient
+     * @param subject subject for the email to be sent
+     * @param text text contained in the email to be sent
+     * @return {@code ResponseEntity}, OK if the email was sent successfully, BAD_REQUEST if not
+     */
     public ResponseEntity sendSimpleMessage(String to, String subject, String text) {
         try {
             emailSender = getJavaMailSender();
@@ -31,6 +38,10 @@ public class EmailServiceImpl {
         }
     }
 
+    /**
+     * Bean to instantiate the {@code JavaEmailSender} object that will be used to send the email
+     * @return {@code JavaEmailSender} the will be used to send the email
+     */
     @Bean
     public JavaMailSender getJavaMailSender() {
         JavaMailSenderImpl mailSender = new JavaMailSenderImpl();

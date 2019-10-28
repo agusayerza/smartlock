@@ -21,6 +21,12 @@ public class UserValidatorServiceImpl implements UserValidatorService{
     private UserRepository userRepository;
     private LockRepository lockRepository;
 
+    /**
+     * Class constructor
+     * @param userValidatorRepository {@code UserValidatorRepository} instantiated class corresponding to the current Spring profile.
+     * @param userRepository {@code UserRepository} instantiated class corresponding to the current Spring profile.
+     * @param lockRepository {@code LockRepository} instantiated class corresponding to the current Spring profile.
+     */
     @Autowired
     public UserValidatorServiceImpl(UserValidatorRepository userValidatorRepository, UserRepository userRepository, LockRepository lockRepository){
         this.userValidatorRepository = userValidatorRepository;
@@ -28,6 +34,10 @@ public class UserValidatorServiceImpl implements UserValidatorService{
         this.lockRepository = lockRepository;
     }
 
+    /**
+     * Method used to invite a user into a lock, create and send the invitation email.
+     * @param userLockDto {@code UserLockDto} DTO containing the information of the lock and user to be added to that lock.
+     */
     public void addValidationCode(UserLockDto userLockDto, String lockAdminEmail, String lockName) {
         if (userValidatorRepository.existsByLockIdAndEmail(userLockDto.getLockId(), userLockDto.getEmail())) throw new IllegalArgumentException("User already invited");
         UserValidator userValidator = new UserValidator(userLockDto.getEmail(), userLockDto.getLockId());
@@ -36,6 +46,12 @@ public class UserValidatorServiceImpl implements UserValidatorService{
         emailService.sendSimpleMessage(userLockDto.getEmail(), "Lock invitation", "You have been invited by user " + lockAdminEmail + " to access to the lock named " + lockName +"\nThis is your validation code: " + userValidator.getCode());
     }
 
+    /**
+     * Validates the code given by the user and add him to the lock if the invitation exists.
+     * @param userLockValidatorDto DTO that contains the code tried to accept the invitation.
+     * @param userId The ID of the User who sent the code to add the lock.
+     * @throws NotFoundException thrown when the invitation does not exist.
+     */
     public void validateUserAndLock(UserLockValidatorDto userLockValidatorDto, Long userId) throws NotFoundException {
         User user = userRepository.getOne(userId);
         try {

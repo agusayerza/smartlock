@@ -18,8 +18,15 @@ public class UserValidatorResource {
     @Autowired
     UserValidatorServiceImpl userValidatorService;
 
+    /**
+     * Put request executed to add a Lock to your library.
+     * @param userLockValidatorDto DTO that contains the {@code Lock} desiered to be added as well as the code to
+     *                             validate the invite.
+     * @return {@code ResponseEntity}, OK if successful, BAD_REQUEST if the invitation was not found or the code was
+     *          invalid.
+     */
     @PutMapping()
-    public ResponseEntity validateUserAndLock(@Valid @RequestBody UserLockValidatorDto userLockValidatorDto) throws NotFoundException {
+    public ResponseEntity validateUserAndLock(@Valid @RequestBody UserLockValidatorDto userLockValidatorDto) {
         try {
             Long userId = UserPrinciple.getUserPrinciple().getId();
             userValidatorService.validateUserAndLock(userLockValidatorDto, userId);
