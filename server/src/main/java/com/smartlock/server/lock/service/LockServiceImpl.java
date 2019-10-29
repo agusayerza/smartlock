@@ -32,6 +32,13 @@ public class LockServiceImpl implements LockService{
         this.scheduleService = scheduleService;
     }
 
+    /**
+     * Make the lock active if is found and set requested user as lock's admin
+     * @param lockDto DTO containing uuid of the lock and the future name of the lock
+     * @param userAdminId id of the user that made the request
+     * @return {@code LockDTO} containing the info of the successfully claimed lock.
+     * @throws NotFoundException
+     */
     @Override
     public LockDto addLock(CreateLockDto lockDto, Long userAdminId) throws NotFoundException {
         User user = userRepository.getOne(userAdminId);
@@ -50,6 +57,13 @@ public class LockServiceImpl implements LockService{
         throw new NotFoundException("Lock not found");
     }
 
+    /**
+     * Delete the lock, setting it's active parameter as false and removing it from all locks' list of the users
+     * Only lock's admin can make this request
+     * @param id the Id for the lock
+     * @param userId the user, presumably the lock owner, who requested the information.
+     * @throws NotFoundException
+     */
     @Override
     public void deleteLock(Long id, Long userId) throws NotFoundException {
         Optional<Lock> opLock = lockRepository.findById(id);
@@ -74,6 +88,12 @@ public class LockServiceImpl implements LockService{
         throw new NotFoundException("Lock not found");
     }
 
+    /**
+     * Searchs a lock by its Id and returns it
+     * @param id corresponding to the lock to be searched.
+     * @return{@code LockDTO} containing the info of the found lock.
+     * @throws NotFoundException
+     */
     @Override
     public LockDto getLock(Long id) throws NotFoundException {
         Optional<Lock> optionalLock = lockRepository.findById(id);

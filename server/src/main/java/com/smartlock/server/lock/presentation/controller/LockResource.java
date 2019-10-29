@@ -28,6 +28,7 @@ public class LockResource {
         this.lockService = lockService;
     }
 
+
     @ApiIgnore
     @PostMapping("/status/{uuid}") // todo: not really a post, should be get
     private String getLockStatus(@PathVariable String uuid){
@@ -58,6 +59,11 @@ public class LockResource {
         }
     }
 
+    /**
+     * Endpoint used to claim a lock, making the request user lock's admin
+     * @param lockDto DTO containing Lock uuid and name for the lock
+     * @return {@code ResponseEntity}, OK if successful, BAD_REQUEST if it failed.
+     */
     @PostMapping()
     public ResponseEntity addLock(@Valid @RequestBody CreateLockDto lockDto){
         try {
@@ -67,6 +73,12 @@ public class LockResource {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
     }
+
+    /**
+     * Endpoint to delete a lock, making it's active variable as false
+     * @param id of the lock to be deleted
+     * @return {@code ResponseEntity}, OK if successful, BAD_REQUEST if it failed.
+     */
 
     @DeleteMapping("/{id}")
     public ResponseEntity deleteLock(@PathVariable Long id) {
@@ -78,6 +90,12 @@ public class LockResource {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
     }
+
+    /**
+     * Endpoint to get data of the lock
+     * @param id of the lock data requested
+     * @return {@code ResponseEntity}, OK if successful, BAD_REQUEST if it failed.
+     */
 
     //  todo verificar que user.getlocks contains lock y que este en dia y horario de schedule
     @GetMapping("/{id}")
