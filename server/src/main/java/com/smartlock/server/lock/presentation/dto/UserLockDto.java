@@ -11,6 +11,14 @@ public class UserLockDto {
     @Email
     private String email;
 
+    public UserLockDto(String email, Long lockId){
+        this.email = email;
+        this.lockId = lockId;
+    }
+
+    public UserLockDto() {
+    }
+
     public Long getLockId() {
         return lockId;
     }

@@ -29,12 +29,21 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     private UserDetailsServiceImpl userDetailsService;
     private final JwtAuthEntryPoint unauthorizedHandler;
 
+    /**
+     * Class constructor.
+     * @param userDetailsService {@code UserDetailsService} instantiated class corresponding to the current Spring profile.
+     * @param unauthorizedHandler {@code UnauthorizedHandler} instantiated class corresponding to the current Spring profile.
+     */
     @Autowired
     public WebSecurityConfig(UserDetailsServiceImpl userDetailsService, JwtAuthEntryPoint unauthorizedHandler) {
         this.userDetailsService = userDetailsService;
         this.unauthorizedHandler = unauthorizedHandler;
     }
 
+    /**
+     * Bean provider for the JwtAuthTokenFilter.
+     * @return {@class JwtAuthTokenFilter} instantiated class.
+     */
     @Bean
     public JwtAuthTokenFilter authenticationJwtTokenFilter() {
         return new JwtAuthTokenFilter();

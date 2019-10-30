@@ -72,7 +72,7 @@ public class Lock {
     }
 
     public Lock(CreateLockDto createLockDto, Long userAdminId) {
-        this.uuid = createLockDto.getUid();
+        this.uuid = createLockDto.getUuid();
         this.userAdminId = userAdminId;
         this.active = true;
         this.name = createLockDto.getName();

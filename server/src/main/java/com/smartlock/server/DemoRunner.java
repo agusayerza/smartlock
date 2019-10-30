@@ -28,6 +28,14 @@ public class DemoRunner implements CommandLineRunner {
     private LockService lockService;
     private boolean createdData = false;
 
+    /**
+     * {@code DemoRunner} constructor. The {@code DemoRunner} is a class used to instantiate and load into the
+     * database the objects to be used during demos.
+     * @param userService {@code UserService} instantiated class corresponding to the current Spring profile.
+     * @param lockService {@code LockService} instantiated class corresponding to the current Spring profile.
+     * @param env {@code Environment} Spring Environment instantiated, corresponding to the current Spring profile, and
+     *                               used to determine on runtime if the demo data has to be created or not.
+     */
     @Autowired
     public DemoRunner(UserService userService, LockService lockService, Environment env) {
         this.userService = userService;
@@ -35,6 +43,10 @@ public class DemoRunner implements CommandLineRunner {
         this.env = env;
     }
 
+    /**
+     * Callback used to run the bean.
+     * @param args incoming main method arguments
+     */
     @Override
     public void run(String... args) {
         for (String profile: env.getActiveProfiles()) {
@@ -70,10 +82,10 @@ public class DemoRunner implements CommandLineRunner {
         }
 
         CreateLockDto createLockDto = new CreateLockDto();
-        createLockDto.setUid("18bfd86f-539e-40e2-a917-64c9ed1d42d9");
+        createLockDto.setUuid("18bfd86f-539e-40e2-a917-64c9ed1d42d9");
         createLockDto.setName("Test Lock");
         try {
-            lockService.createLock(createLockDto, userDto.getId());
+            lockService.addLock(createLockDto, userDto.getId());
         } catch (NotFoundException e) {
             logger.error("Error creating test lock");
         }
