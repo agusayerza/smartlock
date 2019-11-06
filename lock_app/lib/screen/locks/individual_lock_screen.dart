@@ -34,7 +34,7 @@ class _IndividualLockScreenState extends State<IndividualLockScreen> {
                   ios: (_) => CupertinoButtonData(
                       borderRadius: BorderRadius.circular(15.0)),
                   color: Colors.red,
-                  onPressed:
+                  onPressed: () =>
                       HttpLockRepository.openLock(widget.data.uuid, context),
                   android: (_) => MaterialRaisedButtonData(
                       padding: EdgeInsets.symmetric(
@@ -55,7 +55,7 @@ class _IndividualLockScreenState extends State<IndividualLockScreen> {
                   ios: (_) => CupertinoButtonData(
                       borderRadius: BorderRadius.circular(15.0)),
                   color: Colors.red,
-                  onPressed:
+                  onPressed: () =>
                       HttpLockRepository.closeLock(widget.data.uuid, context),
                   android: (_) => MaterialRaisedButtonData(
                       padding: EdgeInsets.symmetric(

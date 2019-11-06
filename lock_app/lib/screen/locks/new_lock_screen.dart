@@ -96,7 +96,7 @@ class _NewLockScreenState extends State<NewLockScreen> {
   }
 
   void submit() async {
-    Map body = {'name': _lockNameController.text, 'uid': _uuidController.text};
+    Map body = {'name': _lockNameController.text, 'uuid': _uuidController.text};
 
     BlocProvider.of<LockBloc>(context).onNewLockTapped(context, body);
 //    Lock lastLock = BlocProvider.of<LockBloc>(context).getLastLock;
@@ -108,7 +108,8 @@ class _NewLockScreenState extends State<NewLockScreen> {
   void initState() {
     super.initState();
     _lockNameController = TextEditingController();
-    _uuidController = TextEditingController();
+    _uuidController =
+        TextEditingController(text: 'ee61fff1-0c01-b4fd-04e7-7ccba3ff8aeb');
   }
 
   @override

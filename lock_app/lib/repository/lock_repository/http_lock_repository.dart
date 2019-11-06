@@ -67,7 +67,8 @@ class HttpLockRepository {
   Future<List<Lock>> getMyLocks(context) async {
     AuthenticatedState state =
         BlocProvider.of<AuthenticationBloc>(context).currentState;
-    http.Response response = await http.get('http://10.0.2.2:8080/', headers: {
+    http.Response response =
+        await http.get('http://10.0.2.2:8080/users/myLocks', headers: {
       HttpHeaders.authorizationHeader: 'Bearer ${state.token}',
       "Content-Type": "application/json",
     }).timeout(Duration(seconds: 5), onTimeout: () {

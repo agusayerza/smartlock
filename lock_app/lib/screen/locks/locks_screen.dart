@@ -48,7 +48,9 @@ class _LocksScreenState extends State<LocksScreen> {
               ios: (_) => CupertinoButtonData(
                   borderRadius: BorderRadius.circular(15.0)),
               color: Colors.red,
-              onPressed: () => openPage((_) => MyLocksScreen(), context),
+              onPressed: () {
+                openPage((_) => MyLocksScreen(), context);
+              },
               android: (_) => MaterialRaisedButtonData(
                   padding:
                       EdgeInsets.symmetric(vertical: 12.0, horizontal: 30.0),

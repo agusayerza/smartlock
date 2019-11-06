@@ -99,23 +99,28 @@ class _MyLocksScreenState extends State<MyLocksScreen> {
                                     padding: const EdgeInsets.symmetric(
                                         horizontal: 20.0, vertical: 10.0),
                                     child: InkWell(
-                                      onTap: () => openPage(
-                                          (_) => IndividualLockScreen(
-                                                data,
-                                              ),
-                                          context),
+                                      onTap: () {
+                                        openPage(
+                                            (_) => IndividualLockScreen(
+                                                  data,
+                                                ),
+                                            context);
+                                      },
                                       child: Row(
                                         children: <Widget>[
                                           Flexible(
                                             fit: FlexFit.tight,
-                                            flex: 4,
+                                            flex: 3,
                                             child: Container(
                                               height: 150,
-                                              child: Icon(Icons.lock),
+                                              child: Icon(
+                                                Icons.lock,
+                                                size: 75,
+                                              ),
                                             ),
                                           ),
                                           Flexible(
-                                            flex: 3,
+                                            flex: 4,
                                             fit: FlexFit.loose,
                                             child: Padding(
                                               padding: const EdgeInsets.only(
@@ -124,7 +129,11 @@ class _MyLocksScreenState extends State<MyLocksScreen> {
                                                 crossAxisAlignment:
                                                     CrossAxisAlignment.start,
                                                 children: <Widget>[
-                                                  Text('Name: ${data.name}'),
+                                                  Text(
+                                                    'Name: ${data.name}',
+                                                    style:
+                                                        TextStyle(fontSize: 21),
+                                                  ),
                                                 ],
                                               ),
                                             ),
