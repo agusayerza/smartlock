@@ -125,6 +125,24 @@ class HttpUserRepository {
       return true;
     }
   }
+
+  static Future<int> getUser(context) {
+    AuthenticatedState state =
+        BlocProvider.of<AuthenticationBloc>(context).currentState;
+
+    return http.get(Uri.encodeFull('http://10.0.2.2:8080/users'), headers: {
+      HttpHeaders.authorizationHeader: 'Bearer ${state.token}',
+    }).then((http.Response response) {
+      print(response.body);
+      final int statusCode = response.statusCode;
+      print(statusCode);
+      if (statusCode < 200 || statusCode > 400 || json == null) {
+        throw new Exception("Error while fetching data");
+      }
+      var body = jsonDecode(response.body);
+      return body['id'];
+    });
+  }
 }
 
 //custom exceptions

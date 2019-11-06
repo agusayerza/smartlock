@@ -8,8 +8,8 @@ import 'package:lock_app/widget/open_page.dart';
 import 'package:lock_app/widget/show_custom_dialog.dart';
 
 class InviteUsersScreen extends StatefulWidget {
-  final Lock lastLock;
-  InviteUsersScreen(this.lastLock);
+  final Lock lock;
+  InviteUsersScreen(this.lock);
 
   @override
   _InviteUsersScreenState createState() => _InviteUsersScreenState();
@@ -100,7 +100,7 @@ class _InviteUsersScreenState extends State<InviteUsersScreen> {
   void submit() async {
     Map body = {
       'email': _invitedUsersController.value.toString(),
-      'lockId': widget.lastLock.id,
+      'lockId': widget.lock.id,
     };
     try {
       await HttpLockRepository.addUserToThisLock(context, body);

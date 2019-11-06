@@ -1,9 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
+import 'package:lock_app/bloc/authentication/authentication_bloc.dart';
+import 'package:lock_app/bloc/authentication/authentication_state.dart';
 import 'package:lock_app/data/lock/lock.dart';
 import 'package:lock_app/repository/lock_repository/http_lock_repository.dart';
+import 'package:lock_app/repository/user_repository/http_user_repository.dart';
 import 'package:lock_app/widget/open_page.dart';
+
+import 'invite_users_screen.dart';
 
 class IndividualLockScreen extends StatefulWidget {
   final Lock data;
@@ -15,6 +21,8 @@ class IndividualLockScreen extends StatefulWidget {
 }
 
 class _IndividualLockScreenState extends State<IndividualLockScreen> {
+  int userId;
+
   @override
   Widget build(BuildContext context) {
     return PlatformScaffold(
@@ -27,6 +35,35 @@ class _IndividualLockScreenState extends State<IndividualLockScreen> {
           ListView(
             children: <Widget>[
               SizedBox(height: 15.0),
+              widget.data.userAdminId == userId
+                  ? Column(
+                      children: <Widget>[
+                        Center(
+                          child: PlatformButton(
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 30.0, vertical: 10.0),
+                            ios: (_) => CupertinoButtonData(
+                                borderRadius: BorderRadius.circular(15.0)),
+                            color: Colors.red,
+                            onPressed: () => openPage(
+                                (_) => InviteUsersScreen(widget.data), context),
+                            android: (_) => MaterialRaisedButtonData(
+                                padding: EdgeInsets.symmetric(
+                                    vertical: 12.0, horizontal: 30.0),
+                                shape: StadiumBorder(),
+                                textColor: Colors.white),
+                            child: PlatformText(
+                              'Invite users',
+                              style: TextStyle(fontSize: 16.0),
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 15.0,
+                        )
+                      ],
+                    )
+                  : Container(),
               Center(
                 child: PlatformButton(
                   padding:
@@ -73,5 +110,15 @@ class _IndividualLockScreenState extends State<IndividualLockScreen> {
         ],
       ),
     );
+  }
+
+  void getUserId() async {
+    userId = await HttpUserRepository.getUser(context);
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    getUserId();
   }
 }
