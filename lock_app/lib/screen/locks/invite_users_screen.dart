@@ -25,7 +25,7 @@ class _InviteUsersScreenState extends State<InviteUsersScreen> {
       appBar: PlatformAppBar(
         ios: (_) => CupertinoNavigationBarData(transitionBetweenRoutes: false),
         title: Text('Invite users to this lock'),
-        backgroundColor: Colors.red,
+        backgroundColor: Colors.green,
       ),
       body: ListView(
         children: <Widget>[
@@ -53,7 +53,7 @@ class _InviteUsersScreenState extends State<InviteUsersScreen> {
                         EdgeInsets.symmetric(horizontal: 30.0, vertical: 10.0),
                     ios: (_) => CupertinoButtonData(
                         borderRadius: BorderRadius.circular(15.0)),
-                    color: Colors.red,
+                    color: Colors.green,
                     onPressed: () async {
                       submit();
                     },
@@ -75,7 +75,7 @@ class _InviteUsersScreenState extends State<InviteUsersScreen> {
                         EdgeInsets.symmetric(horizontal: 30.0, vertical: 10.0),
                     ios: (_) => CupertinoButtonData(
                         borderRadius: BorderRadius.circular(15.0)),
-                    color: Colors.red,
+                    color: Colors.green,
                     onPressed: () =>
                         openPage((_) => SetScheduleScreen(), context),
                     android: (_) => MaterialRaisedButtonData(

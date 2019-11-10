@@ -6,6 +6,7 @@ import 'package:lock_app/bloc/authentication/authentication_bloc.dart';
 import 'package:lock_app/bloc/authentication/authentication_state.dart';
 import 'package:http/http.dart' as http;
 import 'package:lock_app/data/lock/lock.dart';
+import 'package:lock_app/globals.dart';
 import 'package:lock_app/repository/user_repository/http_user_repository.dart';
 
 class HttpLockRepository {
@@ -13,7 +14,7 @@ class HttpLockRepository {
     AuthenticatedState state =
         BlocProvider.of<AuthenticationBloc>(context).currentState;
     http.Response response = await http
-        .post('http://10.0.2.2:8080/lock', body: json.encode(body), headers: {
+        .post('http://' + ipAddress + ':8080/lock', body: json.encode(body), headers: {
       HttpHeaders.authorizationHeader: 'Bearer ${state.token}',
       "Content-Type": "application/json",
     }).timeout(Duration(seconds: 5), onTimeout: () {
@@ -37,7 +38,7 @@ class HttpLockRepository {
   Future<List<Lock>> getMyAdminLocks(context) async {
     AuthenticatedState state =
         BlocProvider.of<AuthenticationBloc>(context).currentState;
-    http.Response response = await http.get('http://10.0.2.2:8080/', headers: {
+    http.Response response = await http.get('http://' + ipAddress + ':8080/', headers: {
       HttpHeaders.authorizationHeader: 'Bearer ${state.token}',
       "Content-Type": "application/json",
     }).timeout(Duration(seconds: 5), onTimeout: () {
@@ -68,7 +69,7 @@ class HttpLockRepository {
     AuthenticatedState state =
         BlocProvider.of<AuthenticationBloc>(context).currentState;
     http.Response response =
-        await http.get('http://10.0.2.2:8080/users/myLocks', headers: {
+        await http.get('http://' + ipAddress + ':8080/users/myLocks', headers: {
       HttpHeaders.authorizationHeader: 'Bearer ${state.token}',
       "Content-Type": "application/json",
     }).timeout(Duration(seconds: 5), onTimeout: () {
@@ -97,7 +98,7 @@ class HttpLockRepository {
     AuthenticatedState state =
         BlocProvider.of<AuthenticationBloc>(context).currentState;
     http.Response response =
-        await http.delete('http://10.0.2.2:8080/lock/$id', headers: {
+        await http.delete('http://' + ipAddress + ':8080/lock/$id', headers: {
       "Content-Type": "application/json",
       HttpHeaders.authorizationHeader: 'Bearer ${state.token}',
     }).timeout(Duration(seconds: 5), onTimeout: () {
@@ -122,7 +123,7 @@ class HttpLockRepository {
     AuthenticatedState state =
         BlocProvider.of<AuthenticationBloc>(context).currentState;
 
-    http.Response response = await http.put('http://10.0.2.2:8080/users/lock',
+    http.Response response = await http.put('http://' + ipAddress + ':8080/users/lock',
         body: json.encode(body),
         headers: {
           "Content-Type": "application/json",
@@ -150,7 +151,7 @@ class HttpLockRepository {
         BlocProvider.of<AuthenticationBloc>(context).currentState;
 
     http.Response response =
-        await http.post('http://10.0.2.2:8080/lock/open/$uuid', headers: {
+        await http.post('http://' + ipAddress + ':8080/lock/open/$uuid', headers: {
       HttpHeaders.authorizationHeader: 'Bearer ${state.token}',
       "Content-Type": "application/json",
     }).timeout(Duration(seconds: 5), onTimeout: () {
@@ -176,7 +177,7 @@ class HttpLockRepository {
         BlocProvider.of<AuthenticationBloc>(context).currentState;
 
     http.Response response =
-        await http.post('http://10.0.2.2:8080/lock/close/$uuid', headers: {
+        await http.post('http://' + ipAddress + ':8080/lock/close/$uuid', headers: {
       HttpHeaders.authorizationHeader: 'Bearer ${state.token}',
       "Content-Type": "application/json",
     }).timeout(Duration(seconds: 5), onTimeout: () {

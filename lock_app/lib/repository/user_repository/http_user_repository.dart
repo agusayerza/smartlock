@@ -7,6 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lock_app/bloc/authentication/authentication_bloc.dart';
 import 'package:lock_app/bloc/authentication/authentication_state.dart';
 import 'package:lock_app/data/user/user.dart';
+import 'package:lock_app/globals.dart';
 import 'package:http/http.dart' as http;
 
 class HttpUserRepository {
@@ -130,7 +131,7 @@ class HttpUserRepository {
     AuthenticatedState state =
         BlocProvider.of<AuthenticationBloc>(context).currentState;
 
-    return http.get(Uri.encodeFull('http://10.0.2.2:8080/users'), headers: {
+    return http.get(Uri.encodeFull('http://' + ipAddress + ':8080/users'), headers: {
       HttpHeaders.authorizationHeader: 'Bearer ${state.token}',
     }).then((http.Response response) {
       print(response.body);

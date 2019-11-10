@@ -2,16 +2,16 @@ import 'package:bloc/bloc.dart';
 import 'package:lock_app/data/user/user.dart';
 import 'package:lock_app/data/user/user_sign_up_form.dart';
 import 'package:lock_app/repository/user_repository/http_user_repository.dart';
-
+import 'package:lock_app/globals.dart';
 import 'authentication_event.dart';
 import 'authentication_state.dart';
 
 class AuthenticationBloc
     extends Bloc<AuthenticationEvent, AuthenticationState> {
-  static const LOGIN_POST_URL = 'http://10.0.2.2:8080/login';
-  static const CREATE_POST_URL = 'http://10.0.2.2:8080/users';
-  static const DELETE_USER_URL = 'http://10.0.2.2:8080/users/';
-  static const LOG_OUT_URL = 'http://10.0.2.2:8080/logout';
+  static const LOGIN_POST_URL = 'http://' + ipAddress +  ':8080/login';
+  static const CREATE_POST_URL = 'http://' + ipAddress + ':8080/users';
+  static const DELETE_USER_URL = 'http://' + ipAddress + ':8080/users/';
+  static const LOG_OUT_URL = 'http://' + ipAddress + ':8080/logout';
   static String id;
 
   HttpUserRepository _userRepository;

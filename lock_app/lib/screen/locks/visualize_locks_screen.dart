@@ -37,7 +37,7 @@ class _MyLocksScreenState extends State<MyLocksScreen> {
                       PlatformButton(
                         android: (_) =>
                             MaterialRaisedButtonData(shape: StadiumBorder()),
-                        color: Colors.red,
+                        color: Colors.green,
                         onPressed: () =>
                             openPage((_) => NewLockScreen(), context),
                         child: Text(
@@ -89,7 +89,7 @@ class _MyLocksScreenState extends State<MyLocksScreen> {
                                   background: Container(
                                     alignment: Alignment.centerRight,
                                     padding: const EdgeInsets.only(right: 40.0),
-                                    color: Colors.red,
+                                    color: Colors.green,
                                     child: Icon(
                                       Icons.delete,
                                       color: Colors.white,
@@ -151,7 +151,7 @@ class _MyLocksScreenState extends State<MyLocksScreen> {
                         child: RaisedButton(
                           padding:
                               const EdgeInsets.fromLTRB(40.0, 16.0, 30.0, 16.0),
-                          color: Colors.red,
+                          color: Colors.green,
                           elevation: 0,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.only(

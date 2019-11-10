@@ -121,7 +121,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               padding: EdgeInsets.symmetric(horizontal: 30.0),
                               ios: (_) => CupertinoButtonData(
                                   borderRadius: BorderRadius.circular(15.0)),
-                              color: Colors.red,
+                              color: Colors.green,
                               onPressed: submit,
                               android: (_) => MaterialRaisedButtonData(
                                   padding: EdgeInsets.symmetric(
@@ -228,7 +228,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       padding: EdgeInsets.symmetric(horizontal: 30.0),
                       ios: (_) => CupertinoButtonData(
                           borderRadius: BorderRadius.circular(15.0)),
-                      color: Colors.red,
+                      color: Colors.green,
                       onPressed: submit,
                       android: (_) => MaterialRaisedButtonData(
                           padding: EdgeInsets.symmetric(

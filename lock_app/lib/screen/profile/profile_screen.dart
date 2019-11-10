@@ -25,7 +25,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               padding: EdgeInsets.symmetric(horizontal: 30.0, vertical: 10.0),
               ios: (_) => CupertinoButtonData(
                   borderRadius: BorderRadius.circular(15.0)),
-              color: Colors.red,
+              color: Colors.green,
               onPressed: () async {
                 bool result = await showDialog(
                     context: context,
@@ -71,7 +71,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               padding: EdgeInsets.symmetric(horizontal: 30.0, vertical: 10.0),
               ios: (_) => CupertinoButtonData(
                   borderRadius: BorderRadius.circular(15.0)),
-              color: Colors.red,
+              color: Colors.green,
               onPressed: () => BlocProvider.of<AuthenticationBloc>(context)
                   .onLogOutButtonTapped(context),
               android: (_) => MaterialRaisedButtonData(

@@ -71,7 +71,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   padding: EdgeInsets.symmetric(horizontal: 30.0),
                   ios: (_) => CupertinoButtonData(
                       borderRadius: BorderRadius.circular(15.0)),
-                  color: Colors.red,
+                  color: Colors.green,
                   onPressed: () => loginTapped(),
                   android: (_) => MaterialRaisedButtonData(
                       padding: EdgeInsets.symmetric(
