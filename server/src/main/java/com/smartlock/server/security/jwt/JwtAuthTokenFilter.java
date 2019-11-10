@@ -1,6 +1,6 @@
 package com.smartlock.server.security.jwt;
 
-import com.smartlock.server.user.service.UserService;
+import com.smartlock.server.security.service.UserDetailsServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,8 +22,7 @@ public class JwtAuthTokenFilter extends OncePerRequestFilter {
 	private JwtProvider tokenProvider;
 
 	@Autowired
-	private UserService userService;
-
+	private UserDetailsServiceImpl userDetailsService;
 
 
 	private static final Logger logger = LoggerFactory.getLogger(JwtAuthTokenFilter.class);
@@ -35,9 +34,9 @@ public class JwtAuthTokenFilter extends OncePerRequestFilter {
 
 			String jwt = getJwt(request);
 			if (jwt != null && tokenProvider.validateJwtToken(jwt)) {
-				String email = tokenProvider.getEmailFromJwtToken(jwt);
+				String username = tokenProvider.getUserNameFromJwtToken(jwt);
 
-				UserDetails userDetails = userService.loadUserByUsername(email);
+				UserDetails userDetails = userDetailsService.loadUserByUsername(username);
 				UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(
 						userDetails, null, userDetails.getAuthorities());
 				authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));

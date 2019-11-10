@@ -1,9 +1,8 @@
-package com.smartlock.server.config;
-
+package com.smartlock.server.security;
 
 import com.smartlock.server.security.jwt.JwtAuthEntryPoint;
 import com.smartlock.server.security.jwt.JwtAuthTokenFilter;
-import com.smartlock.server.user.service.UserService;
+import com.smartlock.server.security.service.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -19,22 +18,32 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(
         prePostEnabled = true
 )
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
-    private UserService userService;
 
+    private UserDetailsServiceImpl userDetailsService;
     private final JwtAuthEntryPoint unauthorizedHandler;
 
+    /**
+     * Class constructor.
+     * @param userDetailsService {@code UserDetailsService} instantiated class corresponding to the current Spring profile.
+     * @param unauthorizedHandler {@code UnauthorizedHandler} instantiated class corresponding to the current Spring profile.
+     */
     @Autowired
-    public WebSecurityConfig(UserService userService, JwtAuthEntryPoint unauthorizedHandler) {
-        this.userService = userService;
+    public WebSecurityConfig(UserDetailsServiceImpl userDetailsService, JwtAuthEntryPoint unauthorizedHandler) {
+        this.userDetailsService = userDetailsService;
         this.unauthorizedHandler = unauthorizedHandler;
     }
 
+    /**
+     * Bean provider for the JwtAuthTokenFilter.
+     * @return {@code JwtAuthTokenFilter} instantiated class.
+     */
     @Bean
     public JwtAuthTokenFilter authenticationJwtTokenFilter() {
         return new JwtAuthTokenFilter();
@@ -43,7 +52,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(AuthenticationManagerBuilder authenticationManagerBuilder) throws Exception {
         authenticationManagerBuilder
-                .userDetailsService(userService)
+                .userDetailsService(userDetailsService)
                 .passwordEncoder(passwordEncoder());
     }
 
@@ -63,20 +72,21 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.cors()
                 .and().csrf().disable().
                 authorizeRequests()
-                // Locks
-                .antMatchers("/lock**").permitAll()
-
                 //Sign Up
                 .antMatchers(HttpMethod.POST,"/users").permitAll()
                 .antMatchers(HttpMethod.POST,"/login").permitAll()
                 // Swagger and Swagger-UI
                 .antMatchers("/v2/api-docs",
-                        "/configuration/ui",
-                        "/swagger-resources/**",
-                        "/configuration/security",
-                        "/swagger-ui.html",
-                        "/webjars/**").permitAll()
-
+                "/configuration/ui",
+                "/swagger-resources/**",
+                "/configuration/security",
+                "/swagger-ui.html**",
+                "/webjars/**").permitAll()
+                // Lock status
+                .antMatchers("/lock/status/**").permitAll()
+                // todo: remember to secure before deploying
+                .antMatchers("/lock/open/**").permitAll()
+                .antMatchers("/lock/close/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
