@@ -42,7 +42,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     /**
      * Bean provider for the JwtAuthTokenFilter.
-     * @return {@class JwtAuthTokenFilter} instantiated class.
+     * @return {@code JwtAuthTokenFilter} instantiated class.
      */
     @Bean
     public JwtAuthTokenFilter authenticationJwtTokenFilter() {

@@ -109,7 +109,7 @@ class _NewLockScreenState extends State<NewLockScreen> {
     super.initState();
     _lockNameController = TextEditingController();
     _uuidController =
-        TextEditingController(text: 'ee61fff1-0c01-b4fd-04e7-7ccba3ff8aeb');
+        TextEditingController(text: '18bfd86f-539e-40e2-a917-64c9ed1d42d9');
   }
 
   @override

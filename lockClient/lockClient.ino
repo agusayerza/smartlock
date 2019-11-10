@@ -19,7 +19,7 @@ int led_b = 13;  // D7
  * Step motor
  */
 Stepper_28BYJ_48 stepper(5,4,0,2);  // D1 D2 D3 D4
-const int steps_to_open = 300;
+const int steps_to_open = 400;
 
 /**
 * WiFi settings
@@ -40,6 +40,7 @@ const char* lock_uuid = "18bfd86f-539e-40e2-a917-64c9ed1d42d9";
 
 // Lock status
 boolean isOpen = true;
+boolean firstTime = true;
 //////////////////////////////////////////////////////////////////////////////
 void setup() {
   Serial.begin(115200);
@@ -53,38 +54,19 @@ void setup() {
 }
 
 void connect_wifi(){
-    WiFi.begin(wlan_ssid, wlan_password); //WiFi connection
+  WiFi.begin(wlan_ssid, wlan_password); //WiFi connection
  
   while (WiFi.status() != WL_CONNECTED) { //Wait for the WiFI connection completion
     led_rgb(255,255,255);
     delay(500);
     Serial.println("Waiting for connection");
- 
   }
+
+  firstTime = true;
 }
 
 //////////////////////////////////////////////////////////////////////////////
 void loop() {
-  
-        if (digitalRead(switch_1_pin) == LOW){
-            int i = 20;
-            while(i > 0){
-              i--;
-              stepper.step(-1);
-              led_rgb(0,255,0);
-              yield();
-            }
-        }
-
-        if(digitalRead(switch_2_pin) == LOW){
-          int i = 20;
-            while(i > 0){
-              i--;
-              stepper.step(1);
-              led_rgb(0,255,0);
-              yield();
-            }
-        }
 
         if(WiFi.status() == WL_CONNECTED){   //Check WiFi connection status
          
@@ -93,7 +75,7 @@ void loop() {
            http.begin(baseURL);  //Specify request destination
            http.addHeader("Content-Type", "text/plain");  //Specify content-type header
          
-           int httpCode = http.POST("Message from ESP8266");   //Send the request
+           int httpCode = http.POST("lock");   //Send the request
            String payload = http.getString();                  //Get the response payload
            http.end();  //Close connection
            Serial.print("Got:");
@@ -106,15 +88,14 @@ void loop() {
             Serial.println("Error in WiFi connection");   
             connect_wifi();
          }
-         Serial.println("delay");
          led_rgb(0,0,255);
          delay(200);
 }
 
 void process(String payload){
-  if(payload.equals("OPEN") && !isOpen){
+  if(payload.equals("OPEN") && (!isOpen || firstTime)){
     open_lock();
-  } else if(payload.equals("CLOSE") && isOpen){
+  } else if(payload.equals("CLOSE") && (isOpen || firstTime)){
     close_lock();
   }
 }
@@ -135,6 +116,7 @@ void open_lock(){
     yield();
   }
   isOpen = true;
+  firstTime = false;
 }
 
 void close_lock(){
@@ -147,4 +129,5 @@ void close_lock(){
     yield();
   }
   isOpen = false;
+  firstTime = false;
 }

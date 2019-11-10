@@ -3,19 +3,19 @@ import 'package:flutter/material.dart';
 
 ThemeData materialAppTheme() {
   return ThemeData(
-      primaryColor: Colors.red,
-      accentColor: Colors.deepOrangeAccent,
+      primaryColor: Colors.green,
+      accentColor: Colors.greenAccent,
       sliderTheme: SliderThemeData(
-          inactiveTickMarkColor: Colors.red,
-          disabledActiveTickMarkColor: Colors.red,
-          disabledActiveTrackColor: Colors.red,
+          inactiveTickMarkColor: Colors.green,
+          disabledActiveTickMarkColor: Colors.green,
+          disabledActiveTrackColor: Colors.green,
           showValueIndicator: ShowValueIndicator.always,
-          thumbColor: Colors.red,
-          activeTickMarkColor: Colors.red,
-          valueIndicatorColor: Colors.red,
-          activeTrackColor: Colors.red));
+          thumbColor: Colors.green,
+          activeTickMarkColor: Colors.green,
+          valueIndicatorColor: Colors.green,
+          activeTrackColor: Colors.green));
 }
 
 CupertinoThemeData cupertinoTheme() {
-  return CupertinoThemeData(primaryColor: Colors.red,barBackgroundColor: Colors.red);
+  return CupertinoThemeData(primaryColor: Colors.green,barBackgroundColor: Colors.green);
 }
