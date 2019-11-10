@@ -9,9 +9,9 @@ import 'authentication_state.dart';
 class AuthenticationBloc
     extends Bloc<AuthenticationEvent, AuthenticationState> {
   static const LOGIN_POST_URL = 'http://' + ipAddress +  ':8080/login';
-  static const CREATE_POST_URL = 'http://' + ipAddress + ':8080/users';
-  static const DELETE_USER_URL = 'http://' + ipAddress + ':8080/users/';
-  static const LOG_OUT_URL = 'http://' + ipAddress + ':8080/logout';
+  static const CREATE_POST_URL = 'http://' + ipAddress + '/users';
+  static const DELETE_USER_URL = 'http://' + ipAddress + '/users/';
+  static const LOG_OUT_URL = 'http://' + ipAddress + '/logout';
   static String id;
 
   HttpUserRepository _userRepository;

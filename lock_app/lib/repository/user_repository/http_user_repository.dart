@@ -131,7 +131,7 @@ class HttpUserRepository {
     AuthenticatedState state =
         BlocProvider.of<AuthenticationBloc>(context).currentState;
 
-    return http.get(Uri.encodeFull('http://' + ipAddress + ':8080/users'), headers: {
+    return http.get(Uri.encodeFull('http://' + ipAddress + '/users'), headers: {
       HttpHeaders.authorizationHeader: 'Bearer ${state.token}',
     }).then((http.Response response) {
       print(response.body);

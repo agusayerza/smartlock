@@ -24,7 +24,7 @@ const int steps_to_open = 400;
 /**
 * WiFi settings
 **/
-const char* wlan_ssid             = "AlgoAlgo";
+const char* wlan_ssid             = "Galaxy S8";
 const char* wlan_password         = "12345678";
 
 /**
