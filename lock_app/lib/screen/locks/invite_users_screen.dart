@@ -44,7 +44,7 @@ class _InviteUsersScreenState extends State<InviteUsersScreen> {
                   android: (_) => MaterialTextFieldData(
                       decoration: InputDecoration(
                           errorText: _invitedUsersErrorText,
-                          labelText: 'Invited users')),
+                          labelText: 'Email')),
                 ),
                 SizedBox(height: 15.0),
                 Center(
@@ -98,26 +98,33 @@ class _InviteUsersScreenState extends State<InviteUsersScreen> {
   }
 
   void submit() async {
+    print('${widget.lock.id} aaaaa');
     Map body = {
-      'email': _invitedUsersController.value.toString(),
+      'email': _invitedUsersController.text,
       'lockId': widget.lock.id,
     };
+
+    print('${body['lockId']} aaaabbba');
     try {
       await HttpLockRepository.addUserToThisLock(context, body);
-      showCustomDialog(
-          context,
-          'Success',
-          _invitedUsersController.value.toString() +
-              ' was invited successfully');
+      showCustomDialog(context, 'Success',
+          _invitedUsersController.text + ' was invited successfully');
       _invitedUsersController.text = '';
     } catch (e) {
-      showCustomDialog(context, 'Error',
-          'Could not invite ' + _invitedUsersController.value.toString());
+      print(e);
+      showCustomDialog(
+          context, 'Error', 'Could not invite ' + _invitedUsersController.text);
     }
   }
 
   @override
   void initState() {
     super.initState();
+    _invitedUsersController = TextEditingController();
+  }
+
+  @override
+  void dispose() {
+    _invitedUsersController.dispose();
   }
 }
