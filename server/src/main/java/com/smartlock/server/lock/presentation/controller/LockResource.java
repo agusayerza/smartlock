@@ -28,9 +28,13 @@ public class LockResource {
         this.lockService = lockService;
     }
 
-
+    /**
+     * Used by the lock to get its current status
+     * @param uuid the locks UUID
+     * @return the lock status, OPEN or CLOSED
+     */
     @ApiIgnore
-    @PostMapping("/status/{uuid}") // todo: not really a post, should be get
+    @PostMapping("/status/{uuid}")
     private String getLockStatus(@PathVariable String uuid){
         try{
             return lockService.getLockStatus(uuid);
@@ -39,6 +43,11 @@ public class LockResource {
         }
     }
 
+    /**
+     * Used to open the lock with the corresponding UUID
+     * @param uuid the lock UUID
+     * @return String with the result
+     */
     @PostMapping("/open/{uuid}")
     private ResponseEntity openLock(@PathVariable String uuid){
         try{
@@ -49,6 +58,11 @@ public class LockResource {
         }
     }
 
+    /**
+     * Used to close the lock with the corresponding UUID
+     * @param uuid the lock UUID
+     * @return String with the result
+     */
     @PostMapping("/close/{uuid}")
     private ResponseEntity closeLock(@PathVariable String uuid){
         try{
