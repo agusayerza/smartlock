@@ -43,11 +43,14 @@ Should you want to use your own version of the compilied apps, this are the step
 - Stepper_By_J Stepper motor library > https://github.com/thomasfredericks/Stepper_28BYJ_48`
 
 ### 3.1.2 Flutter App prerequisites
-- Flutter ? $$ completar $$
+- Flutter 1.7.8 > https://flutter.dev/docs/get-started/install
+- Dart 2.4.0 > https://dart.dev/get-dart
+
+(all other dependencies are covered in pubspec.yaml)
 
 ### 3.1.3 Springboot Server prerequisites
 - Gradle
-- Java JDK 1.8 , all other dependencies will be covered by Gradle
+- Java JDK 1.8, all other dependencies will be covered by Gradle
 
 ## 3.2 Compiling and Running
 ### 3.2.1 NodeMCU App
