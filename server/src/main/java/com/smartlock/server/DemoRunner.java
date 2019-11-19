@@ -82,11 +82,11 @@ public class DemoRunner implements CommandLineRunner {
 
         CreateLockDto createLockDto = new CreateLockDto();
         createLockDto.setUuid("18bfd86f-539e-40e2-a917-64c9ed1d42d9");
-        try {
-            lockService.addLock(createLockDto, userDto.getId());
-        } catch (NotFoundException e) {
-            logger.error("Error creating test lock");
-        }
+//        try {
+//            lockService.addLock(createLockDto, userDto.getId());
+//        } catch (NotFoundException e) {
+//            logger.error("Error creating test lock");
+//        }
 
         createdData = true;
     }

@@ -42,7 +42,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     /**
      * Bean provider for the JwtAuthTokenFilter.
-     * @return {@class JwtAuthTokenFilter} instantiated class.
+     * @return {@code JwtAuthTokenFilter} instantiated class.
      */
     @Bean
     public JwtAuthTokenFilter authenticationJwtTokenFilter() {
@@ -75,6 +75,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 //Sign Up
                 .antMatchers(HttpMethod.POST,"/users").permitAll()
                 .antMatchers(HttpMethod.POST,"/login").permitAll()
+                .antMatchers(HttpMethod.GET, "/test").permitAll()
                 // Swagger and Swagger-UI
                 .antMatchers("/v2/api-docs",
                 "/configuration/ui",
