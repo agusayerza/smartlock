@@ -1,6 +1,5 @@
 package com.smartlock.server.user.service;
 
-import com.smartlock.server.lock.presentation.dto.UserLockDto;
 import com.smartlock.server.lock.presentation.dto.LockDto;
 import com.smartlock.server.user.presentation.dto.CreateUserDto;
 import com.smartlock.server.user.presentation.dto.UserDto;
@@ -42,22 +41,6 @@ public interface UserService {
     List<UserWithoutLocksDto> getAllUsersThatCanAccessToThisLock(Long lockId, Long userId) throws NotFoundException;
 
     /**
-     * Used by and admin to invite a user to use a {@code Lock} he owns.
-     * @param userLockDto DTO that contains the user to be added to the lock and the lock information.
-     * @param userId the Id for the user that performed the action.
-     * @throws NotFoundException when the Lock does not exist.
-     */
-    void inviteUserToThisLock(UserLockDto userLockDto, Long userId) throws NotFoundException;
-
-    /**
-     * Removes a {@code User} from a {@code Lock}. Can only be performed by the Lock owner.
-     * @param userLockDto DTO that contains the user to be removed from the lock and the lock information.
-     * @param userId the Id for the user that performed the action.
-     * @throws NotFoundException when the Lock does not exist.
-     */
-    void removeUserToThisLock(UserLockDto userLockDto, Long userId) throws NotFoundException;
-
-    /**
      * Removes the {@code User} that requested it from a {@code Lock}. Can NOT be performed by the Lock owner.
      * @param lockId the Id of the {@code Lock} that the user wants to remove from his library.
      * @param userId the Id for the user that performed the action.
@@ -71,12 +54,5 @@ public interface UserService {
      * @return a list of all the locks this user has on his library.
      */
     List<LockDto> getAllLocksThisUserCanAccess(Long userId);
-
-    /**
-     * Gives all the locks for which this user is owner.
-     * @param userId the Id of the user for which the locks are being searched.
-     * @return a list of all the locks the user owns.
-     */
-    List<LockDto> getAllLocksIAmAdmin(Long userId);
 
 }

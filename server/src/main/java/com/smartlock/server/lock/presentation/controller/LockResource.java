@@ -40,22 +40,22 @@ public class LockResource {
     }
 
     @PostMapping("/open/{uuid}")
-    private String openLock(@PathVariable String uuid){
-        // todo: validacion de permisos
+    private ResponseEntity openLock(@PathVariable String uuid){
         try{
-            return lockService.getSetLockOpen(uuid, true);
-        }catch (NotFoundException e){
-            return e.getMessage();
+            Long id = UserPrinciple.getUserPrinciple().getId();
+            return new ResponseEntity<>(lockService.getSetLockOpen(uuid, true, id), HttpStatus.OK);
+        }catch (NotFoundException | IllegalArgumentException e){
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
     }
 
     @PostMapping("/close/{uuid}")
-    private String closeLock(@PathVariable String uuid){
-        // todo: validacion de permisos, en el mismo metodo
+    private ResponseEntity closeLock(@PathVariable String uuid){
         try{
-            return lockService.getSetLockOpen(uuid, false);
-        }catch (NotFoundException e){
-            return e.getMessage();
+            Long id = UserPrinciple.getUserPrinciple().getId();
+            return new ResponseEntity<>(lockService.getSetLockOpen(uuid, false, id), HttpStatus.OK);
+        }catch (NotFoundException | IllegalArgumentException e){
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
     }
 
@@ -74,22 +74,22 @@ public class LockResource {
         }
     }
 
-    /**
-     * Endpoint to delete a lock, making it's active variable as false
-     * @param id of the lock to be deleted
-     * @return {@code ResponseEntity}, OK if successful, BAD_REQUEST if it failed.
-     */
-
-    @DeleteMapping("/{id}")
-    public ResponseEntity deleteLock(@PathVariable Long id) {
-        try {
-            Long userId = UserPrinciple.getUserPrinciple().getId();
-            lockService.deleteLock(id, userId);
-            return new ResponseEntity<>("Lock deleted", HttpStatus.OK);
-        } catch (NotFoundException | IllegalArgumentException e){
-            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
-        }
-    }
+//    /**
+//     * Endpoint to delete a lock, making it's active variable as false
+//     * @param id of the lock to be deleted
+//     * @return {@code ResponseEntity}, OK if successful, BAD_REQUEST if it failed.
+//     */
+//
+//    @DeleteMapping("/{id}")
+//    public ResponseEntity deleteLock(@PathVariable Long id) {
+//        try {
+//            Long userId = UserPrinciple.getUserPrinciple().getId();
+//            lockService.deleteLock(id);
+//            return new ResponseEntity<>("Lock deleted", HttpStatus.OK);
+//        } catch (NotFoundException | IllegalArgumentException e){
+//            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+//        }
+//    }
 
     /**
      * Endpoint to get data of the lock

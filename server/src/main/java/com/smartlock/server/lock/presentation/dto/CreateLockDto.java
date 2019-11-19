@@ -20,12 +20,4 @@ public class CreateLockDto {
     public void setUuid(String uuid) {
         this.uuid = uuid;
     }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 }

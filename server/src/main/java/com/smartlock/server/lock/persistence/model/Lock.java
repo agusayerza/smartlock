@@ -14,9 +14,7 @@ public class Lock {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String uuid;
-    private Long userAdminId;
     private boolean active;
-    private String name;
     private boolean isOpen;
 
     public long getId() {
@@ -35,32 +33,12 @@ public class Lock {
         this.uuid = uuid;
     }
 
-    public long getUserAdminId() {
-        return userAdminId;
-    }
-
-    public void setUserAdminId(long userAdminId) {
-        this.userAdminId = userAdminId;
-    }
-
     public boolean isActive() {
         return active;
     }
 
     public void setActive(boolean active) {
         this.active = active;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setUserAdminId(Long userAdminId) {
-        this.userAdminId = userAdminId;
     }
 
     public boolean isOpen() {
@@ -71,11 +49,9 @@ public class Lock {
         isOpen = open;
     }
 
-    public Lock(CreateLockDto createLockDto, Long userAdminId) {
+    public Lock(CreateLockDto createLockDto) {
         this.uuid = createLockDto.getUuid();
-        this.userAdminId = userAdminId;
         this.active = true;
-        this.name = createLockDto.getName();
         this.isOpen = true;
     }
 
