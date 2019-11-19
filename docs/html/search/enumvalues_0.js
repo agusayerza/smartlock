@@ -1,9 +1,0 @@
-var searchData=
-[
-  ['wsop_5fbinary_286',['WSop_binary',['../_web_socket_client_2_web_sockets_8h.html#a8e82378d8f2820a44ccddca0f46c4530ab782399011cdb5db740c0f14473768e2',1,'WSop_binary():&#160;WebSockets.h'],['../_web_sockets_8h.html#a8e82378d8f2820a44ccddca0f46c4530ab782399011cdb5db740c0f14473768e2',1,'WSop_binary():&#160;WebSockets.h']]],
-  ['wsop_5fclose_287',['WSop_close',['../_web_socket_client_2_web_sockets_8h.html#a8e82378d8f2820a44ccddca0f46c4530aefd9b7329a1fea754fe1c6bca2f4afa3',1,'WSop_close():&#160;WebSockets.h'],['../_web_sockets_8h.html#a8e82378d8f2820a44ccddca0f46c4530aefd9b7329a1fea754fe1c6bca2f4afa3',1,'WSop_close():&#160;WebSockets.h']]],
-  ['wsop_5fcontinuation_288',['WSop_continuation',['../_web_socket_client_2_web_sockets_8h.html#a8e82378d8f2820a44ccddca0f46c4530a350b2125a6ee6076958894e2a557d234',1,'WSop_continuation():&#160;WebSockets.h'],['../_web_sockets_8h.html#a8e82378d8f2820a44ccddca0f46c4530a350b2125a6ee6076958894e2a557d234',1,'WSop_continuation():&#160;WebSockets.h']]],
-  ['wsop_5fping_289',['WSop_ping',['../_web_socket_client_2_web_sockets_8h.html#a8e82378d8f2820a44ccddca0f46c4530ae376703fdafe875eb5d35e0c35ea2bfa',1,'WSop_ping():&#160;WebSockets.h'],['../_web_sockets_8h.html#a8e82378d8f2820a44ccddca0f46c4530ae376703fdafe875eb5d35e0c35ea2bfa',1,'WSop_ping():&#160;WebSockets.h']]],
-  ['wsop_5fpong_290',['WSop_pong',['../_web_socket_client_2_web_sockets_8h.html#a8e82378d8f2820a44ccddca0f46c4530a717d2b49dee71feeb6aa6ff90378b281',1,'WSop_pong():&#160;WebSockets.h'],['../_web_sockets_8h.html#a8e82378d8f2820a44ccddca0f46c4530a717d2b49dee71feeb6aa6ff90378b281',1,'WSop_pong():&#160;WebSockets.h']]],
-  ['wsop_5ftext_291',['WSop_text',['../_web_socket_client_2_web_sockets_8h.html#a8e82378d8f2820a44ccddca0f46c4530aa409e8ab854038ec55ba2c17d8510ddf',1,'WSop_text():&#160;WebSockets.h'],['../_web_sockets_8h.html#a8e82378d8f2820a44ccddca0f46c4530aa409e8ab854038ec55ba2c17d8510ddf',1,'WSop_text():&#160;WebSockets.h']]]
-];
