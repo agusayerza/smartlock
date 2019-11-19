@@ -1,0 +1,70 @@
+\hypertarget{classcom_1_1smartlock_1_1server_1_1_email_service_impl}{}\doxysection{com.\+smartlock.\+server.\+Email\+Service\+Impl Class Reference}
+\label{classcom_1_1smartlock_1_1server_1_1_email_service_impl}\index{com.smartlock.server.EmailServiceImpl@{com.smartlock.server.EmailServiceImpl}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+Response\+Entity \mbox{\hyperlink{classcom_1_1smartlock_1_1server_1_1_email_service_impl_a1adc41f059dc3957c442b0989e217a3d}{send\+Simple\+Message}} (String to, String subject, String text)
+\begin{DoxyCompactList}\small\item\em Send a simple text email. \end{DoxyCompactList}\item 
+Java\+Mail\+Sender \mbox{\hyperlink{classcom_1_1smartlock_1_1server_1_1_email_service_impl_a9acf1b81e040a98df976c72f39286274}{get\+Java\+Mail\+Sender}} ()
+\begin{DoxyCompactList}\small\item\em Bean to instantiate the. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classcom_1_1smartlock_1_1server_1_1_email_service_impl_aff0c377d7d139ecd96afa085edf0c0e6}\label{classcom_1_1smartlock_1_1server_1_1_email_service_impl_aff0c377d7d139ecd96afa085edf0c0e6}} 
+Java\+Mail\+Sender {\bfseries email\+Sender}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classcom_1_1smartlock_1_1server_1_1_email_service_impl_a9acf1b81e040a98df976c72f39286274}\label{classcom_1_1smartlock_1_1server_1_1_email_service_impl_a9acf1b81e040a98df976c72f39286274}} 
+\index{com.smartlock.server.EmailServiceImpl@{com.smartlock.server.EmailServiceImpl}!getJavaMailSender@{getJavaMailSender}}
+\index{getJavaMailSender@{getJavaMailSender}!com.smartlock.server.EmailServiceImpl@{com.smartlock.server.EmailServiceImpl}}
+\doxysubsubsection{\texorpdfstring{getJavaMailSender()}{getJavaMailSender()}}
+{\footnotesize\ttfamily Java\+Mail\+Sender com.\+smartlock.\+server.\+Email\+Service\+Impl.\+get\+Java\+Mail\+Sender (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Bean to instantiate the. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{JavaEmailSender }
+\end{DoxyCode}
+ object that will be used to send the email \begin{DoxyReturn}{Returns}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{JavaEmailSender }
+\end{DoxyCode}
+ the will be used to send the email 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classcom_1_1smartlock_1_1server_1_1_email_service_impl_a1adc41f059dc3957c442b0989e217a3d}\label{classcom_1_1smartlock_1_1server_1_1_email_service_impl_a1adc41f059dc3957c442b0989e217a3d}} 
+\index{com.smartlock.server.EmailServiceImpl@{com.smartlock.server.EmailServiceImpl}!sendSimpleMessage@{sendSimpleMessage}}
+\index{sendSimpleMessage@{sendSimpleMessage}!com.smartlock.server.EmailServiceImpl@{com.smartlock.server.EmailServiceImpl}}
+\doxysubsubsection{\texorpdfstring{sendSimpleMessage()}{sendSimpleMessage()}}
+{\footnotesize\ttfamily Response\+Entity com.\+smartlock.\+server.\+Email\+Service\+Impl.\+send\+Simple\+Message (\begin{DoxyParamCaption}\item[{String}]{to,  }\item[{String}]{subject,  }\item[{String}]{text }\end{DoxyParamCaption})}
+
+
+
+Send a simple text email. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em to} & email address for the recipient \\
+\hline
+{\em subject} & subject for the email to be sent \\
+\hline
+{\em text} & text contained in the email to be sent \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{ResponseEntity }
+\end{DoxyCode}
+ , OK if the email was sent successfully, B\+A\+D\+\_\+\+R\+E\+Q\+U\+E\+ST if not 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+server/src/main/java/com/smartlock/server/Email\+Service\+Impl.\+java\end{DoxyCompactItemize}

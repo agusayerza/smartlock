@@ -1,0 +1,91 @@
+\hypertarget{classcom_1_1smartlock_1_1server_1_1user_validator_1_1service_1_1_user_validator_service_impl}{}\doxysection{com.\+smartlock.\+server.\+user\+Validator.\+service.\+User\+Validator\+Service\+Impl Class Reference}
+\label{classcom_1_1smartlock_1_1server_1_1user_validator_1_1service_1_1_user_validator_service_impl}\index{com.smartlock.server.userValidator.service.UserValidatorServiceImpl@{com.smartlock.server.userValidator.service.UserValidatorServiceImpl}}
+Inheritance diagram for com.\+smartlock.\+server.\+user\+Validator.\+service.\+User\+Validator\+Service\+Impl\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classcom_1_1smartlock_1_1server_1_1user_validator_1_1service_1_1_user_validator_service_impl}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcom_1_1smartlock_1_1server_1_1user_validator_1_1service_1_1_user_validator_service_impl_a6efffa25931833316a7743cd4bcd9e44}{User\+Validator\+Service\+Impl}} (\mbox{\hyperlink{interfacecom_1_1smartlock_1_1server_1_1user_validator_1_1persistence_1_1repository_1_1_user_validator_repository}{User\+Validator\+Repository}} user\+Validator\+Repository, \mbox{\hyperlink{interfacecom_1_1smartlock_1_1server_1_1user_1_1persistence_1_1repository_1_1_user_repository}{User\+Repository}} user\+Repository, \mbox{\hyperlink{interfacecom_1_1smartlock_1_1server_1_1lock_1_1persistence_1_1repository_1_1_lock_repository}{Lock\+Repository}} lock\+Repository)
+\begin{DoxyCompactList}\small\item\em Class constructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1smartlock_1_1server_1_1user_validator_1_1service_1_1_user_validator_service_impl_a5f9c82568ce438d8c2fc279560173746}{add\+Validation\+Code}} (\mbox{\hyperlink{classcom_1_1smartlock_1_1server_1_1lock_1_1presentation_1_1dto_1_1_user_lock_dto}{User\+Lock\+Dto}} user\+Lock\+Dto, String lock\+Admin\+Email, String lock\+Name)
+\begin{DoxyCompactList}\small\item\em Method used to invite a user into a lock, create and send the invitation email. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcom_1_1smartlock_1_1server_1_1user_validator_1_1service_1_1_user_validator_service_impl_a5bd7f409f0fca00aeb80776f4dcef09a}{validate\+User\+And\+Lock}} (\mbox{\hyperlink{classcom_1_1smartlock_1_1server_1_1user_validator_1_1presentation_1_1dto_1_1_user_lock_validator_dto}{User\+Lock\+Validator\+Dto}} user\+Lock\+Validator\+Dto, Long user\+Id)  throws Not\+Found\+Exception 
+\begin{DoxyCompactList}\small\item\em Validates the code given by the user and add him to the lock if the invitation exists. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classcom_1_1smartlock_1_1server_1_1user_validator_1_1service_1_1_user_validator_service_impl_a569aa0303121fbf8b6917ac6146688d4}\label{classcom_1_1smartlock_1_1server_1_1user_validator_1_1service_1_1_user_validator_service_impl_a569aa0303121fbf8b6917ac6146688d4}} 
+void {\bfseries remove\+Validation\+Code} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classcom_1_1smartlock_1_1server_1_1user_validator_1_1service_1_1_user_validator_service_impl_a6efffa25931833316a7743cd4bcd9e44}\label{classcom_1_1smartlock_1_1server_1_1user_validator_1_1service_1_1_user_validator_service_impl_a6efffa25931833316a7743cd4bcd9e44}} 
+\index{com.smartlock.server.userValidator.service.UserValidatorServiceImpl@{com.smartlock.server.userValidator.service.UserValidatorServiceImpl}!UserValidatorServiceImpl@{UserValidatorServiceImpl}}
+\index{UserValidatorServiceImpl@{UserValidatorServiceImpl}!com.smartlock.server.userValidator.service.UserValidatorServiceImpl@{com.smartlock.server.userValidator.service.UserValidatorServiceImpl}}
+\doxysubsubsection{\texorpdfstring{UserValidatorServiceImpl()}{UserValidatorServiceImpl()}}
+{\footnotesize\ttfamily com.\+smartlock.\+server.\+user\+Validator.\+service.\+User\+Validator\+Service\+Impl.\+User\+Validator\+Service\+Impl (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interfacecom_1_1smartlock_1_1server_1_1user_validator_1_1persistence_1_1repository_1_1_user_validator_repository}{User\+Validator\+Repository}}}]{user\+Validator\+Repository,  }\item[{\mbox{\hyperlink{interfacecom_1_1smartlock_1_1server_1_1user_1_1persistence_1_1repository_1_1_user_repository}{User\+Repository}}}]{user\+Repository,  }\item[{\mbox{\hyperlink{interfacecom_1_1smartlock_1_1server_1_1lock_1_1persistence_1_1repository_1_1_lock_repository}{Lock\+Repository}}}]{lock\+Repository }\end{DoxyParamCaption})}
+
+
+
+Class constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em user\+Validator\+Repository} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classcom_1_1smartlock_1_1server_1_1user_validator_1_1service_1_1_user_validator_service_impl_a5f9c82568ce438d8c2fc279560173746}\label{classcom_1_1smartlock_1_1server_1_1user_validator_1_1service_1_1_user_validator_service_impl_a5f9c82568ce438d8c2fc279560173746}} 
+\index{com.smartlock.server.userValidator.service.UserValidatorServiceImpl@{com.smartlock.server.userValidator.service.UserValidatorServiceImpl}!addValidationCode@{addValidationCode}}
+\index{addValidationCode@{addValidationCode}!com.smartlock.server.userValidator.service.UserValidatorServiceImpl@{com.smartlock.server.userValidator.service.UserValidatorServiceImpl}}
+\doxysubsubsection{\texorpdfstring{addValidationCode()}{addValidationCode()}}
+{\footnotesize\ttfamily void com.\+smartlock.\+server.\+user\+Validator.\+service.\+User\+Validator\+Service\+Impl.\+add\+Validation\+Code (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1smartlock_1_1server_1_1lock_1_1presentation_1_1dto_1_1_user_lock_dto}{User\+Lock\+Dto}}}]{user\+Lock\+Dto,  }\item[{String}]{lock\+Admin\+Email,  }\item[{String}]{lock\+Name }\end{DoxyParamCaption})}
+
+
+
+Method used to invite a user into a lock, create and send the invitation email. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em user\+Lock\+Dto} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{interfacecom_1_1smartlock_1_1server_1_1user_validator_1_1service_1_1_user_validator_service_a961dc14b5e0bcb6d776e4c4170e273b3}{com.\+smartlock.\+server.\+user\+Validator.\+service.\+User\+Validator\+Service}}.
+
+\mbox{\Hypertarget{classcom_1_1smartlock_1_1server_1_1user_validator_1_1service_1_1_user_validator_service_impl_a5bd7f409f0fca00aeb80776f4dcef09a}\label{classcom_1_1smartlock_1_1server_1_1user_validator_1_1service_1_1_user_validator_service_impl_a5bd7f409f0fca00aeb80776f4dcef09a}} 
+\index{com.smartlock.server.userValidator.service.UserValidatorServiceImpl@{com.smartlock.server.userValidator.service.UserValidatorServiceImpl}!validateUserAndLock@{validateUserAndLock}}
+\index{validateUserAndLock@{validateUserAndLock}!com.smartlock.server.userValidator.service.UserValidatorServiceImpl@{com.smartlock.server.userValidator.service.UserValidatorServiceImpl}}
+\doxysubsubsection{\texorpdfstring{validateUserAndLock()}{validateUserAndLock()}}
+{\footnotesize\ttfamily void com.\+smartlock.\+server.\+user\+Validator.\+service.\+User\+Validator\+Service\+Impl.\+validate\+User\+And\+Lock (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1smartlock_1_1server_1_1user_validator_1_1presentation_1_1dto_1_1_user_lock_validator_dto}{User\+Lock\+Validator\+Dto}}}]{user\+Lock\+Validator\+Dto,  }\item[{Long}]{user\+Id }\end{DoxyParamCaption}) throws Not\+Found\+Exception}
+
+
+
+Validates the code given by the user and add him to the lock if the invitation exists. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em user\+Lock\+Validator\+Dto} & D\+TO that contains the code tried to accept the invitation. \\
+\hline
+{\em user\+Id} & The ID of the User who sent the code to add the lock. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Not\+Found\+Exception} & thrown when the invitation does not exist. \\
+\hline
+\end{DoxyExceptions}
+
+
+Implements \mbox{\hyperlink{interfacecom_1_1smartlock_1_1server_1_1user_validator_1_1service_1_1_user_validator_service_aebb34528839b46c8f9377a2cfa7c6ce1}{com.\+smartlock.\+server.\+user\+Validator.\+service.\+User\+Validator\+Service}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+server/src/main/java/com/smartlock/server/user\+Validator/service/User\+Validator\+Service\+Impl.\+java\end{DoxyCompactItemize}

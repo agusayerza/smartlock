@@ -1,0 +1,41 @@
+\hypertarget{classcom_1_1smartlock_1_1server_1_1user_validator_1_1presentation_1_1controller_1_1_user_validator_resource}{}\doxysection{com.\+smartlock.\+server.\+user\+Validator.\+presentation.\+controller.\+User\+Validator\+Resource Class Reference}
+\label{classcom_1_1smartlock_1_1server_1_1user_validator_1_1presentation_1_1controller_1_1_user_validator_resource}\index{com.smartlock.server.userValidator.presentation.controller.UserValidatorResource@{com.smartlock.server.userValidator.presentation.controller.UserValidatorResource}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+Response\+Entity \mbox{\hyperlink{classcom_1_1smartlock_1_1server_1_1user_validator_1_1presentation_1_1controller_1_1_user_validator_resource_ab27fcf05bd9e7d9e92d0c1626dd0c758}{validate\+User\+And\+Lock}} (@Valid @Request\+Body \mbox{\hyperlink{classcom_1_1smartlock_1_1server_1_1user_validator_1_1presentation_1_1dto_1_1_user_lock_validator_dto}{User\+Lock\+Validator\+Dto}} user\+Lock\+Validator\+Dto)
+\begin{DoxyCompactList}\small\item\em Put request executed to add a Lock to your library. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classcom_1_1smartlock_1_1server_1_1user_validator_1_1presentation_1_1controller_1_1_user_validator_resource_ab27fcf05bd9e7d9e92d0c1626dd0c758}\label{classcom_1_1smartlock_1_1server_1_1user_validator_1_1presentation_1_1controller_1_1_user_validator_resource_ab27fcf05bd9e7d9e92d0c1626dd0c758}} 
+\index{com.smartlock.server.userValidator.presentation.controller.UserValidatorResource@{com.smartlock.server.userValidator.presentation.controller.UserValidatorResource}!validateUserAndLock@{validateUserAndLock}}
+\index{validateUserAndLock@{validateUserAndLock}!com.smartlock.server.userValidator.presentation.controller.UserValidatorResource@{com.smartlock.server.userValidator.presentation.controller.UserValidatorResource}}
+\doxysubsubsection{\texorpdfstring{validateUserAndLock()}{validateUserAndLock()}}
+{\footnotesize\ttfamily Response\+Entity com.\+smartlock.\+server.\+user\+Validator.\+presentation.\+controller.\+User\+Validator\+Resource.\+validate\+User\+And\+Lock (\begin{DoxyParamCaption}\item[{@Valid @Request\+Body \mbox{\hyperlink{classcom_1_1smartlock_1_1server_1_1user_validator_1_1presentation_1_1dto_1_1_user_lock_validator_dto}{User\+Lock\+Validator\+Dto}}}]{user\+Lock\+Validator\+Dto }\end{DoxyParamCaption})}
+
+
+
+Put request executed to add a Lock to your library. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em user\+Lock\+Validator\+Dto} & D\+TO that contains the
+\begin{DoxyCode}{1}
+\DoxyCodeLine{Lock }
+\end{DoxyCode}
+ desiered to be added as well as the code to validate the invite. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{ResponseEntity }
+\end{DoxyCode}
+ , OK if successful, B\+A\+D\+\_\+\+R\+E\+Q\+U\+E\+ST if the invitation was not found or the code was invalid. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+server/src/main/java/com/smartlock/server/user\+Validator/presentation/controller/User\+Validator\+Resource.\+java\end{DoxyCompactItemize}

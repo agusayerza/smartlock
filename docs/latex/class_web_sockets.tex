@@ -1,0 +1,345 @@
+\hypertarget{class_web_sockets}{}\doxysection{Web\+Sockets Class Reference}
+\label{class_web_sockets}\index{WebSockets@{WebSockets}}
+Inheritance diagram for Web\+Sockets\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_web_sockets}
+\end{center}
+\end{figure}
+\doxysubsection*{Protected Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_web_sockets_aa7b417850c73d949218640170501a034}\label{class_web_sockets_aa7b417850c73d949218640170501a034}} 
+typedef std\+::function$<$ void(\mbox{\hyperlink{struct_w_sclient__t}{W\+Sclient\+\_\+t}} $\ast$client, bool ok)$>$ {\bfseries W\+Sread\+Wait\+Cb}
+\item 
+\mbox{\Hypertarget{class_web_sockets_aa7b417850c73d949218640170501a034}\label{class_web_sockets_aa7b417850c73d949218640170501a034}} 
+typedef std\+::function$<$ void(\mbox{\hyperlink{struct_w_sclient__t}{W\+Sclient\+\_\+t}} $\ast$client, bool ok)$>$ {\bfseries W\+Sread\+Wait\+Cb}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_web_sockets_ac71be40da5b68cd5f806c79262825d81}\label{class_web_sockets_ac71be40da5b68cd5f806c79262825d81}} 
+virtual void {\bfseries client\+Disconnect} (\mbox{\hyperlink{struct_w_sclient__t}{W\+Sclient\+\_\+t}} $\ast$client)=0
+\item 
+\mbox{\Hypertarget{class_web_sockets_a499d5316c5c761ae9b5eab71f340471f}\label{class_web_sockets_a499d5316c5c761ae9b5eab71f340471f}} 
+virtual bool {\bfseries client\+Is\+Connected} (\mbox{\hyperlink{struct_w_sclient__t}{W\+Sclient\+\_\+t}} $\ast$client)=0
+\item 
+void \mbox{\hyperlink{class_web_sockets_a6fb344f85914671880d8dfc298e0ce82}{client\+Disconnect}} (\mbox{\hyperlink{struct_w_sclient__t}{W\+Sclient\+\_\+t}} $\ast$client, uint16\+\_\+t code, char $\ast$reason=N\+U\+LL, size\+\_\+t reason\+Len=0)
+\item 
+\mbox{\Hypertarget{class_web_sockets_a5e620f20d89164a963798b4ba304346f}\label{class_web_sockets_a5e620f20d89164a963798b4ba304346f}} 
+virtual void {\bfseries message\+Received} (\mbox{\hyperlink{struct_w_sclient__t}{W\+Sclient\+\_\+t}} $\ast$client, \mbox{\hyperlink{_web_socket_client_2_web_sockets_8h_a8e82378d8f2820a44ccddca0f46c4530}{W\+Sopcode\+\_\+t}} opcode, uint8\+\_\+t $\ast$payload, size\+\_\+t length, bool fin)=0
+\item 
+uint8\+\_\+t \mbox{\hyperlink{class_web_sockets_aa907bf0b3f0501f1331c9f6454e03fce}{create\+Header}} (uint8\+\_\+t $\ast$buf, \mbox{\hyperlink{_web_socket_client_2_web_sockets_8h_a8e82378d8f2820a44ccddca0f46c4530}{W\+Sopcode\+\_\+t}} opcode, size\+\_\+t length, bool mask, uint8\+\_\+t mask\+Key\mbox{[}4\mbox{]}, bool fin)
+\item 
+bool \mbox{\hyperlink{class_web_sockets_af8dc554fc7d21e0c0ce1fcf5f32c3176}{send\+Frame\+Header}} (\mbox{\hyperlink{struct_w_sclient__t}{W\+Sclient\+\_\+t}} $\ast$client, \mbox{\hyperlink{_web_socket_client_2_web_sockets_8h_a8e82378d8f2820a44ccddca0f46c4530}{W\+Sopcode\+\_\+t}} opcode, size\+\_\+t length=0, bool fin=true)
+\item 
+bool \mbox{\hyperlink{class_web_sockets_a12b4305bd58b17edbcfc6afa78a2a4a9}{send\+Frame}} (\mbox{\hyperlink{struct_w_sclient__t}{W\+Sclient\+\_\+t}} $\ast$client, \mbox{\hyperlink{_web_socket_client_2_web_sockets_8h_a8e82378d8f2820a44ccddca0f46c4530}{W\+Sopcode\+\_\+t}} opcode, uint8\+\_\+t $\ast$payload=N\+U\+LL, size\+\_\+t length=0, bool fin=true, bool header\+To\+Payload=false)
+\item 
+void \mbox{\hyperlink{class_web_sockets_a633de4ffbb5e6b7374fe6fc63db81894}{header\+Done}} (\mbox{\hyperlink{struct_w_sclient__t}{W\+Sclient\+\_\+t}} $\ast$client)
+\item 
+void \mbox{\hyperlink{class_web_sockets_a6516cd4d10eba36f7cbe3e3390164e04}{handle\+Websocket}} (\mbox{\hyperlink{struct_w_sclient__t}{W\+Sclient\+\_\+t}} $\ast$client)
+\item 
+bool \mbox{\hyperlink{class_web_sockets_a8eb124c70d040fcb15897646113d5986}{handle\+Websocket\+Wait\+For}} (\mbox{\hyperlink{struct_w_sclient__t}{W\+Sclient\+\_\+t}} $\ast$client, size\+\_\+t size)
+\item 
+\mbox{\Hypertarget{class_web_sockets_a55fff99d6e14a5aa2026e45b62aadf65}\label{class_web_sockets_a55fff99d6e14a5aa2026e45b62aadf65}} 
+void {\bfseries handle\+Websocket\+Cb} (\mbox{\hyperlink{struct_w_sclient__t}{W\+Sclient\+\_\+t}} $\ast$client)
+\item 
+\mbox{\Hypertarget{class_web_sockets_ac048328e9804287467cf15001f2b8d10}\label{class_web_sockets_ac048328e9804287467cf15001f2b8d10}} 
+void {\bfseries handle\+Websocket\+Payload\+Cb} (\mbox{\hyperlink{struct_w_sclient__t}{W\+Sclient\+\_\+t}} $\ast$client, bool ok, uint8\+\_\+t $\ast$payload)
+\item 
+String \mbox{\hyperlink{class_web_sockets_a669afbbfaafe8622aba3cbcbfffe7314}{accept\+Key}} (String \&client\+Key)
+\item 
+String \mbox{\hyperlink{class_web_sockets_aebad3cbf9ed3f50694fa9ad81979a0a0}{base64\+\_\+encode}} (uint8\+\_\+t $\ast$data, size\+\_\+t length)
+\item 
+bool \mbox{\hyperlink{class_web_sockets_abfe1285de491d5dd85ab7d65774405f2}{read\+Cb}} (\mbox{\hyperlink{struct_w_sclient__t}{W\+Sclient\+\_\+t}} $\ast$client, uint8\+\_\+t $\ast$out, size\+\_\+t n, W\+Sread\+Wait\+Cb cb)
+\item 
+virtual size\+\_\+t \mbox{\hyperlink{class_web_sockets_adf006969a5eff1462db3ebfb315b8188}{write}} (\mbox{\hyperlink{struct_w_sclient__t}{W\+Sclient\+\_\+t}} $\ast$client, uint8\+\_\+t $\ast$out, size\+\_\+t n)
+\item 
+\mbox{\Hypertarget{class_web_sockets_af14121708418b322045d0ca0ebd6d97b}\label{class_web_sockets_af14121708418b322045d0ca0ebd6d97b}} 
+size\+\_\+t {\bfseries write} (\mbox{\hyperlink{struct_w_sclient__t}{W\+Sclient\+\_\+t}} $\ast$client, const char $\ast$out)
+\item 
+void \mbox{\hyperlink{class_web_sockets_a40b3079c9cd7353088fdb41c028660a7}{enable\+Heartbeat}} (\mbox{\hyperlink{struct_w_sclient__t}{W\+Sclient\+\_\+t}} $\ast$client, uint32\+\_\+t ping\+Interval, uint32\+\_\+t pong\+Timeout, uint8\+\_\+t disconnect\+Timeout\+Count)
+\item 
+void \mbox{\hyperlink{class_web_sockets_a52fe7f10dd346f586d69c9357ec8ce5b}{handle\+H\+B\+Timeout}} (\mbox{\hyperlink{struct_w_sclient__t}{W\+Sclient\+\_\+t}} $\ast$client)
+\item 
+\mbox{\Hypertarget{class_web_sockets_ac71be40da5b68cd5f806c79262825d81}\label{class_web_sockets_ac71be40da5b68cd5f806c79262825d81}} 
+virtual void {\bfseries client\+Disconnect} (\mbox{\hyperlink{struct_w_sclient__t}{W\+Sclient\+\_\+t}} $\ast$client)=0
+\item 
+\mbox{\Hypertarget{class_web_sockets_a499d5316c5c761ae9b5eab71f340471f}\label{class_web_sockets_a499d5316c5c761ae9b5eab71f340471f}} 
+virtual bool {\bfseries client\+Is\+Connected} (\mbox{\hyperlink{struct_w_sclient__t}{W\+Sclient\+\_\+t}} $\ast$client)=0
+\item 
+\mbox{\Hypertarget{class_web_sockets_a6fb344f85914671880d8dfc298e0ce82}\label{class_web_sockets_a6fb344f85914671880d8dfc298e0ce82}} 
+void {\bfseries client\+Disconnect} (\mbox{\hyperlink{struct_w_sclient__t}{W\+Sclient\+\_\+t}} $\ast$client, uint16\+\_\+t code, char $\ast$reason=N\+U\+LL, size\+\_\+t reason\+Len=0)
+\item 
+\mbox{\Hypertarget{class_web_sockets_a5e620f20d89164a963798b4ba304346f}\label{class_web_sockets_a5e620f20d89164a963798b4ba304346f}} 
+virtual void {\bfseries message\+Received} (\mbox{\hyperlink{struct_w_sclient__t}{W\+Sclient\+\_\+t}} $\ast$client, \mbox{\hyperlink{_web_socket_client_2_web_sockets_8h_a8e82378d8f2820a44ccddca0f46c4530}{W\+Sopcode\+\_\+t}} opcode, uint8\+\_\+t $\ast$payload, size\+\_\+t length, bool fin)=0
+\item 
+\mbox{\Hypertarget{class_web_sockets_aa907bf0b3f0501f1331c9f6454e03fce}\label{class_web_sockets_aa907bf0b3f0501f1331c9f6454e03fce}} 
+uint8\+\_\+t {\bfseries create\+Header} (uint8\+\_\+t $\ast$buf, \mbox{\hyperlink{_web_socket_client_2_web_sockets_8h_a8e82378d8f2820a44ccddca0f46c4530}{W\+Sopcode\+\_\+t}} opcode, size\+\_\+t length, bool mask, uint8\+\_\+t mask\+Key\mbox{[}4\mbox{]}, bool fin)
+\item 
+\mbox{\Hypertarget{class_web_sockets_af8dc554fc7d21e0c0ce1fcf5f32c3176}\label{class_web_sockets_af8dc554fc7d21e0c0ce1fcf5f32c3176}} 
+bool {\bfseries send\+Frame\+Header} (\mbox{\hyperlink{struct_w_sclient__t}{W\+Sclient\+\_\+t}} $\ast$client, \mbox{\hyperlink{_web_socket_client_2_web_sockets_8h_a8e82378d8f2820a44ccddca0f46c4530}{W\+Sopcode\+\_\+t}} opcode, size\+\_\+t length=0, bool fin=true)
+\item 
+\mbox{\Hypertarget{class_web_sockets_a12b4305bd58b17edbcfc6afa78a2a4a9}\label{class_web_sockets_a12b4305bd58b17edbcfc6afa78a2a4a9}} 
+bool {\bfseries send\+Frame} (\mbox{\hyperlink{struct_w_sclient__t}{W\+Sclient\+\_\+t}} $\ast$client, \mbox{\hyperlink{_web_socket_client_2_web_sockets_8h_a8e82378d8f2820a44ccddca0f46c4530}{W\+Sopcode\+\_\+t}} opcode, uint8\+\_\+t $\ast$payload=N\+U\+LL, size\+\_\+t length=0, bool fin=true, bool header\+To\+Payload=false)
+\item 
+\mbox{\Hypertarget{class_web_sockets_a633de4ffbb5e6b7374fe6fc63db81894}\label{class_web_sockets_a633de4ffbb5e6b7374fe6fc63db81894}} 
+void {\bfseries header\+Done} (\mbox{\hyperlink{struct_w_sclient__t}{W\+Sclient\+\_\+t}} $\ast$client)
+\item 
+\mbox{\Hypertarget{class_web_sockets_a6516cd4d10eba36f7cbe3e3390164e04}\label{class_web_sockets_a6516cd4d10eba36f7cbe3e3390164e04}} 
+void {\bfseries handle\+Websocket} (\mbox{\hyperlink{struct_w_sclient__t}{W\+Sclient\+\_\+t}} $\ast$client)
+\item 
+\mbox{\Hypertarget{class_web_sockets_a8eb124c70d040fcb15897646113d5986}\label{class_web_sockets_a8eb124c70d040fcb15897646113d5986}} 
+bool {\bfseries handle\+Websocket\+Wait\+For} (\mbox{\hyperlink{struct_w_sclient__t}{W\+Sclient\+\_\+t}} $\ast$client, size\+\_\+t size)
+\item 
+\mbox{\Hypertarget{class_web_sockets_a55fff99d6e14a5aa2026e45b62aadf65}\label{class_web_sockets_a55fff99d6e14a5aa2026e45b62aadf65}} 
+void {\bfseries handle\+Websocket\+Cb} (\mbox{\hyperlink{struct_w_sclient__t}{W\+Sclient\+\_\+t}} $\ast$client)
+\item 
+\mbox{\Hypertarget{class_web_sockets_ac048328e9804287467cf15001f2b8d10}\label{class_web_sockets_ac048328e9804287467cf15001f2b8d10}} 
+void {\bfseries handle\+Websocket\+Payload\+Cb} (\mbox{\hyperlink{struct_w_sclient__t}{W\+Sclient\+\_\+t}} $\ast$client, bool ok, uint8\+\_\+t $\ast$payload)
+\item 
+\mbox{\Hypertarget{class_web_sockets_a669afbbfaafe8622aba3cbcbfffe7314}\label{class_web_sockets_a669afbbfaafe8622aba3cbcbfffe7314}} 
+String {\bfseries accept\+Key} (String \&client\+Key)
+\item 
+\mbox{\Hypertarget{class_web_sockets_aebad3cbf9ed3f50694fa9ad81979a0a0}\label{class_web_sockets_aebad3cbf9ed3f50694fa9ad81979a0a0}} 
+String {\bfseries base64\+\_\+encode} (uint8\+\_\+t $\ast$data, size\+\_\+t length)
+\item 
+\mbox{\Hypertarget{class_web_sockets_abfe1285de491d5dd85ab7d65774405f2}\label{class_web_sockets_abfe1285de491d5dd85ab7d65774405f2}} 
+bool {\bfseries read\+Cb} (\mbox{\hyperlink{struct_w_sclient__t}{W\+Sclient\+\_\+t}} $\ast$client, uint8\+\_\+t $\ast$out, size\+\_\+t n, W\+Sread\+Wait\+Cb cb)
+\item 
+\mbox{\Hypertarget{class_web_sockets_a45cccbb55164cc4a64daa83e4cb612f5}\label{class_web_sockets_a45cccbb55164cc4a64daa83e4cb612f5}} 
+virtual size\+\_\+t {\bfseries write} (\mbox{\hyperlink{struct_w_sclient__t}{W\+Sclient\+\_\+t}} $\ast$client, uint8\+\_\+t $\ast$out, size\+\_\+t n)
+\item 
+\mbox{\Hypertarget{class_web_sockets_af14121708418b322045d0ca0ebd6d97b}\label{class_web_sockets_af14121708418b322045d0ca0ebd6d97b}} 
+size\+\_\+t {\bfseries write} (\mbox{\hyperlink{struct_w_sclient__t}{W\+Sclient\+\_\+t}} $\ast$client, const char $\ast$out)
+\item 
+\mbox{\Hypertarget{class_web_sockets_a40b3079c9cd7353088fdb41c028660a7}\label{class_web_sockets_a40b3079c9cd7353088fdb41c028660a7}} 
+void {\bfseries enable\+Heartbeat} (\mbox{\hyperlink{struct_w_sclient__t}{W\+Sclient\+\_\+t}} $\ast$client, uint32\+\_\+t ping\+Interval, uint32\+\_\+t pong\+Timeout, uint8\+\_\+t disconnect\+Timeout\+Count)
+\item 
+\mbox{\Hypertarget{class_web_sockets_a52fe7f10dd346f586d69c9357ec8ce5b}\label{class_web_sockets_a52fe7f10dd346f586d69c9357ec8ce5b}} 
+void {\bfseries handle\+H\+B\+Timeout} (\mbox{\hyperlink{struct_w_sclient__t}{W\+Sclient\+\_\+t}} $\ast$client)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_web_sockets_a669afbbfaafe8622aba3cbcbfffe7314}\label{class_web_sockets_a669afbbfaafe8622aba3cbcbfffe7314}} 
+\index{WebSockets@{WebSockets}!acceptKey@{acceptKey}}
+\index{acceptKey@{acceptKey}!WebSockets@{WebSockets}}
+\doxysubsubsection{\texorpdfstring{acceptKey()}{acceptKey()}}
+{\footnotesize\ttfamily String Web\+Sockets\+::accept\+Key (\begin{DoxyParamCaption}\item[{String \&}]{client\+Key }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+generate the key for Sec-\/\+Web\+Socket-\/\+Accept 
+\begin{DoxyParams}{Parameters}
+{\em client\+Key} & String \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+String Accept Key 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_web_sockets_aebad3cbf9ed3f50694fa9ad81979a0a0}\label{class_web_sockets_aebad3cbf9ed3f50694fa9ad81979a0a0}} 
+\index{WebSockets@{WebSockets}!base64\_encode@{base64\_encode}}
+\index{base64\_encode@{base64\_encode}!WebSockets@{WebSockets}}
+\doxysubsubsection{\texorpdfstring{base64\_encode()}{base64\_encode()}}
+{\footnotesize\ttfamily String Web\+Sockets\+::base64\+\_\+encode (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{data,  }\item[{size\+\_\+t}]{length }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+base64\+\_\+encode 
+\begin{DoxyParams}{Parameters}
+{\em data} & uint8\+\_\+t $\ast$ \\
+\hline
+{\em length} & size\+\_\+t \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+base64 encoded String 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_web_sockets_a6fb344f85914671880d8dfc298e0ce82}\label{class_web_sockets_a6fb344f85914671880d8dfc298e0ce82}} 
+\index{WebSockets@{WebSockets}!clientDisconnect@{clientDisconnect}}
+\index{clientDisconnect@{clientDisconnect}!WebSockets@{WebSockets}}
+\doxysubsubsection{\texorpdfstring{clientDisconnect()}{clientDisconnect()}}
+{\footnotesize\ttfamily void Web\+Sockets\+::client\+Disconnect (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_w_sclient__t}{W\+Sclient\+\_\+t}} $\ast$}]{client,  }\item[{uint16\+\_\+t}]{code,  }\item[{char $\ast$}]{reason = {\ttfamily NULL},  }\item[{size\+\_\+t}]{reason\+Len = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em client} & \mbox{\hyperlink{struct_w_sclient__t}{W\+Sclient\+\_\+t}} $\ast$ ptr to the client struct \\
+\hline
+{\em code} & uint16\+\_\+t see R\+FC \\
+\hline
+{\em reason} & ptr to the disconnect reason message \\
+\hline
+{\em reason\+Len} & length of the disconnect reason message \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_web_sockets_aa907bf0b3f0501f1331c9f6454e03fce}\label{class_web_sockets_aa907bf0b3f0501f1331c9f6454e03fce}} 
+\index{WebSockets@{WebSockets}!createHeader@{createHeader}}
+\index{createHeader@{createHeader}!WebSockets@{WebSockets}}
+\doxysubsubsection{\texorpdfstring{createHeader()}{createHeader()}}
+{\footnotesize\ttfamily uint8\+\_\+t Web\+Sockets\+::create\+Header (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{header\+Ptr,  }\item[{\mbox{\hyperlink{_web_socket_client_2_web_sockets_8h_a8e82378d8f2820a44ccddca0f46c4530}{W\+Sopcode\+\_\+t}}}]{opcode,  }\item[{size\+\_\+t}]{length,  }\item[{bool}]{mask,  }\item[{uint8\+\_\+t}]{mask\+Key\mbox{[}4\mbox{]},  }\item[{bool}]{fin }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em buf} & uint8\+\_\+t $\ast$ ptr to the buffer for writing \\
+\hline
+{\em opcode} & W\+Sopcode\+\_\+t \\
+\hline
+{\em length} & size\+\_\+t length of the payload \\
+\hline
+{\em mask} & bool add dummy mask to the frame (needed for web browser) \\
+\hline
+{\em maskkey} & uint8\+\_\+t\mbox{[}4\mbox{]} key used for payload \\
+\hline
+{\em fin} & bool can be used to send data in more then one frame (set fin on the last frame) \\
+\hline
+\end{DoxyParams}
+$<$ set Fin
+
+$<$ set opcode
+
+$<$ set mask\mbox{\Hypertarget{class_web_sockets_a40b3079c9cd7353088fdb41c028660a7}\label{class_web_sockets_a40b3079c9cd7353088fdb41c028660a7}} 
+\index{WebSockets@{WebSockets}!enableHeartbeat@{enableHeartbeat}}
+\index{enableHeartbeat@{enableHeartbeat}!WebSockets@{WebSockets}}
+\doxysubsubsection{\texorpdfstring{enableHeartbeat()}{enableHeartbeat()}}
+{\footnotesize\ttfamily void Web\+Sockets\+::enable\+Heartbeat (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_w_sclient__t}{W\+Sclient\+\_\+t}} $\ast$}]{client,  }\item[{uint32\+\_\+t}]{ping\+Interval,  }\item[{uint32\+\_\+t}]{pong\+Timeout,  }\item[{uint8\+\_\+t}]{disconnect\+Timeout\+Count }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+enable ping/pong heartbeat process 
+\begin{DoxyParams}{Parameters}
+{\em client} & \mbox{\hyperlink{struct_w_sclient__t}{W\+Sclient\+\_\+t}} $\ast$ \\
+\hline
+{\em ping\+Interval} & uint32\+\_\+t how often ping will be sent \\
+\hline
+{\em pong\+Timeout} & uint32\+\_\+t millis after which pong should timout if not received \\
+\hline
+{\em disconnect\+Timeout\+Count} & uint8\+\_\+t how many timeouts before disconnect, 0=$>$ do not disconnect \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_web_sockets_a52fe7f10dd346f586d69c9357ec8ce5b}\label{class_web_sockets_a52fe7f10dd346f586d69c9357ec8ce5b}} 
+\index{WebSockets@{WebSockets}!handleHBTimeout@{handleHBTimeout}}
+\index{handleHBTimeout@{handleHBTimeout}!WebSockets@{WebSockets}}
+\doxysubsubsection{\texorpdfstring{handleHBTimeout()}{handleHBTimeout()}}
+{\footnotesize\ttfamily void Web\+Sockets\+::handle\+H\+B\+Timeout (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_w_sclient__t}{W\+Sclient\+\_\+t}} $\ast$}]{client }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+handle ping/pong heartbeat timeout process 
+\begin{DoxyParams}{Parameters}
+{\em client} & \mbox{\hyperlink{struct_w_sclient__t}{W\+Sclient\+\_\+t}} $\ast$ \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_web_sockets_a6516cd4d10eba36f7cbe3e3390164e04}\label{class_web_sockets_a6516cd4d10eba36f7cbe3e3390164e04}} 
+\index{WebSockets@{WebSockets}!handleWebsocket@{handleWebsocket}}
+\index{handleWebsocket@{handleWebsocket}!WebSockets@{WebSockets}}
+\doxysubsubsection{\texorpdfstring{handleWebsocket()}{handleWebsocket()}}
+{\footnotesize\ttfamily void Web\+Sockets\+::handle\+Websocket (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_w_sclient__t}{W\+Sclient\+\_\+t}} $\ast$}]{client }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+handle the Web\+Socket stream 
+\begin{DoxyParams}{Parameters}
+{\em client} & \mbox{\hyperlink{struct_w_sclient__t}{W\+Sclient\+\_\+t}} $\ast$ ptr to the client struct \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_web_sockets_a8eb124c70d040fcb15897646113d5986}\label{class_web_sockets_a8eb124c70d040fcb15897646113d5986}} 
+\index{WebSockets@{WebSockets}!handleWebsocketWaitFor@{handleWebsocketWaitFor}}
+\index{handleWebsocketWaitFor@{handleWebsocketWaitFor}!WebSockets@{WebSockets}}
+\doxysubsubsection{\texorpdfstring{handleWebsocketWaitFor()}{handleWebsocketWaitFor()}}
+{\footnotesize\ttfamily bool Web\+Sockets\+::handle\+Websocket\+Wait\+For (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_w_sclient__t}{W\+Sclient\+\_\+t}} $\ast$}]{client,  }\item[{size\+\_\+t}]{size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+wait for 
+\begin{DoxyParams}{Parameters}
+{\em client} & \\
+\hline
+{\em size} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_web_sockets_a633de4ffbb5e6b7374fe6fc63db81894}\label{class_web_sockets_a633de4ffbb5e6b7374fe6fc63db81894}} 
+\index{WebSockets@{WebSockets}!headerDone@{headerDone}}
+\index{headerDone@{headerDone}!WebSockets@{WebSockets}}
+\doxysubsubsection{\texorpdfstring{headerDone()}{headerDone()}}
+{\footnotesize\ttfamily void Web\+Sockets\+::header\+Done (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_w_sclient__t}{W\+Sclient\+\_\+t}} $\ast$}]{client }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+callen when H\+T\+TP header is done 
+\begin{DoxyParams}{Parameters}
+{\em client} & \mbox{\hyperlink{struct_w_sclient__t}{W\+Sclient\+\_\+t}} $\ast$ ptr to the client struct \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_web_sockets_abfe1285de491d5dd85ab7d65774405f2}\label{class_web_sockets_abfe1285de491d5dd85ab7d65774405f2}} 
+\index{WebSockets@{WebSockets}!readCb@{readCb}}
+\index{readCb@{readCb}!WebSockets@{WebSockets}}
+\doxysubsubsection{\texorpdfstring{readCb()}{readCb()}}
+{\footnotesize\ttfamily bool Web\+Sockets\+::read\+Cb (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_w_sclient__t}{W\+Sclient\+\_\+t}} $\ast$}]{client,  }\item[{uint8\+\_\+t $\ast$}]{out,  }\item[{size\+\_\+t}]{n,  }\item[{W\+Sread\+Wait\+Cb}]{cb }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+read x byte from tcp or get timeout 
+\begin{DoxyParams}{Parameters}
+{\em client} & \mbox{\hyperlink{struct_w_sclient__t}{W\+Sclient\+\_\+t}} $\ast$ \\
+\hline
+{\em out} & uint8\+\_\+t $\ast$ data buffer \\
+\hline
+{\em n} & size\+\_\+t byte count \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if ok 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_web_sockets_a12b4305bd58b17edbcfc6afa78a2a4a9}\label{class_web_sockets_a12b4305bd58b17edbcfc6afa78a2a4a9}} 
+\index{WebSockets@{WebSockets}!sendFrame@{sendFrame}}
+\index{sendFrame@{sendFrame}!WebSockets@{WebSockets}}
+\doxysubsubsection{\texorpdfstring{sendFrame()}{sendFrame()}}
+{\footnotesize\ttfamily bool Web\+Sockets\+::send\+Frame (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_w_sclient__t}{W\+Sclient\+\_\+t}} $\ast$}]{client,  }\item[{\mbox{\hyperlink{_web_socket_client_2_web_sockets_8h_a8e82378d8f2820a44ccddca0f46c4530}{W\+Sopcode\+\_\+t}}}]{opcode,  }\item[{uint8\+\_\+t $\ast$}]{payload = {\ttfamily NULL},  }\item[{size\+\_\+t}]{length = {\ttfamily 0},  }\item[{bool}]{fin = {\ttfamily true},  }\item[{bool}]{header\+To\+Payload = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em client} & \mbox{\hyperlink{struct_w_sclient__t}{W\+Sclient\+\_\+t}} $\ast$ ptr to the client struct \\
+\hline
+{\em opcode} & W\+Sopcode\+\_\+t \\
+\hline
+{\em payload} & uint8\+\_\+t $\ast$ ptr to the payload \\
+\hline
+{\em length} & size\+\_\+t length of the payload \\
+\hline
+{\em fin} & bool can be used to send data in more then one frame (set fin on the last frame) \\
+\hline
+{\em header\+To\+Payload} & bool set true if the payload has reserved 14 Byte at the beginning to dynamically add the Header (payload neet to be in R\+A\+M!) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if ok 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_web_sockets_af8dc554fc7d21e0c0ce1fcf5f32c3176}\label{class_web_sockets_af8dc554fc7d21e0c0ce1fcf5f32c3176}} 
+\index{WebSockets@{WebSockets}!sendFrameHeader@{sendFrameHeader}}
+\index{sendFrameHeader@{sendFrameHeader}!WebSockets@{WebSockets}}
+\doxysubsubsection{\texorpdfstring{sendFrameHeader()}{sendFrameHeader()}}
+{\footnotesize\ttfamily bool Web\+Sockets\+::send\+Frame\+Header (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_w_sclient__t}{W\+Sclient\+\_\+t}} $\ast$}]{client,  }\item[{\mbox{\hyperlink{_web_socket_client_2_web_sockets_8h_a8e82378d8f2820a44ccddca0f46c4530}{W\+Sopcode\+\_\+t}}}]{opcode,  }\item[{size\+\_\+t}]{length = {\ttfamily 0},  }\item[{bool}]{fin = {\ttfamily true} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em client} & \mbox{\hyperlink{struct_w_sclient__t}{W\+Sclient\+\_\+t}} $\ast$ ptr to the client struct \\
+\hline
+{\em opcode} & W\+Sopcode\+\_\+t \\
+\hline
+{\em length} & size\+\_\+t length of the payload \\
+\hline
+{\em fin} & bool can be used to send data in more then one frame (set fin on the last frame) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if ok 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_web_sockets_adf006969a5eff1462db3ebfb315b8188}\label{class_web_sockets_adf006969a5eff1462db3ebfb315b8188}} 
+\index{WebSockets@{WebSockets}!write@{write}}
+\index{write@{write}!WebSockets@{WebSockets}}
+\doxysubsubsection{\texorpdfstring{write()}{write()}}
+{\footnotesize\ttfamily size\+\_\+t Web\+Sockets\+::write (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_w_sclient__t}{W\+Sclient\+\_\+t}} $\ast$}]{client,  }\item[{uint8\+\_\+t $\ast$}]{out,  }\item[{size\+\_\+t}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+write x byte to tcp or get timeout 
+\begin{DoxyParams}{Parameters}
+{\em client} & \mbox{\hyperlink{struct_w_sclient__t}{W\+Sclient\+\_\+t}} $\ast$ \\
+\hline
+{\em out} & uint8\+\_\+t $\ast$ data buffer \\
+\hline
+{\em n} & size\+\_\+t byte count \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bytes send 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+stomp\+Client-\/old/\+Web\+Socket\+Client/\mbox{\hyperlink{_web_socket_client_2_web_sockets_8h}{Web\+Sockets.\+h}}\item 
+stomp\+Client-\/old/\+Web\+Socket\+Client/\mbox{\hyperlink{_web_sockets_8cpp}{Web\+Sockets.\+cpp}}\end{DoxyCompactItemize}

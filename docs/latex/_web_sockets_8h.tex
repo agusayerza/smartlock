@@ -1,0 +1,206 @@
+\hypertarget{_web_sockets_8h}{}\doxysection{stomp\+Client-\/old/\+Web\+Sockets.h File Reference}
+\label{_web_sockets_8h}\index{stompClient-\/old/WebSockets.h@{stompClient-\/old/WebSockets.h}}
+{\ttfamily \#include $<$Arduino.\+h$>$}\newline
+{\ttfamily \#include $<$I\+P\+Address.\+h$>$}\newline
+{\ttfamily \#include $<$functional$>$}\newline
+{\ttfamily \#include $<$Ethernet.\+h$>$}\newline
+{\ttfamily \#include $<$S\+P\+I.\+h$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_w_s_message_header__t}{W\+S\+Message\+Header\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{struct_w_sclient__t}{W\+Sclient\+\_\+t}}
+\item 
+class \mbox{\hyperlink{class_web_sockets}{Web\+Sockets}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{_web_sockets_8h_a8e4c2d27eeb8ae38fb351d9304bf21dd}\label{_web_sockets_8h_a8e4c2d27eeb8ae38fb351d9304bf21dd}} 
+\#define {\bfseries D\+E\+B\+U\+G\+\_\+\+W\+E\+B\+S\+O\+C\+K\+E\+TS}(...)
+\item 
+\mbox{\Hypertarget{_web_sockets_8h_a4247e3e1abac4d231ec0ea0c61285911}\label{_web_sockets_8h_a4247e3e1abac4d231ec0ea0c61285911}} 
+\#define {\bfseries N\+O\+D\+E\+B\+U\+G\+\_\+\+W\+E\+B\+S\+O\+C\+K\+E\+TS}
+\item 
+\mbox{\Hypertarget{_web_sockets_8h_aca7ccd94b519f760c88c83cb5c4f83b7}\label{_web_sockets_8h_aca7ccd94b519f760c88c83cb5c4f83b7}} 
+\#define {\bfseries W\+E\+B\+S\+O\+C\+K\+E\+T\+S\+\_\+\+M\+A\+X\+\_\+\+D\+A\+T\+A\+\_\+\+S\+I\+ZE}~(1024)
+\item 
+\mbox{\Hypertarget{_web_sockets_8h_a41026a584d7f1122294aec48e103bc8c}\label{_web_sockets_8h_a41026a584d7f1122294aec48e103bc8c}} 
+\#define {\bfseries W\+E\+B\+S\+O\+C\+K\+E\+T\+S\+\_\+\+S\+A\+V\+E\+\_\+\+R\+AM}
+\item 
+\mbox{\Hypertarget{_web_sockets_8h_a47d3af99328a40a5b1df8b38b0282561}\label{_web_sockets_8h_a47d3af99328a40a5b1df8b38b0282561}} 
+\#define {\bfseries W\+E\+B\+S\+O\+C\+K\+E\+T\+S\+\_\+\+T\+C\+P\+\_\+\+T\+I\+M\+E\+O\+UT}~(2000)
+\item 
+\mbox{\Hypertarget{_web_sockets_8h_aa3263fb6eae3a2fcfef3782db6c7036b}\label{_web_sockets_8h_aa3263fb6eae3a2fcfef3782db6c7036b}} 
+\#define {\bfseries N\+E\+T\+W\+O\+R\+K\+\_\+\+E\+S\+P8266\+\_\+\+A\+S\+Y\+NC}~(0)
+\item 
+\mbox{\Hypertarget{_web_sockets_8h_a86bec1b5ab57a2b238261fceeb691d5f}\label{_web_sockets_8h_a86bec1b5ab57a2b238261fceeb691d5f}} 
+\#define {\bfseries N\+E\+T\+W\+O\+R\+K\+\_\+\+E\+S\+P8266}~(1)
+\item 
+\mbox{\Hypertarget{_web_sockets_8h_ae057b41fd8a251a86ad33237f7c9e19a}\label{_web_sockets_8h_ae057b41fd8a251a86ad33237f7c9e19a}} 
+\#define {\bfseries N\+E\+T\+W\+O\+R\+K\+\_\+\+W5100}~(2)
+\item 
+\mbox{\Hypertarget{_web_sockets_8h_ad873c5a8df160de76fabc2692038f7f9}\label{_web_sockets_8h_ad873c5a8df160de76fabc2692038f7f9}} 
+\#define {\bfseries N\+E\+T\+W\+O\+R\+K\+\_\+\+E\+N\+C28\+J60}~(3)
+\item 
+\mbox{\Hypertarget{_web_sockets_8h_ac6fb402cc5310ef78338f6e676b0e921}\label{_web_sockets_8h_ac6fb402cc5310ef78338f6e676b0e921}} 
+\#define {\bfseries N\+E\+T\+W\+O\+R\+K\+\_\+\+E\+S\+P32}~(4)
+\item 
+\mbox{\Hypertarget{_web_sockets_8h_a1ed91f2b633455a480364dfa7da832ba}\label{_web_sockets_8h_a1ed91f2b633455a480364dfa7da832ba}} 
+\#define {\bfseries N\+E\+T\+W\+O\+R\+K\+\_\+\+E\+S\+P32\+\_\+\+E\+TH}~(5)
+\item 
+\mbox{\Hypertarget{_web_sockets_8h_a24d3817050a9027779cec5c6f0f7dea6}\label{_web_sockets_8h_a24d3817050a9027779cec5c6f0f7dea6}} 
+\#define {\bfseries W\+E\+B\+S\+O\+C\+K\+E\+T\+S\+\_\+\+M\+A\+X\+\_\+\+H\+E\+A\+D\+E\+R\+\_\+\+S\+I\+ZE}~(14)
+\item 
+\mbox{\Hypertarget{_web_sockets_8h_adb4dc86978c950463d5cddf4dfe30c89}\label{_web_sockets_8h_adb4dc86978c950463d5cddf4dfe30c89}} 
+\#define {\bfseries W\+E\+B\+S\+O\+C\+K\+E\+T\+S\+\_\+\+N\+E\+T\+W\+O\+R\+K\+\_\+\+T\+Y\+PE}~N\+E\+T\+W\+O\+R\+K\+\_\+\+W5100
+\item 
+\mbox{\Hypertarget{_web_sockets_8h_a64486bf8280f4eaeb798fe4fb33d1bf2}\label{_web_sockets_8h_a64486bf8280f4eaeb798fe4fb33d1bf2}} 
+\#define {\bfseries W\+E\+B\+S\+O\+C\+K\+E\+T\+S\+\_\+\+N\+E\+T\+W\+O\+R\+K\+\_\+\+C\+L\+A\+SS}~Ethernet\+Client
+\item 
+\mbox{\Hypertarget{_web_sockets_8h_ae72418a5c026ffb6986fe494848c773a}\label{_web_sockets_8h_ae72418a5c026ffb6986fe494848c773a}} 
+\#define {\bfseries W\+E\+B\+S\+O\+C\+K\+E\+T\+S\+\_\+\+N\+E\+T\+W\+O\+R\+K\+\_\+\+S\+E\+R\+V\+E\+R\+\_\+\+C\+L\+A\+SS}~Ethernet\+Server
+\item 
+\mbox{\Hypertarget{_web_sockets_8h_aee9fa62ae1e021a1c752dc3e0fd3d5a4}\label{_web_sockets_8h_aee9fa62ae1e021a1c752dc3e0fd3d5a4}} 
+\#define {\bfseries W\+E\+B\+S\+O\+C\+K\+E\+T\+S\+\_\+\+S\+T\+R\+I\+NG}(var)~F(var)
+\item 
+\mbox{\Hypertarget{_web_sockets_8h_a5f64c424fc4e04a8b3afd79a1e245625}\label{_web_sockets_8h_a5f64c424fc4e04a8b3afd79a1e245625}} 
+\#define {\bfseries U\+N\+U\+S\+ED}(var)~(void)(var)
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{_web_sockets_8h_aa4aac24412977410215cdeb56ba98b03}\label{_web_sockets_8h_aa4aac24412977410215cdeb56ba98b03}} 
+enum {\bfseries W\+Sclients\+Status\+\_\+t} \{ \newline
+{\bfseries W\+S\+C\+\_\+\+N\+O\+T\+\_\+\+C\+O\+N\+N\+E\+C\+T\+ED}, 
+{\bfseries W\+S\+C\+\_\+\+H\+E\+A\+D\+ER}, 
+{\bfseries W\+S\+C\+\_\+\+C\+O\+N\+N\+E\+C\+T\+ED}, 
+{\bfseries W\+S\+C\+\_\+\+N\+O\+T\+\_\+\+C\+O\+N\+N\+E\+C\+T\+ED}, 
+\newline
+{\bfseries W\+S\+C\+\_\+\+H\+E\+A\+D\+ER}, 
+{\bfseries W\+S\+C\+\_\+\+C\+O\+N\+N\+E\+C\+T\+ED}
+ \}
+\item 
+\mbox{\Hypertarget{_web_sockets_8h_a8f5cf9f5491abc080114823bc87fa9b5}\label{_web_sockets_8h_a8f5cf9f5491abc080114823bc87fa9b5}} 
+enum {\bfseries W\+Stype\+\_\+t} \{ \newline
+{\bfseries W\+Stype\+\_\+\+E\+R\+R\+OR}, 
+{\bfseries W\+Stype\+\_\+\+D\+I\+S\+C\+O\+N\+N\+E\+C\+T\+ED}, 
+{\bfseries W\+Stype\+\_\+\+C\+O\+N\+N\+E\+C\+T\+ED}, 
+{\bfseries W\+Stype\+\_\+\+T\+E\+XT}, 
+\newline
+{\bfseries W\+Stype\+\_\+\+B\+IN}, 
+{\bfseries W\+Stype\+\_\+\+F\+R\+A\+G\+M\+E\+N\+T\+\_\+\+T\+E\+X\+T\+\_\+\+S\+T\+A\+RT}, 
+{\bfseries W\+Stype\+\_\+\+F\+R\+A\+G\+M\+E\+N\+T\+\_\+\+B\+I\+N\+\_\+\+S\+T\+A\+RT}, 
+{\bfseries W\+Stype\+\_\+\+F\+R\+A\+G\+M\+E\+NT}, 
+\newline
+{\bfseries W\+Stype\+\_\+\+F\+R\+A\+G\+M\+E\+N\+T\+\_\+\+F\+IN}, 
+{\bfseries W\+Stype\+\_\+\+P\+I\+NG}, 
+{\bfseries W\+Stype\+\_\+\+P\+O\+NG}, 
+{\bfseries W\+Stype\+\_\+\+E\+R\+R\+OR}, 
+\newline
+{\bfseries W\+Stype\+\_\+\+D\+I\+S\+C\+O\+N\+N\+E\+C\+T\+ED}, 
+{\bfseries W\+Stype\+\_\+\+C\+O\+N\+N\+E\+C\+T\+ED}, 
+{\bfseries W\+Stype\+\_\+\+T\+E\+XT}, 
+{\bfseries W\+Stype\+\_\+\+B\+IN}, 
+\newline
+{\bfseries W\+Stype\+\_\+\+F\+R\+A\+G\+M\+E\+N\+T\+\_\+\+T\+E\+X\+T\+\_\+\+S\+T\+A\+RT}, 
+{\bfseries W\+Stype\+\_\+\+F\+R\+A\+G\+M\+E\+N\+T\+\_\+\+B\+I\+N\+\_\+\+S\+T\+A\+RT}, 
+{\bfseries W\+Stype\+\_\+\+F\+R\+A\+G\+M\+E\+NT}, 
+{\bfseries W\+Stype\+\_\+\+F\+R\+A\+G\+M\+E\+N\+T\+\_\+\+F\+IN}, 
+\newline
+{\bfseries W\+Stype\+\_\+\+P\+I\+NG}, 
+{\bfseries W\+Stype\+\_\+\+P\+O\+NG}
+ \}
+\item 
+enum \mbox{\hyperlink{_web_sockets_8h_a8e82378d8f2820a44ccddca0f46c4530}{W\+Sopcode\+\_\+t}} \{ \newline
+\mbox{\hyperlink{_web_socket_client_2_web_sockets_8h_a8e82378d8f2820a44ccddca0f46c4530a350b2125a6ee6076958894e2a557d234}{W\+Sop\+\_\+continuation}} = 0x00, 
+\mbox{\hyperlink{_web_socket_client_2_web_sockets_8h_a8e82378d8f2820a44ccddca0f46c4530aa409e8ab854038ec55ba2c17d8510ddf}{W\+Sop\+\_\+text}} = 0x01, 
+\mbox{\hyperlink{_web_socket_client_2_web_sockets_8h_a8e82378d8f2820a44ccddca0f46c4530ab782399011cdb5db740c0f14473768e2}{W\+Sop\+\_\+binary}} = 0x02, 
+\mbox{\hyperlink{_web_socket_client_2_web_sockets_8h_a8e82378d8f2820a44ccddca0f46c4530aefd9b7329a1fea754fe1c6bca2f4afa3}{W\+Sop\+\_\+close}} = 0x08, 
+\newline
+\mbox{\hyperlink{_web_socket_client_2_web_sockets_8h_a8e82378d8f2820a44ccddca0f46c4530ae376703fdafe875eb5d35e0c35ea2bfa}{W\+Sop\+\_\+ping}} = 0x09, 
+\mbox{\hyperlink{_web_socket_client_2_web_sockets_8h_a8e82378d8f2820a44ccddca0f46c4530a717d2b49dee71feeb6aa6ff90378b281}{W\+Sop\+\_\+pong}} = 0x0A, 
+\mbox{\hyperlink{_web_sockets_8h_a8e82378d8f2820a44ccddca0f46c4530a350b2125a6ee6076958894e2a557d234}{W\+Sop\+\_\+continuation}} = 0x00, 
+\mbox{\hyperlink{_web_sockets_8h_a8e82378d8f2820a44ccddca0f46c4530aa409e8ab854038ec55ba2c17d8510ddf}{W\+Sop\+\_\+text}} = 0x01, 
+\newline
+\mbox{\hyperlink{_web_sockets_8h_a8e82378d8f2820a44ccddca0f46c4530ab782399011cdb5db740c0f14473768e2}{W\+Sop\+\_\+binary}} = 0x02, 
+\mbox{\hyperlink{_web_sockets_8h_a8e82378d8f2820a44ccddca0f46c4530aefd9b7329a1fea754fe1c6bca2f4afa3}{W\+Sop\+\_\+close}} = 0x08, 
+\mbox{\hyperlink{_web_sockets_8h_a8e82378d8f2820a44ccddca0f46c4530ae376703fdafe875eb5d35e0c35ea2bfa}{W\+Sop\+\_\+ping}} = 0x09, 
+\mbox{\hyperlink{_web_sockets_8h_a8e82378d8f2820a44ccddca0f46c4530a717d2b49dee71feeb6aa6ff90378b281}{W\+Sop\+\_\+pong}} = 0x0A
+ \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyDate}{Date}
+20.\+05.\+2015 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Markus Sattler
+\end{DoxyAuthor}
+Copyright (c) 2015 Markus Sattler. All rights reserved. This file is part of the \mbox{\hyperlink{class_web_sockets}{Web\+Sockets}} for Arduino.
+
+This library is free software; you can redistribute it and/or modify it under the terms of the G\+NU Lesser General Public License as published by the Free Software Foundation; either version 2.\+1 of the License, or (at your option) any later version.
+
+This library is distributed in the hope that it will be useful, but W\+I\+T\+H\+O\+UT A\+NY W\+A\+R\+R\+A\+N\+TY; without even the implied warranty of M\+E\+R\+C\+H\+A\+N\+T\+A\+B\+I\+L\+I\+TY or F\+I\+T\+N\+E\+SS F\+OR A P\+A\+R\+T\+I\+C\+U\+L\+AR P\+U\+R\+P\+O\+SE. See the G\+NU Lesser General Public License for more details.
+
+You should have received a copy of the G\+NU Lesser General Public License along with this library; if not, write to the Free Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-\/1301 U\+SA 
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{_web_sockets_8h_a8e82378d8f2820a44ccddca0f46c4530}\label{_web_sockets_8h_a8e82378d8f2820a44ccddca0f46c4530}} 
+\index{WebSockets.h@{WebSockets.h}!WSopcode\_t@{WSopcode\_t}}
+\index{WSopcode\_t@{WSopcode\_t}!WebSockets.h@{WebSockets.h}}
+\doxysubsubsection{\texorpdfstring{WSopcode\_t}{WSopcode\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_web_socket_client_2_web_sockets_8h_a8e82378d8f2820a44ccddca0f46c4530}{W\+Sopcode\+\_\+t}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WSop\_continuation@{WSop\_continuation}!WebSockets.h@{WebSockets.h}}\index{WebSockets.h@{WebSockets.h}!WSop\_continuation@{WSop\_continuation}}}\mbox{\Hypertarget{_web_sockets_8h_a8e82378d8f2820a44ccddca0f46c4530a350b2125a6ee6076958894e2a557d234}\label{_web_sockets_8h_a8e82378d8f2820a44ccddca0f46c4530a350b2125a6ee6076958894e2a557d234}} 
+W\+Sop\+\_\+continuation&x0 denotes a continuation frame \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WSop\_text@{WSop\_text}!WebSockets.h@{WebSockets.h}}\index{WebSockets.h@{WebSockets.h}!WSop\_text@{WSop\_text}}}\mbox{\Hypertarget{_web_sockets_8h_a8e82378d8f2820a44ccddca0f46c4530aa409e8ab854038ec55ba2c17d8510ddf}\label{_web_sockets_8h_a8e82378d8f2820a44ccddca0f46c4530aa409e8ab854038ec55ba2c17d8510ddf}} 
+W\+Sop\+\_\+text&x1 denotes a text frame \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WSop\_binary@{WSop\_binary}!WebSockets.h@{WebSockets.h}}\index{WebSockets.h@{WebSockets.h}!WSop\_binary@{WSop\_binary}}}\mbox{\Hypertarget{_web_sockets_8h_a8e82378d8f2820a44ccddca0f46c4530ab782399011cdb5db740c0f14473768e2}\label{_web_sockets_8h_a8e82378d8f2820a44ccddca0f46c4530ab782399011cdb5db740c0f14473768e2}} 
+W\+Sop\+\_\+binary&x2 denotes a binary frame x3-\/7 are reserved for further non-\/control frames \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WSop\_close@{WSop\_close}!WebSockets.h@{WebSockets.h}}\index{WebSockets.h@{WebSockets.h}!WSop\_close@{WSop\_close}}}\mbox{\Hypertarget{_web_sockets_8h_a8e82378d8f2820a44ccddca0f46c4530aefd9b7329a1fea754fe1c6bca2f4afa3}\label{_web_sockets_8h_a8e82378d8f2820a44ccddca0f46c4530aefd9b7329a1fea754fe1c6bca2f4afa3}} 
+W\+Sop\+\_\+close&x8 denotes a connection close \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WSop\_ping@{WSop\_ping}!WebSockets.h@{WebSockets.h}}\index{WebSockets.h@{WebSockets.h}!WSop\_ping@{WSop\_ping}}}\mbox{\Hypertarget{_web_sockets_8h_a8e82378d8f2820a44ccddca0f46c4530ae376703fdafe875eb5d35e0c35ea2bfa}\label{_web_sockets_8h_a8e82378d8f2820a44ccddca0f46c4530ae376703fdafe875eb5d35e0c35ea2bfa}} 
+W\+Sop\+\_\+ping&x9 denotes a ping \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WSop\_pong@{WSop\_pong}!WebSockets.h@{WebSockets.h}}\index{WebSockets.h@{WebSockets.h}!WSop\_pong@{WSop\_pong}}}\mbox{\Hypertarget{_web_sockets_8h_a8e82378d8f2820a44ccddca0f46c4530a717d2b49dee71feeb6aa6ff90378b281}\label{_web_sockets_8h_a8e82378d8f2820a44ccddca0f46c4530a717d2b49dee71feeb6aa6ff90378b281}} 
+W\+Sop\+\_\+pong&xA denotes a pong xB-\/F are reserved for further control frames \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WSop\_continuation@{WSop\_continuation}!WebSockets.h@{WebSockets.h}}\index{WebSockets.h@{WebSockets.h}!WSop\_continuation@{WSop\_continuation}}}\mbox{\Hypertarget{_web_sockets_8h_a8e82378d8f2820a44ccddca0f46c4530a350b2125a6ee6076958894e2a557d234}\label{_web_sockets_8h_a8e82378d8f2820a44ccddca0f46c4530a350b2125a6ee6076958894e2a557d234}} 
+W\+Sop\+\_\+continuation&x0 denotes a continuation frame \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WSop\_text@{WSop\_text}!WebSockets.h@{WebSockets.h}}\index{WebSockets.h@{WebSockets.h}!WSop\_text@{WSop\_text}}}\mbox{\Hypertarget{_web_sockets_8h_a8e82378d8f2820a44ccddca0f46c4530aa409e8ab854038ec55ba2c17d8510ddf}\label{_web_sockets_8h_a8e82378d8f2820a44ccddca0f46c4530aa409e8ab854038ec55ba2c17d8510ddf}} 
+W\+Sop\+\_\+text&x1 denotes a text frame \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WSop\_binary@{WSop\_binary}!WebSockets.h@{WebSockets.h}}\index{WebSockets.h@{WebSockets.h}!WSop\_binary@{WSop\_binary}}}\mbox{\Hypertarget{_web_sockets_8h_a8e82378d8f2820a44ccddca0f46c4530ab782399011cdb5db740c0f14473768e2}\label{_web_sockets_8h_a8e82378d8f2820a44ccddca0f46c4530ab782399011cdb5db740c0f14473768e2}} 
+W\+Sop\+\_\+binary&x2 denotes a binary frame x3-\/7 are reserved for further non-\/control frames \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WSop\_close@{WSop\_close}!WebSockets.h@{WebSockets.h}}\index{WebSockets.h@{WebSockets.h}!WSop\_close@{WSop\_close}}}\mbox{\Hypertarget{_web_sockets_8h_a8e82378d8f2820a44ccddca0f46c4530aefd9b7329a1fea754fe1c6bca2f4afa3}\label{_web_sockets_8h_a8e82378d8f2820a44ccddca0f46c4530aefd9b7329a1fea754fe1c6bca2f4afa3}} 
+W\+Sop\+\_\+close&x8 denotes a connection close \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WSop\_ping@{WSop\_ping}!WebSockets.h@{WebSockets.h}}\index{WebSockets.h@{WebSockets.h}!WSop\_ping@{WSop\_ping}}}\mbox{\Hypertarget{_web_sockets_8h_a8e82378d8f2820a44ccddca0f46c4530ae376703fdafe875eb5d35e0c35ea2bfa}\label{_web_sockets_8h_a8e82378d8f2820a44ccddca0f46c4530ae376703fdafe875eb5d35e0c35ea2bfa}} 
+W\+Sop\+\_\+ping&x9 denotes a ping \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WSop\_pong@{WSop\_pong}!WebSockets.h@{WebSockets.h}}\index{WebSockets.h@{WebSockets.h}!WSop\_pong@{WSop\_pong}}}\mbox{\Hypertarget{_web_sockets_8h_a8e82378d8f2820a44ccddca0f46c4530a717d2b49dee71feeb6aa6ff90378b281}\label{_web_sockets_8h_a8e82378d8f2820a44ccddca0f46c4530a717d2b49dee71feeb6aa6ff90378b281}} 
+W\+Sop\+\_\+pong&xA denotes a pong xB-\/F are reserved for further control frames \\
+\hline
+
+\end{DoxyEnumFields}

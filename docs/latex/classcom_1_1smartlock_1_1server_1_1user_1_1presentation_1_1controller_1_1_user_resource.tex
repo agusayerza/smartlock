@@ -1,0 +1,261 @@
+\hypertarget{classcom_1_1smartlock_1_1server_1_1user_1_1presentation_1_1controller_1_1_user_resource}{}\doxysection{com.\+smartlock.\+server.\+user.\+presentation.\+controller.\+User\+Resource Class Reference}
+\label{classcom_1_1smartlock_1_1server_1_1user_1_1presentation_1_1controller_1_1_user_resource}\index{com.smartlock.server.user.presentation.controller.UserResource@{com.smartlock.server.user.presentation.controller.UserResource}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classcom_1_1smartlock_1_1server_1_1user_1_1presentation_1_1controller_1_1_user_resource_a1d9a09c3165ea0404c5f476e5eb5cbd5}\label{classcom_1_1smartlock_1_1server_1_1user_1_1presentation_1_1controller_1_1_user_resource_a1d9a09c3165ea0404c5f476e5eb5cbd5}} 
+{\bfseries User\+Resource} (\mbox{\hyperlink{interfacecom_1_1smartlock_1_1server_1_1user_1_1service_1_1_user_service}{User\+Service}} user\+Service)
+\item 
+Response\+Entity$<$?$>$ \mbox{\hyperlink{classcom_1_1smartlock_1_1server_1_1user_1_1presentation_1_1controller_1_1_user_resource_a45b46526ec161b0b0039d7c4f9b58a60}{create\+User}} (@Valid @Request\+Body \mbox{\hyperlink{classcom_1_1smartlock_1_1server_1_1user_1_1presentation_1_1dto_1_1_create_user_dto}{Create\+User\+Dto}} create\+User\+Dto)
+\begin{DoxyCompactList}\small\item\em Endpoint used to post the data corresponding to a new user and create it. \end{DoxyCompactList}\item 
+Response\+Entity \mbox{\hyperlink{classcom_1_1smartlock_1_1server_1_1user_1_1presentation_1_1controller_1_1_user_resource_a920a5c86d9235ee4ea152bc9137c295b}{get\+My\+ID}} ()
+\begin{DoxyCompactList}\small\item\em Endpoint used to get my own User Id. \end{DoxyCompactList}\item 
+Response\+Entity \mbox{\hyperlink{classcom_1_1smartlock_1_1server_1_1user_1_1presentation_1_1controller_1_1_user_resource_a944a9a7b480f68593da4a6f22fbd1d91}{get\+User}} ()
+\begin{DoxyCompactList}\small\item\em Endpoint used to get my own User\+Data. \end{DoxyCompactList}\item 
+Response\+Entity \mbox{\hyperlink{classcom_1_1smartlock_1_1server_1_1user_1_1presentation_1_1controller_1_1_user_resource_af7882dd79c83337ad0bd5c6b08fe0bce}{get\+All\+Locks\+This\+User\+Can\+Access}} ()
+\begin{DoxyCompactList}\small\item\em Endpoint to get a List for all the. \end{DoxyCompactList}\item 
+Response\+Entity \mbox{\hyperlink{classcom_1_1smartlock_1_1server_1_1user_1_1presentation_1_1controller_1_1_user_resource_a6e9e6c6fccc14af732fef49f1b3ca905}{get\+All\+Locks\+I\+Am\+Admin}} ()
+\begin{DoxyCompactList}\small\item\em Endpoint to get a List for all the. \end{DoxyCompactList}\item 
+Response\+Entity \mbox{\hyperlink{classcom_1_1smartlock_1_1server_1_1user_1_1presentation_1_1controller_1_1_user_resource_ad672ffb6de72449e1b0e1f60c18fba71}{get\+All\+Users\+That\+Can\+Access\+To\+This\+Lock}} (@Path\+Variable Long id)
+\begin{DoxyCompactList}\small\item\em Endpoint to get a. \end{DoxyCompactList}\item 
+Response\+Entity \mbox{\hyperlink{classcom_1_1smartlock_1_1server_1_1user_1_1presentation_1_1controller_1_1_user_resource_af24aeb70ca6010c689a3e1a49442890b}{invite\+User\+To\+This\+Lock}} (@Valid @Request\+Body \mbox{\hyperlink{classcom_1_1smartlock_1_1server_1_1lock_1_1presentation_1_1dto_1_1_user_lock_dto}{User\+Lock\+Dto}} user\+Lock\+Dto)
+\begin{DoxyCompactList}\small\item\em Endpoint to add a. \end{DoxyCompactList}\item 
+Response\+Entity \mbox{\hyperlink{classcom_1_1smartlock_1_1server_1_1user_1_1presentation_1_1controller_1_1_user_resource_aee0ac57ebad1b05619b39977e987ac30}{remove\+User\+To\+This\+Lock}} (@Valid @Request\+Body \mbox{\hyperlink{classcom_1_1smartlock_1_1server_1_1lock_1_1presentation_1_1dto_1_1_user_lock_dto}{User\+Lock\+Dto}} user\+Lock\+Dto)
+\begin{DoxyCompactList}\small\item\em Endpoint to delete a. \end{DoxyCompactList}\item 
+Response\+Entity \mbox{\hyperlink{classcom_1_1smartlock_1_1server_1_1user_1_1presentation_1_1controller_1_1_user_resource_a3ee9e1988320a84985430895625edced}{leave\+From\+This\+Lock}} (@Path\+Variable Long lock\+Id)
+\begin{DoxyCompactList}\small\item\em Endpoint to delete a. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classcom_1_1smartlock_1_1server_1_1user_1_1presentation_1_1controller_1_1_user_resource_a45b46526ec161b0b0039d7c4f9b58a60}\label{classcom_1_1smartlock_1_1server_1_1user_1_1presentation_1_1controller_1_1_user_resource_a45b46526ec161b0b0039d7c4f9b58a60}} 
+\index{com.smartlock.server.user.presentation.controller.UserResource@{com.smartlock.server.user.presentation.controller.UserResource}!createUser@{createUser}}
+\index{createUser@{createUser}!com.smartlock.server.user.presentation.controller.UserResource@{com.smartlock.server.user.presentation.controller.UserResource}}
+\doxysubsubsection{\texorpdfstring{createUser()}{createUser()}}
+{\footnotesize\ttfamily Response\+Entity$<$?$>$ com.\+smartlock.\+server.\+user.\+presentation.\+controller.\+User\+Resource.\+create\+User (\begin{DoxyParamCaption}\item[{@Valid @Request\+Body \mbox{\hyperlink{classcom_1_1smartlock_1_1server_1_1user_1_1presentation_1_1dto_1_1_create_user_dto}{Create\+User\+Dto}}}]{create\+User\+Dto }\end{DoxyParamCaption})}
+
+
+
+Endpoint used to post the data corresponding to a new user and create it. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em create\+User\+Dto} & D\+TO that contains the user to be created data. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{ResponseEntity }
+\end{DoxyCode}
+ , OK if successful, B\+A\+D\+\_\+\+R\+E\+Q\+U\+E\+ST if it failed. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classcom_1_1smartlock_1_1server_1_1user_1_1presentation_1_1controller_1_1_user_resource_a6e9e6c6fccc14af732fef49f1b3ca905}\label{classcom_1_1smartlock_1_1server_1_1user_1_1presentation_1_1controller_1_1_user_resource_a6e9e6c6fccc14af732fef49f1b3ca905}} 
+\index{com.smartlock.server.user.presentation.controller.UserResource@{com.smartlock.server.user.presentation.controller.UserResource}!getAllLocksIAmAdmin@{getAllLocksIAmAdmin}}
+\index{getAllLocksIAmAdmin@{getAllLocksIAmAdmin}!com.smartlock.server.user.presentation.controller.UserResource@{com.smartlock.server.user.presentation.controller.UserResource}}
+\doxysubsubsection{\texorpdfstring{getAllLocksIAmAdmin()}{getAllLocksIAmAdmin()}}
+{\footnotesize\ttfamily Response\+Entity com.\+smartlock.\+server.\+user.\+presentation.\+controller.\+User\+Resource.\+get\+All\+Locks\+I\+Am\+Admin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Endpoint to get a List for all the. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Lock }
+\end{DoxyCode}
+ s a
+\begin{DoxyCode}{0}
+\DoxyCodeLine{User }
+\end{DoxyCode}
+ owns. \begin{DoxyReturn}{Returns}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{ResponseEntity }
+\end{DoxyCode}
+ , OK if successful, B\+A\+D\+\_\+\+R\+E\+Q\+U\+E\+ST if it failed. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classcom_1_1smartlock_1_1server_1_1user_1_1presentation_1_1controller_1_1_user_resource_af7882dd79c83337ad0bd5c6b08fe0bce}\label{classcom_1_1smartlock_1_1server_1_1user_1_1presentation_1_1controller_1_1_user_resource_af7882dd79c83337ad0bd5c6b08fe0bce}} 
+\index{com.smartlock.server.user.presentation.controller.UserResource@{com.smartlock.server.user.presentation.controller.UserResource}!getAllLocksThisUserCanAccess@{getAllLocksThisUserCanAccess}}
+\index{getAllLocksThisUserCanAccess@{getAllLocksThisUserCanAccess}!com.smartlock.server.user.presentation.controller.UserResource@{com.smartlock.server.user.presentation.controller.UserResource}}
+\doxysubsubsection{\texorpdfstring{getAllLocksThisUserCanAccess()}{getAllLocksThisUserCanAccess()}}
+{\footnotesize\ttfamily Response\+Entity com.\+smartlock.\+server.\+user.\+presentation.\+controller.\+User\+Resource.\+get\+All\+Locks\+This\+User\+Can\+Access (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Endpoint to get a List for all the. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Lock }
+\end{DoxyCode}
+ s a
+\begin{DoxyCode}{0}
+\DoxyCodeLine{User }
+\end{DoxyCode}
+ can access. \begin{DoxyReturn}{Returns}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{ResponseEntity }
+\end{DoxyCode}
+ , OK if successful, B\+A\+D\+\_\+\+R\+E\+Q\+U\+E\+ST if it failed. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classcom_1_1smartlock_1_1server_1_1user_1_1presentation_1_1controller_1_1_user_resource_ad672ffb6de72449e1b0e1f60c18fba71}\label{classcom_1_1smartlock_1_1server_1_1user_1_1presentation_1_1controller_1_1_user_resource_ad672ffb6de72449e1b0e1f60c18fba71}} 
+\index{com.smartlock.server.user.presentation.controller.UserResource@{com.smartlock.server.user.presentation.controller.UserResource}!getAllUsersThatCanAccessToThisLock@{getAllUsersThatCanAccessToThisLock}}
+\index{getAllUsersThatCanAccessToThisLock@{getAllUsersThatCanAccessToThisLock}!com.smartlock.server.user.presentation.controller.UserResource@{com.smartlock.server.user.presentation.controller.UserResource}}
+\doxysubsubsection{\texorpdfstring{getAllUsersThatCanAccessToThisLock()}{getAllUsersThatCanAccessToThisLock()}}
+{\footnotesize\ttfamily Response\+Entity com.\+smartlock.\+server.\+user.\+presentation.\+controller.\+User\+Resource.\+get\+All\+Users\+That\+Can\+Access\+To\+This\+Lock (\begin{DoxyParamCaption}\item[{@Path\+Variable Long}]{id }\end{DoxyParamCaption})}
+
+
+
+Endpoint to get a. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Lock }
+\end{DoxyCode}
+ s the
+\begin{DoxyCode}{0}
+\DoxyCodeLine{User }
+\end{DoxyCode}
+ can access. 
+\begin{DoxyParams}{Parameters}
+{\em id} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classcom_1_1smartlock_1_1server_1_1user_1_1presentation_1_1controller_1_1_user_resource_a920a5c86d9235ee4ea152bc9137c295b}\label{classcom_1_1smartlock_1_1server_1_1user_1_1presentation_1_1controller_1_1_user_resource_a920a5c86d9235ee4ea152bc9137c295b}} 
+\index{com.smartlock.server.user.presentation.controller.UserResource@{com.smartlock.server.user.presentation.controller.UserResource}!getMyID@{getMyID}}
+\index{getMyID@{getMyID}!com.smartlock.server.user.presentation.controller.UserResource@{com.smartlock.server.user.presentation.controller.UserResource}}
+\doxysubsubsection{\texorpdfstring{getMyID()}{getMyID()}}
+{\footnotesize\ttfamily Response\+Entity com.\+smartlock.\+server.\+user.\+presentation.\+controller.\+User\+Resource.\+get\+My\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Endpoint used to get my own User Id. 
+
+\begin{DoxyReturn}{Returns}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{ResponseEntity }
+\end{DoxyCode}
+ OK, containing the User\textquotesingle{}s Id. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classcom_1_1smartlock_1_1server_1_1user_1_1presentation_1_1controller_1_1_user_resource_a944a9a7b480f68593da4a6f22fbd1d91}\label{classcom_1_1smartlock_1_1server_1_1user_1_1presentation_1_1controller_1_1_user_resource_a944a9a7b480f68593da4a6f22fbd1d91}} 
+\index{com.smartlock.server.user.presentation.controller.UserResource@{com.smartlock.server.user.presentation.controller.UserResource}!getUser@{getUser}}
+\index{getUser@{getUser}!com.smartlock.server.user.presentation.controller.UserResource@{com.smartlock.server.user.presentation.controller.UserResource}}
+\doxysubsubsection{\texorpdfstring{getUser()}{getUser()}}
+{\footnotesize\ttfamily Response\+Entity com.\+smartlock.\+server.\+user.\+presentation.\+controller.\+User\+Resource.\+get\+User (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Endpoint used to get my own User\+Data. 
+
+\begin{DoxyReturn}{Returns}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{ResponseEntity }
+\end{DoxyCode}
+ , OK if successful, B\+A\+D\+\_\+\+R\+E\+Q\+U\+E\+ST if it failed. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classcom_1_1smartlock_1_1server_1_1user_1_1presentation_1_1controller_1_1_user_resource_af24aeb70ca6010c689a3e1a49442890b}\label{classcom_1_1smartlock_1_1server_1_1user_1_1presentation_1_1controller_1_1_user_resource_af24aeb70ca6010c689a3e1a49442890b}} 
+\index{com.smartlock.server.user.presentation.controller.UserResource@{com.smartlock.server.user.presentation.controller.UserResource}!inviteUserToThisLock@{inviteUserToThisLock}}
+\index{inviteUserToThisLock@{inviteUserToThisLock}!com.smartlock.server.user.presentation.controller.UserResource@{com.smartlock.server.user.presentation.controller.UserResource}}
+\doxysubsubsection{\texorpdfstring{inviteUserToThisLock()}{inviteUserToThisLock()}}
+{\footnotesize\ttfamily Response\+Entity com.\+smartlock.\+server.\+user.\+presentation.\+controller.\+User\+Resource.\+invite\+User\+To\+This\+Lock (\begin{DoxyParamCaption}\item[{@Valid @Request\+Body \mbox{\hyperlink{classcom_1_1smartlock_1_1server_1_1lock_1_1presentation_1_1dto_1_1_user_lock_dto}{User\+Lock\+Dto}}}]{user\+Lock\+Dto }\end{DoxyParamCaption})}
+
+
+
+Endpoint to add a. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{User }
+\end{DoxyCode}
+ to a
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Lock }
+\end{DoxyCode}
+ . 
+\begin{DoxyParams}{Parameters}
+{\em user\+Lock\+Dto} & D\+TO containing the data of the
+\begin{DoxyCode}{1}
+\DoxyCodeLine{Lock }
+\end{DoxyCode}
+ to be created. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{ResponseEntity }
+\end{DoxyCode}
+ , OK if successful, B\+A\+D\+\_\+\+R\+E\+Q\+U\+E\+ST if it failed. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classcom_1_1smartlock_1_1server_1_1user_1_1presentation_1_1controller_1_1_user_resource_a3ee9e1988320a84985430895625edced}\label{classcom_1_1smartlock_1_1server_1_1user_1_1presentation_1_1controller_1_1_user_resource_a3ee9e1988320a84985430895625edced}} 
+\index{com.smartlock.server.user.presentation.controller.UserResource@{com.smartlock.server.user.presentation.controller.UserResource}!leaveFromThisLock@{leaveFromThisLock}}
+\index{leaveFromThisLock@{leaveFromThisLock}!com.smartlock.server.user.presentation.controller.UserResource@{com.smartlock.server.user.presentation.controller.UserResource}}
+\doxysubsubsection{\texorpdfstring{leaveFromThisLock()}{leaveFromThisLock()}}
+{\footnotesize\ttfamily Response\+Entity com.\+smartlock.\+server.\+user.\+presentation.\+controller.\+User\+Resource.\+leave\+From\+This\+Lock (\begin{DoxyParamCaption}\item[{@Path\+Variable Long}]{lock\+Id }\end{DoxyParamCaption})}
+
+
+
+Endpoint to delete a. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Lock }
+\end{DoxyCode}
+ . 
+\begin{DoxyParams}{Parameters}
+{\em lock\+Id} & the Id of the
+\begin{DoxyCode}{1}
+\DoxyCodeLine{Lock }
+\end{DoxyCode}
+ . \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{ResponseEntity }
+\end{DoxyCode}
+ , OK if successful, B\+A\+D\+\_\+\+R\+E\+Q\+U\+E\+ST if it failed. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classcom_1_1smartlock_1_1server_1_1user_1_1presentation_1_1controller_1_1_user_resource_aee0ac57ebad1b05619b39977e987ac30}\label{classcom_1_1smartlock_1_1server_1_1user_1_1presentation_1_1controller_1_1_user_resource_aee0ac57ebad1b05619b39977e987ac30}} 
+\index{com.smartlock.server.user.presentation.controller.UserResource@{com.smartlock.server.user.presentation.controller.UserResource}!removeUserToThisLock@{removeUserToThisLock}}
+\index{removeUserToThisLock@{removeUserToThisLock}!com.smartlock.server.user.presentation.controller.UserResource@{com.smartlock.server.user.presentation.controller.UserResource}}
+\doxysubsubsection{\texorpdfstring{removeUserToThisLock()}{removeUserToThisLock()}}
+{\footnotesize\ttfamily Response\+Entity com.\+smartlock.\+server.\+user.\+presentation.\+controller.\+User\+Resource.\+remove\+User\+To\+This\+Lock (\begin{DoxyParamCaption}\item[{@Valid @Request\+Body \mbox{\hyperlink{classcom_1_1smartlock_1_1server_1_1lock_1_1presentation_1_1dto_1_1_user_lock_dto}{User\+Lock\+Dto}}}]{user\+Lock\+Dto }\end{DoxyParamCaption})}
+
+
+
+Endpoint to delete a. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{User }
+\end{DoxyCode}
+ from a
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Lock }
+\end{DoxyCode}
+ . 
+\begin{DoxyParams}{Parameters}
+{\em user\+Lock\+Dto} & D\+TO containing the data of the
+\begin{DoxyCode}{1}
+\DoxyCodeLine{Lock }
+\end{DoxyCode}
+ to be created. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{ResponseEntity }
+\end{DoxyCode}
+ , OK if successful, B\+A\+D\+\_\+\+R\+E\+Q\+U\+E\+ST if it failed. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+server/src/main/java/com/smartlock/server/user/presentation/controller/User\+Resource.\+java\end{DoxyCompactItemize}

@@ -1,0 +1,68 @@
+\hypertarget{interfacecom_1_1smartlock_1_1server_1_1user_validator_1_1service_1_1_user_validator_service}{}\doxysection{com.\+smartlock.\+server.\+user\+Validator.\+service.\+User\+Validator\+Service Interface Reference}
+\label{interfacecom_1_1smartlock_1_1server_1_1user_validator_1_1service_1_1_user_validator_service}\index{com.smartlock.server.userValidator.service.UserValidatorService@{com.smartlock.server.userValidator.service.UserValidatorService}}
+Inheritance diagram for com.\+smartlock.\+server.\+user\+Validator.\+service.\+User\+Validator\+Service\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{interfacecom_1_1smartlock_1_1server_1_1user_validator_1_1service_1_1_user_validator_service}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{interfacecom_1_1smartlock_1_1server_1_1user_validator_1_1service_1_1_user_validator_service_aebb34528839b46c8f9377a2cfa7c6ce1}{validate\+User\+And\+Lock}} (\mbox{\hyperlink{classcom_1_1smartlock_1_1server_1_1user_validator_1_1presentation_1_1dto_1_1_user_lock_validator_dto}{User\+Lock\+Validator\+Dto}} user\+Lock\+Validator\+Dto, Long user\+Id)  throws Not\+Found\+Exception
+\begin{DoxyCompactList}\small\item\em Validates the code given by the user and add him to the lock if the invitation exists. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{interfacecom_1_1smartlock_1_1server_1_1user_validator_1_1service_1_1_user_validator_service_a961dc14b5e0bcb6d776e4c4170e273b3}{add\+Validation\+Code}} (\mbox{\hyperlink{classcom_1_1smartlock_1_1server_1_1lock_1_1presentation_1_1dto_1_1_user_lock_dto}{User\+Lock\+Dto}} user\+Lock\+Dto, String lock\+Admin\+Email, String lock\+Name)
+\begin{DoxyCompactList}\small\item\em Method used to invite a user into a lock, create and send the invitation email. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{interfacecom_1_1smartlock_1_1server_1_1user_validator_1_1service_1_1_user_validator_service_a961dc14b5e0bcb6d776e4c4170e273b3}\label{interfacecom_1_1smartlock_1_1server_1_1user_validator_1_1service_1_1_user_validator_service_a961dc14b5e0bcb6d776e4c4170e273b3}} 
+\index{com.smartlock.server.userValidator.service.UserValidatorService@{com.smartlock.server.userValidator.service.UserValidatorService}!addValidationCode@{addValidationCode}}
+\index{addValidationCode@{addValidationCode}!com.smartlock.server.userValidator.service.UserValidatorService@{com.smartlock.server.userValidator.service.UserValidatorService}}
+\doxysubsubsection{\texorpdfstring{addValidationCode()}{addValidationCode()}}
+{\footnotesize\ttfamily void com.\+smartlock.\+server.\+user\+Validator.\+service.\+User\+Validator\+Service.\+add\+Validation\+Code (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1smartlock_1_1server_1_1lock_1_1presentation_1_1dto_1_1_user_lock_dto}{User\+Lock\+Dto}}}]{user\+Lock\+Dto,  }\item[{String}]{lock\+Admin\+Email,  }\item[{String}]{lock\+Name }\end{DoxyParamCaption})}
+
+
+
+Method used to invite a user into a lock, create and send the invitation email. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em user\+Lock\+Dto} & \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classcom_1_1smartlock_1_1server_1_1user_validator_1_1service_1_1_user_validator_service_impl_a5f9c82568ce438d8c2fc279560173746}{com.\+smartlock.\+server.\+user\+Validator.\+service.\+User\+Validator\+Service\+Impl}}.
+
+\mbox{\Hypertarget{interfacecom_1_1smartlock_1_1server_1_1user_validator_1_1service_1_1_user_validator_service_aebb34528839b46c8f9377a2cfa7c6ce1}\label{interfacecom_1_1smartlock_1_1server_1_1user_validator_1_1service_1_1_user_validator_service_aebb34528839b46c8f9377a2cfa7c6ce1}} 
+\index{com.smartlock.server.userValidator.service.UserValidatorService@{com.smartlock.server.userValidator.service.UserValidatorService}!validateUserAndLock@{validateUserAndLock}}
+\index{validateUserAndLock@{validateUserAndLock}!com.smartlock.server.userValidator.service.UserValidatorService@{com.smartlock.server.userValidator.service.UserValidatorService}}
+\doxysubsubsection{\texorpdfstring{validateUserAndLock()}{validateUserAndLock()}}
+{\footnotesize\ttfamily void com.\+smartlock.\+server.\+user\+Validator.\+service.\+User\+Validator\+Service.\+validate\+User\+And\+Lock (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1smartlock_1_1server_1_1user_validator_1_1presentation_1_1dto_1_1_user_lock_validator_dto}{User\+Lock\+Validator\+Dto}}}]{user\+Lock\+Validator\+Dto,  }\item[{Long}]{user\+Id }\end{DoxyParamCaption}) throws Not\+Found\+Exception}
+
+
+
+Validates the code given by the user and add him to the lock if the invitation exists. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em user\+Lock\+Validator\+Dto} & D\+TO that contains the code tried to accept the invitation. \\
+\hline
+{\em user\+Id} & The ID of the User who sent the code to add the lock. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Not\+Found\+Exception} & thrown when the invitation does not exist. \\
+\hline
+\end{DoxyExceptions}
+
+
+Implemented in \mbox{\hyperlink{classcom_1_1smartlock_1_1server_1_1user_validator_1_1service_1_1_user_validator_service_impl_a5bd7f409f0fca00aeb80776f4dcef09a}{com.\+smartlock.\+server.\+user\+Validator.\+service.\+User\+Validator\+Service\+Impl}}.
+
+
+
+The documentation for this interface was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+server/src/main/java/com/smartlock/server/user\+Validator/service/User\+Validator\+Service.\+java\end{DoxyCompactItemize}

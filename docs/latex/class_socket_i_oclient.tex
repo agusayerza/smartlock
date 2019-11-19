@@ -1,0 +1,161 @@
+\hypertarget{class_socket_i_oclient}{}\doxysection{Socket\+I\+Oclient Class Reference}
+\label{class_socket_i_oclient}\index{SocketIOclient@{SocketIOclient}}
+Inheritance diagram for Socket\+I\+Oclient\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_socket_i_oclient}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_socket_i_oclient_a2da454ef45d90d9872a8f1a69476ee5b}\label{class_socket_i_oclient_a2da454ef45d90d9872a8f1a69476ee5b}} 
+typedef std\+::function$<$ void(socket\+I\+Omessage\+Type\+\_\+t type, uint8\+\_\+t $\ast$payload, size\+\_\+t length)$>$ {\bfseries Socket\+I\+Oclient\+Event}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_socket_i_oclient_af3ecd1520b559709cad313cc7d881e67}\label{class_socket_i_oclient_af3ecd1520b559709cad313cc7d881e67}} 
+void {\bfseries begin} (const char $\ast$host, uint16\+\_\+t port, const char $\ast$url=\char`\"{}/socket.\+io/?E\+IO=3\char`\"{}, const char $\ast$protocol=\char`\"{}arduino\char`\"{})
+\item 
+\mbox{\Hypertarget{class_socket_i_oclient_a71f3212a2f12728fb3fd9ae82395b7cf}\label{class_socket_i_oclient_a71f3212a2f12728fb3fd9ae82395b7cf}} 
+void {\bfseries begin} (String host, uint16\+\_\+t port, String url=\char`\"{}/socket.\+io/?E\+IO=3\char`\"{}, String protocol=\char`\"{}arduino\char`\"{})
+\item 
+\mbox{\Hypertarget{class_socket_i_oclient_aeeb5ee862cb17bd1f5d93e7454b1412e}\label{class_socket_i_oclient_aeeb5ee862cb17bd1f5d93e7454b1412e}} 
+bool {\bfseries is\+Connected} (void)
+\item 
+void \mbox{\hyperlink{class_socket_i_oclient_a27226f49b52155816dc82bb0cb0aad0b}{on\+Event}} (Socket\+I\+Oclient\+Event cb\+Event)
+\item 
+bool \mbox{\hyperlink{class_socket_i_oclient_a4b46dfc15a976d97ff7c78147d8f1a8f}{send\+E\+V\+E\+NT}} (uint8\+\_\+t $\ast$payload, size\+\_\+t length=0, bool header\+To\+Payload=false)
+\item 
+\mbox{\Hypertarget{class_socket_i_oclient_a286d60604930e6ed9887e51abec4609e}\label{class_socket_i_oclient_a286d60604930e6ed9887e51abec4609e}} 
+bool {\bfseries send\+E\+V\+E\+NT} (const uint8\+\_\+t $\ast$payload, size\+\_\+t length=0)
+\item 
+\mbox{\Hypertarget{class_socket_i_oclient_a1c1d43c451a7d43dbf5ae1a8ad39e49e}\label{class_socket_i_oclient_a1c1d43c451a7d43dbf5ae1a8ad39e49e}} 
+bool {\bfseries send\+E\+V\+E\+NT} (char $\ast$payload, size\+\_\+t length=0, bool header\+To\+Payload=false)
+\item 
+\mbox{\Hypertarget{class_socket_i_oclient_a12556afe24135482ed8a952cb3814b26}\label{class_socket_i_oclient_a12556afe24135482ed8a952cb3814b26}} 
+bool {\bfseries send\+E\+V\+E\+NT} (const char $\ast$payload, size\+\_\+t length=0)
+\item 
+\mbox{\Hypertarget{class_socket_i_oclient_a10a0b46bf07c6ba403f8529f36dd0ce3}\label{class_socket_i_oclient_a10a0b46bf07c6ba403f8529f36dd0ce3}} 
+bool {\bfseries send\+E\+V\+E\+NT} (String \&payload)
+\item 
+bool \mbox{\hyperlink{class_socket_i_oclient_aa68b2098562ee9071c1918ba556c2d2e}{send}} (socket\+I\+Omessage\+Type\+\_\+t type, uint8\+\_\+t $\ast$payload, size\+\_\+t length=0, bool header\+To\+Payload=false)
+\item 
+\mbox{\Hypertarget{class_socket_i_oclient_ae190a9e2534c663e6a75599fdb34f330}\label{class_socket_i_oclient_ae190a9e2534c663e6a75599fdb34f330}} 
+bool {\bfseries send} (socket\+I\+Omessage\+Type\+\_\+t type, const uint8\+\_\+t $\ast$payload, size\+\_\+t length=0)
+\item 
+\mbox{\Hypertarget{class_socket_i_oclient_ae782b3de7fc5b0acf72c6bd4e481327d}\label{class_socket_i_oclient_ae782b3de7fc5b0acf72c6bd4e481327d}} 
+bool {\bfseries send} (socket\+I\+Omessage\+Type\+\_\+t type, char $\ast$payload, size\+\_\+t length=0, bool header\+To\+Payload=false)
+\item 
+\mbox{\Hypertarget{class_socket_i_oclient_afe83a7292dc1134816399072afec6546}\label{class_socket_i_oclient_afe83a7292dc1134816399072afec6546}} 
+bool {\bfseries send} (socket\+I\+Omessage\+Type\+\_\+t type, const char $\ast$payload, size\+\_\+t length=0)
+\item 
+\mbox{\Hypertarget{class_socket_i_oclient_a6099ba6fdf2c25098de832606c915f2a}\label{class_socket_i_oclient_a6099ba6fdf2c25098de832606c915f2a}} 
+bool {\bfseries send} (socket\+I\+Omessage\+Type\+\_\+t type, String \&payload)
+\item 
+\mbox{\Hypertarget{class_socket_i_oclient_ab64bcf2d6a15e6a5a513c995f731058c}\label{class_socket_i_oclient_ab64bcf2d6a15e6a5a513c995f731058c}} 
+void {\bfseries loop} (void)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_socket_i_oclient_a695e0811f0911b63e7e76d3ba1b8b6ee}\label{class_socket_i_oclient_a695e0811f0911b63e7e76d3ba1b8b6ee}} 
+virtual void {\bfseries run\+I\+O\+Cb\+Event} (socket\+I\+Omessage\+Type\+\_\+t type, uint8\+\_\+t $\ast$payload, size\+\_\+t length)
+\item 
+virtual void \mbox{\hyperlink{class_socket_i_oclient_a26cc21462e09e32c5afc1afc12284fa6}{run\+Cb\+Event}} (W\+Stype\+\_\+t type, uint8\+\_\+t $\ast$payload, size\+\_\+t length)
+\item 
+\mbox{\Hypertarget{class_socket_i_oclient_a15fd63e411b65465395aeabe803c0ec9}\label{class_socket_i_oclient_a15fd63e411b65465395aeabe803c0ec9}} 
+void {\bfseries handle\+Cb\+Event} (W\+Stype\+\_\+t type, uint8\+\_\+t $\ast$payload, size\+\_\+t length)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_socket_i_oclient_ae82a7e7785d8e63697e4b0273877110f}\label{class_socket_i_oclient_ae82a7e7785d8e63697e4b0273877110f}} 
+uint64\+\_\+t {\bfseries \+\_\+last\+Heartbeat} = 0
+\item 
+\mbox{\Hypertarget{class_socket_i_oclient_af594a5e517b2d4a1edc4b87a9e4e19b1}\label{class_socket_i_oclient_af594a5e517b2d4a1edc4b87a9e4e19b1}} 
+Socket\+I\+Oclient\+Event {\bfseries \+\_\+cb\+Event}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_socket_i_oclient_a27226f49b52155816dc82bb0cb0aad0b}\label{class_socket_i_oclient_a27226f49b52155816dc82bb0cb0aad0b}} 
+\index{SocketIOclient@{SocketIOclient}!onEvent@{onEvent}}
+\index{onEvent@{onEvent}!SocketIOclient@{SocketIOclient}}
+\doxysubsubsection{\texorpdfstring{onEvent()}{onEvent()}}
+{\footnotesize\ttfamily void Socket\+I\+Oclient\+::on\+Event (\begin{DoxyParamCaption}\item[{Socket\+I\+Oclient\+Event}]{cb\+Event }\end{DoxyParamCaption})}
+
+set callback function 
+\begin{DoxyParams}{Parameters}
+{\em cb\+Event} & Socket\+I\+Oclient\+Event \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_socket_i_oclient_a26cc21462e09e32c5afc1afc12284fa6}\label{class_socket_i_oclient_a26cc21462e09e32c5afc1afc12284fa6}} 
+\index{SocketIOclient@{SocketIOclient}!runCbEvent@{runCbEvent}}
+\index{runCbEvent@{runCbEvent}!SocketIOclient@{SocketIOclient}}
+\doxysubsubsection{\texorpdfstring{runCbEvent()}{runCbEvent()}}
+{\footnotesize\ttfamily virtual void Socket\+I\+Oclient\+::run\+Cb\+Event (\begin{DoxyParamCaption}\item[{W\+Stype\+\_\+t}]{type,  }\item[{uint8\+\_\+t $\ast$}]{payload,  }\item[{size\+\_\+t}]{length }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+called for sending a Event to the app 
+\begin{DoxyParams}{Parameters}
+{\em type} & W\+Stype\+\_\+t \\
+\hline
+{\em payload} & uint8\+\_\+t $\ast$ \\
+\hline
+{\em length} & size\+\_\+t \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{class_web_sockets_client_a38cf884cadf352da065f7d614b91755e}{Web\+Sockets\+Client}}.
+
+\mbox{\Hypertarget{class_socket_i_oclient_aa68b2098562ee9071c1918ba556c2d2e}\label{class_socket_i_oclient_aa68b2098562ee9071c1918ba556c2d2e}} 
+\index{SocketIOclient@{SocketIOclient}!send@{send}}
+\index{send@{send}!SocketIOclient@{SocketIOclient}}
+\doxysubsubsection{\texorpdfstring{send()}{send()}}
+{\footnotesize\ttfamily bool Socket\+I\+Oclient\+::send (\begin{DoxyParamCaption}\item[{socket\+I\+Omessage\+Type\+\_\+t}]{type,  }\item[{uint8\+\_\+t $\ast$}]{payload,  }\item[{size\+\_\+t}]{length = {\ttfamily 0},  }\item[{bool}]{header\+To\+Payload = {\ttfamily false} }\end{DoxyParamCaption})}
+
+send text data to client 
+\begin{DoxyParams}{Parameters}
+{\em num} & uint8\+\_\+t client id \\
+\hline
+{\em type} & socket\+I\+Omessage\+Type\+\_\+t \\
+\hline
+{\em payload} & uint8\+\_\+t $\ast$ \\
+\hline
+{\em length} & size\+\_\+t \\
+\hline
+{\em header\+To\+Payload} & bool (see send\+Frame for more details) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if ok 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_socket_i_oclient_a4b46dfc15a976d97ff7c78147d8f1a8f}\label{class_socket_i_oclient_a4b46dfc15a976d97ff7c78147d8f1a8f}} 
+\index{SocketIOclient@{SocketIOclient}!sendEVENT@{sendEVENT}}
+\index{sendEVENT@{sendEVENT}!SocketIOclient@{SocketIOclient}}
+\doxysubsubsection{\texorpdfstring{sendEVENT()}{sendEVENT()}}
+{\footnotesize\ttfamily bool Socket\+I\+Oclient\+::send\+E\+V\+E\+NT (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{payload,  }\item[{size\+\_\+t}]{length = {\ttfamily 0},  }\item[{bool}]{header\+To\+Payload = {\ttfamily false} }\end{DoxyParamCaption})}
+
+send text data to client 
+\begin{DoxyParams}{Parameters}
+{\em num} & uint8\+\_\+t client id \\
+\hline
+{\em payload} & uint8\+\_\+t $\ast$ \\
+\hline
+{\em length} & size\+\_\+t \\
+\hline
+{\em header\+To\+Payload} & bool (see send\+Frame for more details) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if ok 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+stomp\+Client-\/old/\+Web\+Socket\+Client/Socket\+I\+Oclient.\+h\item 
+stomp\+Client-\/old/\+Web\+Socket\+Client/Socket\+I\+Oclient.\+cpp\end{DoxyCompactItemize}
