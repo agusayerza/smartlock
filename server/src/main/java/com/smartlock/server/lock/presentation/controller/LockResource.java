@@ -96,8 +96,6 @@ public class LockResource {
      * @param id of the lock data requested
      * @return {@code ResponseEntity}, OK if successful, BAD_REQUEST if it failed.
      */
-
-    //  todo verificar que user.getlocks contains lock y que este en dia y horario de schedule
     @GetMapping("/{id}")
     public ResponseEntity getLock(@PathVariable Long id) {
         try {
