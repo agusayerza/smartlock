@@ -30,7 +30,7 @@ public class LockServiceImpl implements LockService{
      * Make the lock active if is found
      * @param lockDto DTO containing uuid of the lock and the future name of the lock
      * @param userId id of the user that made the request
-     * @return {@code LockDTO} containing the info of the successfully claimed lock.
+     * @return LockDTO containing the info of the successfully claimed lock.
      * @throws NotFoundException
      */
     @Override
@@ -76,7 +76,7 @@ public class LockServiceImpl implements LockService{
     /**
      * Searchs a lock by its Id and returns it
      * @param id corresponding to the lock to be searched.
-     * @return{@code LockDTO} containing the info of the found lock.
+     * @returnLockDTO containing the info of the found lock.
      * @throws NotFoundException
      */
     @Override

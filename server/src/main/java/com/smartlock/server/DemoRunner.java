@@ -27,11 +27,11 @@ public class DemoRunner implements CommandLineRunner {
     private boolean createdData = false;
 
     /**
-     * {@code DemoRunner} constructor. The {@code DemoRunner} is a class used to instantiate and load into the
+     * DemoRunner constructor. The DemoRunner is a class used to instantiate and load into the
      * database the objects to be used during demos.
-     * @param userService {@code UserService} instantiated class corresponding to the current Spring profile.
-     * @param lockService {@code LockService} instantiated class corresponding to the current Spring profile.
-     * @param env {@code Environment} Spring Environment instantiated, corresponding to the current Spring profile, and
+     * @param userService UserService instantiated class corresponding to the current Spring profile.
+     * @param lockService LockService instantiated class corresponding to the current Spring profile.
+     * @param env Environment Spring Environment instantiated, corresponding to the current Spring profile, and
      *                               used to determine on runtime if the demo data has to be created or not.
      */
     @Autowired

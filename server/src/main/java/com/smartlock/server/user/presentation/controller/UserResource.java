@@ -25,7 +25,7 @@ public class UserResource {
     /**
      * Endpoint used to post the data corresponding to a new user and create it.
      * @param createUserDto DTO that contains the user to be created data.
-     * @return {@code ResponseEntity}, OK if successful, BAD_REQUEST if it failed.
+     * @return returns ResponseEntity, OK if successful, BAD_REQUEST if it failed.
      */
     @PostMapping
     public ResponseEntity<?> createUser(@Valid @RequestBody CreateUserDto createUserDto) {
@@ -38,7 +38,7 @@ public class UserResource {
 
     /**
      * Endpoint used to get my own User Id.
-     * @return {@code ResponseEntity} OK, containing the User's Id.
+     * @return ResponseEntity OK, containing the User's Id.
      */
     @GetMapping("/me")
     public ResponseEntity getMyID(){
@@ -47,7 +47,7 @@ public class UserResource {
 
     /**
      * Endpoint used to get my own UserData.
-     * @return {@code ResponseEntity}, OK if successful, BAD_REQUEST if it failed.
+     * @return returns ResponseEntity, OK if successful, BAD_REQUEST if it failed.
      */
     @GetMapping()
     public ResponseEntity getUser() {
@@ -60,8 +60,8 @@ public class UserResource {
     }
 
     /**
-     * Endpoint to get a List for all the {@code Lock}s a {@code User} can access.
-     * @return {@code ResponseEntity}, OK if successful, BAD_REQUEST if it failed.
+     * Endpoint to get a List for all the Locks a User can access.
+     * @return returns ResponseEntity, OK if successful, BAD_REQUEST if it failed.
      */
     @GetMapping("/myLocks")
     public ResponseEntity getAllLocksThisUserCanAccess() {
@@ -74,9 +74,9 @@ public class UserResource {
     }
 
     /**
-     * Endpoint to get a {@code Lock}s the {@code User} can access.
-     * @param id {@code @PathVariable} for the specific {@code Lock}.
-     * @return {@code ResponseEntity}, OK if successful, BAD_REQUEST if it failed.
+     * Endpoint to get a Locks the User can access.
+     * @param id @PathVariable for the specific Lock.
+     * @return returns ResponseEntity, OK if successful, BAD_REQUEST if it failed.
      */
     @GetMapping("/lock/{id}")
     public ResponseEntity getAllUsersThatCanAccessToThisLock(@PathVariable Long id){
@@ -89,9 +89,9 @@ public class UserResource {
     }
 
     /**
-     * Endpoint to delete a {@code Lock}.
-     * @param lockId the Id of the {@code Lock}.
-     * @return {@code ResponseEntity}, OK if successful, BAD_REQUEST if it failed.
+     * Endpoint to delete a Lock.
+     * @param lockId the Id of the Lock.
+     * @return returns ResponseEntity, OK if successful, BAD_REQUEST if it failed.
      */
     @DeleteMapping("/lock/{lockId}")
     public ResponseEntity leaveFromThisLock(@PathVariable Long lockId){

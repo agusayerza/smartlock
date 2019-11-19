@@ -27,9 +27,9 @@ public class UserServiceImpl implements UserService {
 
     /**
      * Class constructor
-     * @param userRepository {@code UserRepository} instantiated class corresponding to the current Spring profile.
-     * @param passwordEncoder {@code PasswordEncoder} instantiated class corresponding to the current Spring profile.
-     * @param lockRepository {@code LockRepository} instantiated class corresponding to the current Spring profile.
+     * @param userRepository UserRepository instantiated class corresponding to the current Spring profile.
+     * @param passwordEncoder PasswordEncoder instantiated class corresponding to the current Spring profile.
+     * @param lockRepository LockRepository instantiated class corresponding to the current Spring profile.
      */
     @Autowired
     public UserServiceImpl(UserRepository userRepository, PasswordEncoder passwordEncoder, LockRepository lockRepository) {
@@ -41,7 +41,7 @@ public class UserServiceImpl implements UserService {
     /**
      * Used to create a User
      * @param userData DTO containing the data for the user to be created.
-     * @return {@code UserDTO} containing the info of the successfully created user.
+     * UserDTO containing the info of the successfully created user.
      */
     @Override
     public UserDto createUser(CreateUserDto userData) {
@@ -57,7 +57,7 @@ public class UserServiceImpl implements UserService {
     /**
      * Searches a user by his Id and returns it.
      * @param id corresponding to the user to be searched.
-     * @return {@code UserDTO} containing the info of the found user.
+     * UserDTO containing the info of the found user.
      */
     @Override
     public UserDto getUser(Long id) {
@@ -76,7 +76,7 @@ public class UserServiceImpl implements UserService {
     }
 
     /**
-     * Get's all the {@code Lock}s added to the library of the given user, identified by his Id.
+     * Get's all the Locks added to the library of the given user, identified by his Id.
      * @param userId the user's Id
      * @return a list of all the locks this user has on his library.
      */
@@ -92,11 +92,11 @@ public class UserServiceImpl implements UserService {
 
 
     /**
-     * For a specific {@code Lock} returns all the users who have permission to access it.
+     * For a specific Lock returns all the users who have permission to access it.
      * Only the admin can ask for this information.
      * @param lockId the Id for the lock
      * @param userId the user, presumably the lock owner, who requested the information.
-     * @return a {@code List} of {@code UserWithoutLocksDto} who can access the given lock.
+     * @return a List of UserWithoutLocksDto who can access the given lock.
      * @throws NotFoundException when the Lock does not exist.
      */
     @Override
@@ -111,8 +111,8 @@ public class UserServiceImpl implements UserService {
     }
 
     /**
-     * Removes the {@code User} that requested it from a {@code Lock}. Can NOT be performed by the Lock owner.
-     * @param lockId the Id of the {@code Lock} that the user wants to remove from his library.
+     * Removes the User that requested it from a Lock. Can NOT be performed by the Lock owner.
+     * @param lockId the Id of the Lock that the user wants to remove from his library.
      * @param userId the Id for the user that performed the action.
      * @throws NotFoundException when the Lock does not exist.
      */

@@ -62,7 +62,7 @@ public class LockResource {
     /**
      * Endpoint used to claim a lock, making the request user lock's admin
      * @param lockDto DTO containing Lock uuid and name for the lock
-     * @return {@code ResponseEntity}, OK if successful, BAD_REQUEST if it failed.
+     * @return returns ResponseEntity, OK if successful, BAD_REQUEST if it failed.
      */
     @PostMapping()
     public ResponseEntity addLock(@Valid @RequestBody CreateLockDto lockDto){
@@ -77,7 +77,7 @@ public class LockResource {
 //    /**
 //     * Endpoint to delete a lock, making it's active variable as false
 //     * @param id of the lock to be deleted
-//     * @return {@code ResponseEntity}, OK if successful, BAD_REQUEST if it failed.
+//     * @return returns ResponseEntity, OK if successful, BAD_REQUEST if it failed.
 //     */
 //
 //    @DeleteMapping("/{id}")
@@ -94,7 +94,7 @@ public class LockResource {
     /**
      * Endpoint to get data of the lock
      * @param id of the lock data requested
-     * @return {@code ResponseEntity}, OK if successful, BAD_REQUEST if it failed.
+     * @return returns ResponseEntity, OK if successful, BAD_REQUEST if it failed.
      */
     @GetMapping("/{id}")
     public ResponseEntity getLock(@PathVariable Long id) {
