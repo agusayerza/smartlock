@@ -5,7 +5,6 @@ import com.smartlock.server.lock.service.LockService;
 import com.smartlock.server.user.presentation.dto.CreateUserDto;
 import com.smartlock.server.user.presentation.dto.UserDto;
 import com.smartlock.server.user.service.UserService;
-import javassist.NotFoundException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -76,11 +75,12 @@ public class DemoRunner implements CommandLineRunner {
 
         ArrayList<String> uidList = generateListOfUuid(5);
         for (int i = 0; i < uidList.size(); i++) {
-            lockService.createLock(uidList.get(i));
+            lockService.createRandomLock(uidList.get(i));
             logger.info("Creating lock " + uidList.get(i));
         }
 
         CreateLockDto createLockDto = new CreateLockDto();
+        createLockDto.setName("Test Lock");
         createLockDto.setUuid("18bfd86f-539e-40e2-a917-64c9ed1d42d9");
 //        try {
 //            lockService.addLock(createLockDto, userDto.getId());

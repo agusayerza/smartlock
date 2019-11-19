@@ -37,5 +37,5 @@ public interface LockService {
 
     String getSetLockOpen(String uuid, boolean open, Long userId) throws NotFoundException;
 
-    void createLock(String uuid);
+    void createRandomLock(String uuid);
 }

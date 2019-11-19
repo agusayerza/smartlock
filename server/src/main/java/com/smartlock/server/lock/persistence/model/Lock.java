@@ -1,6 +1,7 @@
 package com.smartlock.server.lock.persistence.model;
 
 import com.smartlock.server.lock.presentation.dto.CreateLockDto;
+import org.springframework.lang.Nullable;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,6 +15,8 @@ public class Lock {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String uuid;
+    @Nullable
+    private String name;
     private boolean active;
     private boolean isOpen;
 
@@ -49,10 +52,19 @@ public class Lock {
         isOpen = open;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public Lock(CreateLockDto createLockDto) {
         this.uuid = createLockDto.getUuid();
         this.active = true;
         this.isOpen = true;
+        this.name = createLockDto.getName();
     }
 
     public Lock() {

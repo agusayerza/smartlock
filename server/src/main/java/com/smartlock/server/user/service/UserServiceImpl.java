@@ -119,7 +119,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public void leaveFromThisLock(Long lockId, Long userId) throws NotFoundException {
         User user = userRepository.getOne(userId);
-        if (!user.getLocksId().contains(lockId)) throw new IllegalArgumentException("You cannot access that lock");
+        if (!user.getLocksId().contains(lockId)) throw new NotFoundException("You cannot access that lock");
         user.removeLock(lockId);
         userRepository.save(user);
     }

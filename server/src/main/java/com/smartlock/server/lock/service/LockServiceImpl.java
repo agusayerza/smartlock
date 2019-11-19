@@ -39,6 +39,9 @@ public class LockServiceImpl implements LockService{
         Optional<Lock> opLock = lockRepository.findByUuid(lockDto.getUuid());
         if (opLock.isPresent()){
             Lock lock = opLock.get();
+            if(lock.getName() == null){
+                lock.setName(lockDto.getName());
+            }
             lock.setActive(true);
             user.addNewLock(lock.getId());
             lockRepository.save(lock);
@@ -113,7 +116,7 @@ public class LockServiceImpl implements LockService{
     }
 
     @Override
-    public void createLock(String uuid) {
+    public void createRandomLock(String uuid) {
         Lock lock = new Lock();
         lock.setActive(false);
         lock.setUuid(uuid);
