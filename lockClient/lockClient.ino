@@ -24,15 +24,17 @@ const int steps_to_open = 400;
 /**
 * WiFi settings
 **/
-const char* wlan_ssid             = "Galaxy S8";
-const char* wlan_password         = "12345678";
-
+//const char* wlan_ssid             = "AlgoAlgo";
+//const char* wlan_password         = "12345678";
+const char* wlan_ssid             = "Dame Internet";
+const char* wlan_password         = "balto001";
 /**
 * Server settings
 **/
-const char host[]               = "192.168.43.243";
+const char host[]               = "192.168.0.163";
 const int port                 = 8080;
-const char baseURL[]           = "http://192.168.43.243:8080/lock/status/18bfd86f-539e-40e2-a917-64c9ed1d42d9";
+//const char baseURL[]           = "http://7a134a8f.ngrok.io/lock/status/18bfd86f-539e-40e2-a917-64c9ed1d42d9";
+const char baseURL[]           = "http://192.168.0.163:8080/lock/status/18bfd86f-539e-40e2-a917-64c9ed1d42d9";
 
 // Lock UUID
 const char* lock_uuid = "18bfd86f-539e-40e2-a917-64c9ed1d42d9";
@@ -89,7 +91,7 @@ void loop() {
             connect_wifi();
          }
          led_rgb(0,0,255);
-         delay(200);
+         delay(3500);
 }
 
 void process(String payload){

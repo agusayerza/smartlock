@@ -28,9 +28,13 @@ public class LockResource {
         this.lockService = lockService;
     }
 
-
+    /**
+     * Used by the lock to get its current status
+     * @param uuid the locks UUID
+     * @return the lock status, OPEN or CLOSED
+     */
     @ApiIgnore
-    @PostMapping("/status/{uuid}") // todo: not really a post, should be get
+    @PostMapping("/status/{uuid}")
     private String getLockStatus(@PathVariable String uuid){
         try{
             return lockService.getLockStatus(uuid);
@@ -39,6 +43,11 @@ public class LockResource {
         }
     }
 
+    /**
+     * Used to open the lock with the corresponding UUID
+     * @param uuid the lock UUID
+     * @return String with the result
+     */
     @PostMapping("/open/{uuid}")
     private ResponseEntity openLock(@PathVariable String uuid){
         try{
@@ -49,6 +58,11 @@ public class LockResource {
         }
     }
 
+    /**
+     * Used to close the lock with the corresponding UUID
+     * @param uuid the lock UUID
+     * @return String with the result
+     */
     @PostMapping("/close/{uuid}")
     private ResponseEntity closeLock(@PathVariable String uuid){
         try{
@@ -62,7 +76,7 @@ public class LockResource {
     /**
      * Endpoint used to claim a lock, making the request user lock's admin
      * @param lockDto DTO containing Lock uuid and name for the lock
-     * @return {@code ResponseEntity}, OK if successful, BAD_REQUEST if it failed.
+     * @return returns ResponseEntity, OK if successful, BAD_REQUEST if it failed.
      */
     @PostMapping()
     public ResponseEntity addLock(@Valid @RequestBody CreateLockDto lockDto){
@@ -77,7 +91,7 @@ public class LockResource {
 //    /**
 //     * Endpoint to delete a lock, making it's active variable as false
 //     * @param id of the lock to be deleted
-//     * @return {@code ResponseEntity}, OK if successful, BAD_REQUEST if it failed.
+//     * @return returns ResponseEntity, OK if successful, BAD_REQUEST if it failed.
 //     */
 //
 //    @DeleteMapping("/{id}")
@@ -94,10 +108,8 @@ public class LockResource {
     /**
      * Endpoint to get data of the lock
      * @param id of the lock data requested
-     * @return {@code ResponseEntity}, OK if successful, BAD_REQUEST if it failed.
+     * @return returns ResponseEntity, OK if successful, BAD_REQUEST if it failed.
      */
-
-    //  todo verificar que user.getlocks contains lock y que este en dia y horario de schedule
     @GetMapping("/{id}")
     public ResponseEntity getLock(@PathVariable Long id) {
         try {
