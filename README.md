@@ -47,7 +47,7 @@ Should you want to use your own version of the compilied apps, this are the step
 
 ### 3.1.3 Springboot Server prerequisites
 - Gradle
-- Java JDK $$$$$ aaallgooo $$$$$ , all other dependencies will be covered by Gradle
+- Java JDK 1.8 , all other dependencies will be covered by Gradle
 
 ## 3.2 Compiling and Running
 ### 3.2.1 NodeMCU App
