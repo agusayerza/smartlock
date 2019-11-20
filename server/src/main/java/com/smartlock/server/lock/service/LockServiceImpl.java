@@ -39,6 +39,7 @@ public class LockServiceImpl implements LockService{
         Optional<Lock> opLock = lockRepository.findByUuid(lockDto.getUuid());
         if (opLock.isPresent()){
             Lock lock = opLock.get();
+            if(user.getLocksId().contains(lock.getId())) throw new IllegalArgumentException("You already have that lock added");
             if(lock.getName() == null){
                 lock.setName(lockDto.getName());
             }
