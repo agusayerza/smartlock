@@ -22,12 +22,11 @@ Stepper_28BYJ_48 stepper(5,4,0,2);  // D1 D2 D3 D4
 const int steps_to_open = 400;
 
 /**
-* WiFi settings
+* WiFi settings - Modify as desired
 **/
-//const char* wlan_ssid             = "AlgoAlgo";
-//const char* wlan_password         = "12345678";
-const char* wlan_ssid             = "Dame Internet";
-const char* wlan_password         = "balto001";
+const char* wlan_ssid             = "AlgoAlgo";
+const char* wlan_password         = "12345678";
+
 /**
 * Server settings
 **/
