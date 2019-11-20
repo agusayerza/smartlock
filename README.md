@@ -1,5 +1,5 @@
 # SmartLock
-
+![Alt text](repo-graph.png "Title")
 # Contents
 - 1 - [Introduction](#1-introduction)
   - 1.1 - [Apps](#11-apps)
