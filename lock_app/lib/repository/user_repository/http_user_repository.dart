@@ -140,8 +140,9 @@ class HttpUserRepository {
       if (statusCode < 200 || statusCode > 400 || json == null) {
         throw new Exception("Error while fetching data");
       }
-      var body = jsonDecode(response.body);
-      return body['id'];
+      Map map = jsonDecode(response.body);
+      print(map['id']);
+      return map['id'];
     });
   }
 }

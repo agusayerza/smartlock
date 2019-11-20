@@ -307,6 +307,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
       showCustomDialog(context, 'Error',
           'Please check completed fields: ${validEmail ? '' : '\n email'}  ${validPassword ? '' : '\n Contraseña'} ${validConfirmPassword ? '' : '\n Confirm password'}');
     }
+    Navigator.pop(context);
   }
 
   bool validateEmail(String text) {
@@ -316,9 +317,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
     } else if (text.length < 6) {
       setState(() => _emailErrorText = 'Minimum length: 6 characters');
       return false;
-    } else if (RegExp(r"([0-9])").hasMatch(text)) {
-      setState(() => _emailErrorText = "An email can't have any numbers");
-      return false;
+//    } else if (RegExp(r"([0-9])").hasMatch(text)) {
+//      setState(() => _emailErrorText = "An email can't have any numbers");
+//      return false;
     } else {
       setState(() => _emailErrorText = null);
       return true;
