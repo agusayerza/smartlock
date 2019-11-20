@@ -32,42 +32,12 @@ class _IndividualLockScreenState extends State<IndividualLockScreen> {
         title: Text('${widget.data.name}'),
       ),
       body: Stack(
-        //falta mostrar los usuarios
         children: <Widget>[
           ListView(
             children: <Widget>[
               SizedBox(height: 15.0),
-//              widget.data.userAdminId == userId
-//                  ? Column(
-//                      children: <Widget>[
-//                        Center(
-//                          child: PlatformButton(
-//                            padding: EdgeInsets.symmetric(
-//                                horizontal: 30.0, vertical: 10.0),
-//                            ios: (_) => CupertinoButtonData(
-//                                borderRadius: BorderRadius.circular(15.0)),
-//                            color: Colors.green,
-//                            onPressed: () => openPage(
-//                                (_) => InviteUsersScreen(widget.data), context),
-//                            android: (_) => MaterialRaisedButtonData(
-//                                padding: EdgeInsets.symmetric(
-//                                    vertical: 12.0, horizontal: 30.0),
-//                                shape: StadiumBorder(),
-//                                textColor: Colors.white),
-//                            child: PlatformText(
-//                              'Invite users',
-//                              style: TextStyle(fontSize: 16.0),
-//                            ),
-//                          ),
-//                        ),
-//                        SizedBox(
-//                          height: 15.0,
-//                        )
-//                      ],
-//                    )
-//                  : Container(),
               widget.data.opened
-                  ? Center(
+                    ? Center(
                       child: Text(
                         'Lock is now opened',
                         style: textStyleOpen,
@@ -79,14 +49,8 @@ class _IndividualLockScreenState extends State<IndividualLockScreen> {
                         style: textStyleClose,
                       ),
                     ),
+
               SizedBox(height: 15.0),
-//              AnimatedContainer(
-//                color: Colors.blue,
-//                height: 50,
-//                width: widget.data.opened ? 100 : 50,
-//                duration: Duration(seconds: 1),
-//              ),
-//              SizedBox(height: 15.0),
 
               Center(
                 child: PlatformButton(
@@ -153,5 +117,7 @@ class _IndividualLockScreenState extends State<IndividualLockScreen> {
   @override
   void initState() {
     super.initState();
+    //todo: cancer
+    if(widget.data.opened == null) widget.data.opened = true;
   }
 }
