@@ -14,6 +14,8 @@
     - 3.2.2 - [Flutter App](#322-flutter-app)
     - 3.2.3 - [Server](#323-springboot-server-app)
 - 4 - [Docs](#4docs)
+  - 4.1 - [Server](#41-server-documentation)
+  - 4.2 - [API](#42-server-api-documentation)
  
 ---
 
@@ -74,5 +76,8 @@ As simple as ```gradle build```, and then run the generated JAR file
 # 4 Docs
 ## 4.1 Server documentation
   Server documentation is available at https://agusayerza.github.io/smartlock/
+
+## 4.2 Server API Documentation
+  Swagger API: http://e2b72247.ngrok.io/swagger-ui.html
 
 
