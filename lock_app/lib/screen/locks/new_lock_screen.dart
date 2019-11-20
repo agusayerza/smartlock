@@ -8,6 +8,7 @@ import 'package:lock_app/data/user/user.dart';
 import 'package:flutter_multiselect/flutter_multiselect.dart';
 import 'package:lock_app/repository/lock_repository/http_lock_repository.dart';
 import 'package:lock_app/widget/open_page.dart';
+import 'package:lock_app/widget/show_custom_dialog.dart';
 
 import 'invite_users_screen.dart';
 
@@ -98,10 +99,15 @@ class _NewLockScreenState extends State<NewLockScreen> {
   void submit() async {
     Map body = {'name': _lockNameController.text, 'uuid': _uuidController.text};
 
-    BlocProvider.of<LockBloc>(context).onNewLockTapped(context, body);
+    try {
+      BlocProvider.of<LockBloc>(context).onNewLockTapped(context, body);
 //    Lock lastLock = BlocProvider.of<LockBloc>(context).getLastLock;
 //    openPage((_) => InviteUsersScreen(lastLock), context);
-    Navigator.pop(context);
+      Navigator.pop(context);
+    } catch (e) {
+      showCustomDialog(context, 'Error', e.toString());
+    }
+//    Navigator.pop(context);
   }
 
   @override

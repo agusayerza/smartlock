@@ -98,7 +98,7 @@ class HttpLockRepository {
     AuthenticatedState state =
         BlocProvider.of<AuthenticationBloc>(context).currentState;
     http.Response response =
-        await http.delete(BASE_URL + '/lock/$id', headers: {
+        await http.delete(BASE_URL + '/users/lock/$id', headers: {
       "Content-Type": "application/json",
       HttpHeaders.authorizationHeader: 'Bearer ${state.token}',
     }).timeout(Duration(seconds: 5), onTimeout: () {
@@ -161,7 +161,7 @@ class HttpLockRepository {
       print('Response body is : ${response.body}');
 
       if (response.statusCode == HttpStatus.ok) {
-        print('Agregado');
+        print('${response.statusCode} openlock');
       } else {
         print(response.body);
         return throw TimeoutException();
@@ -187,7 +187,7 @@ class HttpLockRepository {
       print('Response body is : ${response.body}');
 
       if (response.statusCode == HttpStatus.ok) {
-        print('Agregado');
+        print('${response.statusCode} closelock');
       } else {
         print(response.body);
         return throw TimeoutException();

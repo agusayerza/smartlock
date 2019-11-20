@@ -8,6 +8,7 @@ import 'package:lock_app/screen/register/register_screen.dart';
 import 'package:lock_app/style/style.dart';
 import 'package:lock_app/widget/loading_widget.dart';
 import 'package:lock_app/widget/provide_all.dart';
+import 'package:lock_app/widget/show_custom_dialog.dart';
 
 import 'bloc/authentication/authentication_bloc.dart';
 import 'bloc/authentication/authentication_state.dart';
@@ -63,7 +64,7 @@ class App extends StatelessWidget {
               // pass token
               return Home();
             } else if (state is AuthenticationError) {
-              return RegisterScreen();
+              return LoginScreen();
             } else if (state is LogOutErrorState) {
               return Home();
             } else {
@@ -71,11 +72,11 @@ class App extends StatelessWidget {
             }
           },
         ),
-        listener: (BuildContext context, state) {},
-//        listener: (BuildContext context, state) {
-//          if (state is AuthenticationError) {
-//            showCustomDialog(context, 'Error', state.message);
-//          }
+//        listener: (BuildContext context, state) {},
+        listener: (BuildContext context, state) {
+          if (state is AuthenticationError) {
+            showCustomDialog(context, 'Error', state.message);
+          }
 //          if (state is DeleteSuccessState) {
 //            showCustomDialog(context, 'Exito', state.message);
 //          }
@@ -86,6 +87,7 @@ class App extends StatelessWidget {
 //            showCustomDialog(context, 'Error', state.message);
 //          }
 //        },
+        },
       ),
     );
   }
