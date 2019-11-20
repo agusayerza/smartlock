@@ -77,7 +77,4 @@ As simple as ```gradle build```, and then run the generated JAR file
 ## 4.1 Server documentation
   Server documentation is available at https://agusayerza.github.io/smartlock/
 
-## 4.2 Server API Documentation
-  Swagger API: http://e2b72247.ngrok.io/swagger-ui.html
-
 
