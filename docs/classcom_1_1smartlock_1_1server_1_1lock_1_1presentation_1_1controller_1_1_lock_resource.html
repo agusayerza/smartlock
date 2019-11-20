@@ -83,11 +83,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:af7926f234bd288896fe6ab1bd516cc9b"><td class="memItemLeft" align="right" valign="top">ResponseEntity&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1smartlock_1_1server_1_1lock_1_1presentation_1_1controller_1_1_lock_resource.html#af7926f234bd288896fe6ab1bd516cc9b">addLock</a> (@Valid @RequestBody <a class="el" href="classcom_1_1smartlock_1_1server_1_1lock_1_1presentation_1_1dto_1_1_create_lock_dto.html">CreateLockDto</a> lockDto)</td></tr>
 <tr class="memdesc:af7926f234bd288896fe6ab1bd516cc9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Endpoint used to claim a lock, making the request user lock's admin.  <a href="classcom_1_1smartlock_1_1server_1_1lock_1_1presentation_1_1controller_1_1_lock_resource.html#af7926f234bd288896fe6ab1bd516cc9b">More...</a><br /></td></tr>
 <tr class="separator:af7926f234bd288896fe6ab1bd516cc9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4272364c0b7781161778453cb5e041eb"><td class="memItemLeft" align="right" valign="top">ResponseEntity&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1smartlock_1_1server_1_1lock_1_1presentation_1_1controller_1_1_lock_resource.html#a4272364c0b7781161778453cb5e041eb">deleteLock</a> (@PathVariable Long id)</td></tr>
-<tr class="memdesc:a4272364c0b7781161778453cb5e041eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Endpoint to delete a lock, making it's active variable as false.  <a href="classcom_1_1smartlock_1_1server_1_1lock_1_1presentation_1_1controller_1_1_lock_resource.html#a4272364c0b7781161778453cb5e041eb">More...</a><br /></td></tr>
-<tr class="separator:a4272364c0b7781161778453cb5e041eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0a147921ed782703d01bdf94942ca1bd"><td class="memItemLeft" align="right" valign="top">ResponseEntity&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1smartlock_1_1server_1_1lock_1_1presentation_1_1controller_1_1_lock_resource.html#a0a147921ed782703d01bdf94942ca1bd">getLock</a> (@PathVariable Long id)</td></tr>
-<tr class="memdesc:a0a147921ed782703d01bdf94942ca1bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Endpoint to get data of the lock.  <a href="classcom_1_1smartlock_1_1server_1_1lock_1_1presentation_1_1controller_1_1_lock_resource.html#a0a147921ed782703d01bdf94942ca1bd">More...</a><br /></td></tr>
 <tr class="separator:a0a147921ed782703d01bdf94942ca1bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -114,36 +110,7 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><div class="fragment"><div class="line">ResponseEntity </div>
-</div><!-- fragment --> , OK if successful, BAD_REQUEST if it failed. </dd></dl>
-
-</div>
-</div>
-<a id="a4272364c0b7781161778453cb5e041eb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4272364c0b7781161778453cb5e041eb">&#9670;&nbsp;</a></span>deleteLock()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">ResponseEntity com.smartlock.server.lock.presentation.controller.LockResource.deleteLock </td>
-          <td>(</td>
-          <td class="paramtype">@PathVariable Long&#160;</td>
-          <td class="paramname"><em>id</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Endpoint to delete a lock, making it's active variable as false. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">id</td><td>of the lock to be deleted </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><div class="fragment"><div class="line">ResponseEntity </div>
-</div><!-- fragment --> , OK if successful, BAD_REQUEST if it failed. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>returns ResponseEntity, OK if successful, BAD_REQUEST if it failed. </dd></dl>
 
 </div>
 </div>
@@ -162,17 +129,15 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Endpoint to get data of the lock. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">id</td><td>of the lock data requested </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><div class="fragment"><div class="line">ResponseEntity </div>
-</div><!-- fragment --> , OK if successful, BAD_REQUEST if it failed. </dd></dl>
-
+<pre class="fragment">     Endpoint to delete a lock, making it's active variable as false
+     @param id of the lock to be deleted
+     @return returns ResponseEntity, OK if successful, BAD_REQUEST if it failed.
+    &amp;zwj;/
+</pre><p>@DeleteMapping("/{id}") public ResponseEntity deleteLock(@PathVariable Long id) { try { Long userId = UserPrinciple.getUserPrinciple().getId(); lockService.deleteLock(id); return new ResponseEntity&lt;&gt;("Lock deleted", HttpStatus.OK); } catch (NotFoundException | IllegalArgumentException e){ return new ResponseEntity&lt;&gt;(e.getMessage(), HttpStatus.BAD_REQUEST); } } </p><pre class="fragment">/**
+   Endpoint to get data of the lock
+   @param id of the lock data requested
+   @return returns ResponseEntity, OK if successful, BAD_REQUEST if it failed.
+</pre> 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>

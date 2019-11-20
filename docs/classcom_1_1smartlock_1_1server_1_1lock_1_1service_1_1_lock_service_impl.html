@@ -86,19 +86,27 @@ Inheritance diagram for com.smartlock.server.lock.service.LockServiceImpl:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a3040006f7793eb970d1ebb61ce00e884"><td class="memItemLeft" align="right" valign="top"><a id="a3040006f7793eb970d1ebb61ce00e884"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>LockServiceImpl</b> (<a class="el" href="interfacecom_1_1smartlock_1_1server_1_1user_1_1persistence_1_1repository_1_1_user_repository.html">UserRepository</a> userRepository, <a class="el" href="interfacecom_1_1smartlock_1_1server_1_1lock_1_1persistence_1_1repository_1_1_lock_repository.html">LockRepository</a> lockRepository, <a class="el" href="interfacecom_1_1smartlock_1_1server_1_1schedule_1_1persistence_1_1repository_1_1_schedule_repository.html">ScheduleRepository</a> scheduleRepository, <a class="el" href="interfacecom_1_1smartlock_1_1server_1_1schedule_1_1service_1_1_schedule_service.html">ScheduleService</a> scheduleService)</td></tr>
-<tr class="separator:a3040006f7793eb970d1ebb61ce00e884"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a693106f52e6b971646c0af2e18544266"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcom_1_1smartlock_1_1server_1_1lock_1_1presentation_1_1dto_1_1_lock_dto.html">LockDto</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1smartlock_1_1server_1_1lock_1_1service_1_1_lock_service_impl.html#a693106f52e6b971646c0af2e18544266">addLock</a> (<a class="el" href="classcom_1_1smartlock_1_1server_1_1lock_1_1presentation_1_1dto_1_1_create_lock_dto.html">CreateLockDto</a> lockDto, Long userAdminId)  throws NotFoundException </td></tr>
-<tr class="memdesc:a693106f52e6b971646c0af2e18544266"><td class="mdescLeft">&#160;</td><td class="mdescRight">Make the lock active if is found and set requested user as lock's admin.  <a href="classcom_1_1smartlock_1_1server_1_1lock_1_1service_1_1_lock_service_impl.html#a693106f52e6b971646c0af2e18544266">More...</a><br /></td></tr>
-<tr class="separator:a693106f52e6b971646c0af2e18544266"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a326645803fdb821f0bcbad9d785d23f3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1smartlock_1_1server_1_1lock_1_1service_1_1_lock_service_impl.html#a326645803fdb821f0bcbad9d785d23f3">deleteLock</a> (Long id, Long userId)  throws NotFoundException </td></tr>
-<tr class="memdesc:a326645803fdb821f0bcbad9d785d23f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delete the lock, setting it's active parameter as false and removing it from all locks' list of the users Only lock's admin can make this request.  <a href="classcom_1_1smartlock_1_1server_1_1lock_1_1service_1_1_lock_service_impl.html#a326645803fdb821f0bcbad9d785d23f3">More...</a><br /></td></tr>
-<tr class="separator:a326645803fdb821f0bcbad9d785d23f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a945ac1b907a8e305348d69a728a151af"><td class="memItemLeft" align="right" valign="top"><a id="a945ac1b907a8e305348d69a728a151af"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>LockServiceImpl</b> (<a class="el" href="interfacecom_1_1smartlock_1_1server_1_1user_1_1persistence_1_1repository_1_1_user_repository.html">UserRepository</a> userRepository, <a class="el" href="interfacecom_1_1smartlock_1_1server_1_1lock_1_1persistence_1_1repository_1_1_lock_repository.html">LockRepository</a> lockRepository)</td></tr>
+<tr class="separator:a945ac1b907a8e305348d69a728a151af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a9e675bd8beb48873925276a12e1099"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcom_1_1smartlock_1_1server_1_1lock_1_1presentation_1_1dto_1_1_lock_dto.html">LockDto</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1smartlock_1_1server_1_1lock_1_1service_1_1_lock_service_impl.html#a9a9e675bd8beb48873925276a12e1099">addLock</a> (<a class="el" href="classcom_1_1smartlock_1_1server_1_1lock_1_1presentation_1_1dto_1_1_create_lock_dto.html">CreateLockDto</a> lockDto, Long userId)  throws NotFoundException </td></tr>
+<tr class="memdesc:a9a9e675bd8beb48873925276a12e1099"><td class="mdescLeft">&#160;</td><td class="mdescRight">Make the lock active if is found.  <a href="classcom_1_1smartlock_1_1server_1_1lock_1_1service_1_1_lock_service_impl.html#a9a9e675bd8beb48873925276a12e1099">More...</a><br /></td></tr>
+<tr class="separator:a9a9e675bd8beb48873925276a12e1099"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3308f28e3481bfa9ff5b062c3354b566"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcom_1_1smartlock_1_1server_1_1lock_1_1presentation_1_1dto_1_1_lock_dto.html">LockDto</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcom_1_1smartlock_1_1server_1_1lock_1_1service_1_1_lock_service_impl.html#a3308f28e3481bfa9ff5b062c3354b566">getLock</a> (Long id)  throws NotFoundException </td></tr>
+<tr class="separator:a3308f28e3481bfa9ff5b062c3354b566"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a193499de6c6a8a9bc03ad8a80578d5ba"><td class="memItemLeft" align="right" valign="top"><a id="a193499de6c6a8a9bc03ad8a80578d5ba"></a>
+String&#160;</td><td class="memItemRight" valign="bottom"><b>getLockStatus</b> (final String uuid)  throws NotFoundException </td></tr>
+<tr class="separator:a193499de6c6a8a9bc03ad8a80578d5ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33ebcd636160440c93106bcb9ca473dc"><td class="memItemLeft" align="right" valign="top"><a id="a33ebcd636160440c93106bcb9ca473dc"></a>
+String&#160;</td><td class="memItemRight" valign="bottom"><b>getSetLockOpen</b> (String uuid, boolean open, Long userId)  throws NotFoundException </td></tr>
+<tr class="separator:a33ebcd636160440c93106bcb9ca473dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ef0c73a8b84221e7ac6f0e22e7d430c"><td class="memItemLeft" align="right" valign="top"><a id="a9ef0c73a8b84221e7ac6f0e22e7d430c"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>createRandomLock</b> (String uuid)</td></tr>
+<tr class="separator:a9ef0c73a8b84221e7ac6f0e22e7d430c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a693106f52e6b971646c0af2e18544266"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a693106f52e6b971646c0af2e18544266">&#9670;&nbsp;</a></span>addLock()</h2>
+<a id="a9a9e675bd8beb48873925276a12e1099"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a9e675bd8beb48873925276a12e1099">&#9670;&nbsp;</a></span>addLock()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -108,53 +116,6 @@ Public Member Functions</h2></td></tr>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classcom_1_1smartlock_1_1server_1_1lock_1_1presentation_1_1dto_1_1_create_lock_dto.html">CreateLockDto</a>&#160;</td>
           <td class="paramname"><em>lockDto</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Long&#160;</td>
-          <td class="paramname"><em>userAdminId</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> throws NotFoundException</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Make the lock active if is found and set requested user as lock's admin. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">lockDto</td><td>DTO containing uuid of the lock and the future name of the lock </td></tr>
-    <tr><td class="paramname">userAdminId</td><td>id of the user that made the request </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><div class="fragment"><div class="line">LockDTO </div>
-</div><!-- fragment --> containing the info of the successfully claimed lock. </dd></dl>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname">NotFoundException</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Implements <a class="el" href="interfacecom_1_1smartlock_1_1server_1_1lock_1_1service_1_1_lock_service.html#a5b247543ffd3a5f83e3b0ad4f7e0138b">com.smartlock.server.lock.service.LockService</a>.</p>
-
-</div>
-</div>
-<a id="a326645803fdb821f0bcbad9d785d23f3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a326645803fdb821f0bcbad9d785d23f3">&#9670;&nbsp;</a></span>deleteLock()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void com.smartlock.server.lock.service.LockServiceImpl.deleteLock </td>
-          <td>(</td>
-          <td class="paramtype">Long&#160;</td>
-          <td class="paramname"><em>id</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -170,14 +131,15 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Delete the lock, setting it's active parameter as false and removing it from all locks' list of the users Only lock's admin can make this request. </p>
+<p>Make the lock active if is found. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">id</td><td>the Id for the lock </td></tr>
-    <tr><td class="paramname">userId</td><td>the user, presumably the lock owner, who requested the information. </td></tr>
+    <tr><td class="paramname">lockDto</td><td>DTO containing uuid of the lock and the future name of the lock </td></tr>
+    <tr><td class="paramname">userId</td><td>id of the user that made the request </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>LockDTO containing the info of the successfully claimed lock. </dd></dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname">NotFoundException</td><td></td></tr>
@@ -185,7 +147,36 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Implements <a class="el" href="interfacecom_1_1smartlock_1_1server_1_1lock_1_1service_1_1_lock_service.html#ae38b0ea1c5067ac682478fd7f0c1425b">com.smartlock.server.lock.service.LockService</a>.</p>
+<p>Implements <a class="el" href="interfacecom_1_1smartlock_1_1server_1_1lock_1_1service_1_1_lock_service.html#ab8621cc37ebc620ff1835a4d291fe100">com.smartlock.server.lock.service.LockService</a>.</p>
+
+</div>
+</div>
+<a id="a3308f28e3481bfa9ff5b062c3354b566"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3308f28e3481bfa9ff5b062c3354b566">&#9670;&nbsp;</a></span>getLock()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classcom_1_1smartlock_1_1server_1_1lock_1_1presentation_1_1dto_1_1_lock_dto.html">LockDto</a> com.smartlock.server.lock.service.LockServiceImpl.getLock </td>
+          <td>(</td>
+          <td class="paramtype">Long&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td> throws NotFoundException</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">     Delete the lock, setting it's active parameter as false and removing it from all locks' list of the users
+     @param id the Id for the lock
+     @throws NotFoundException
+    &amp;zwj;/
+</pre><p> @Override public void deleteLock(Long id) throws NotFoundException { Optional&lt;Lock&gt; opLock = lockRepository.findById(id); if(opLock.isPresent()) { Lock lock = opLock.get(); List&lt;User&gt; userList = userRepository.findAllByLocksIdContaining(lock.getId()); for (User user : userList) { user.removeLock(lock.getId()); userRepository.save(user); } lock.setActive(false); lockRepository.save(lock); return; } throw new NotFoundException("Lock not found"); } </p><pre class="fragment">/**
+   Searchs a lock by its Id and returns it
+   @param id corresponding to the lock to be searched.
+   @returnLockDTO containing the info of the found lock.
+   @throws NotFoundException
+</pre> 
+<p>Implements <a class="el" href="interfacecom_1_1smartlock_1_1server_1_1lock_1_1service_1_1_lock_service.html#aaeedcc944bcc2c3f0e2f5f7ae18bedf7">com.smartlock.server.lock.service.LockService</a>.</p>
 
 </div>
 </div>
