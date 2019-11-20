@@ -25,45 +25,33 @@ class _IndividualLockScreenState extends State<IndividualLockScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var textStyleOpen = TextStyle(fontSize: 30.0, color: Colors.green);
+    var textStyleClose = TextStyle(fontSize: 30.0, color: Colors.red);
     return PlatformScaffold(
       appBar: PlatformAppBar(
         title: Text('${widget.data.name}'),
       ),
       body: Stack(
-        //falta mostrar los usuarios
         children: <Widget>[
           ListView(
             children: <Widget>[
               SizedBox(height: 15.0),
-//              widget.data.userAdminId == userId
-//                  ? Column(
-//                      children: <Widget>[
-//                        Center(
-//                          child: PlatformButton(
-//                            padding: EdgeInsets.symmetric(
-//                                horizontal: 30.0, vertical: 10.0),
-//                            ios: (_) => CupertinoButtonData(
-//                                borderRadius: BorderRadius.circular(15.0)),
-//                            color: Colors.green,
-//                            onPressed: () => openPage(
-//                                (_) => InviteUsersScreen(widget.data), context),
-//                            android: (_) => MaterialRaisedButtonData(
-//                                padding: EdgeInsets.symmetric(
-//                                    vertical: 12.0, horizontal: 30.0),
-//                                shape: StadiumBorder(),
-//                                textColor: Colors.white),
-//                            child: PlatformText(
-//                              'Invite users',
-//                              style: TextStyle(fontSize: 16.0),
-//                            ),
-//                          ),
-//                        ),
-//                        SizedBox(
-//                          height: 15.0,
-//                        )
-//                      ],
-//                    )
-//                  : Container(),
+              widget.data.opened
+                    ? Center(
+                      child: Text(
+                        'Lock is now opened',
+                        style: textStyleOpen,
+                      ),
+                    )
+                  : Center(
+                      child: Text(
+                        'Lock is now closed',
+                        style: textStyleClose,
+                      ),
+                    ),
+
+              SizedBox(height: 15.0),
+
               Center(
                 child: PlatformButton(
                   padding:
@@ -71,8 +59,13 @@ class _IndividualLockScreenState extends State<IndividualLockScreen> {
                   ios: (_) => CupertinoButtonData(
                       borderRadius: BorderRadius.circular(15.0)),
                   color: Colors.greenAccent,
-                  onPressed: () =>
-                      HttpLockRepository.openLock(widget.data.uuid, context),
+                  onPressed: () {
+                    HttpLockRepository.openLock(widget.data.uuid, context);
+                    setState(() {
+                      widget.data.opened = true;
+                      print(widget.data.opened);
+                    });
+                  },
                   android: (_) => MaterialRaisedButtonData(
                       padding: EdgeInsets.symmetric(
                           vertical: 12.0, horizontal: 30.0),
@@ -92,8 +85,13 @@ class _IndividualLockScreenState extends State<IndividualLockScreen> {
                   ios: (_) => CupertinoButtonData(
                       borderRadius: BorderRadius.circular(15.0)),
                   color: Colors.redAccent,
-                  onPressed: () =>
-                      HttpLockRepository.closeLock(widget.data.uuid, context),
+                  onPressed: () {
+                    HttpLockRepository.closeLock(widget.data.uuid, context);
+                    setState(() {
+                      widget.data.opened = false;
+                      print(widget.data.opened);
+                    });
+                  },
                   android: (_) => MaterialRaisedButtonData(
                       padding: EdgeInsets.symmetric(
                           vertical: 12.0, horizontal: 30.0),
@@ -119,6 +117,7 @@ class _IndividualLockScreenState extends State<IndividualLockScreen> {
   @override
   void initState() {
     super.initState();
-//    getUserId();
+    //todo: cancer
+    if(widget.data.opened == null) widget.data.opened = true;
   }
 }

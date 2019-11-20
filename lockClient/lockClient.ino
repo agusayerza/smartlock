@@ -13,7 +13,7 @@ int led_b = 13;  // D7
  * Step motor
  */
 Stepper_28BYJ_48 stepper(5,4,0,2);  // D1 D2 D3 D4
-const int steps_to_open = 400;
+const int steps_to_open = 500;
 
 /**
 * WiFi settings - Modify as desired

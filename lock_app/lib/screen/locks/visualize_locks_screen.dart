@@ -89,7 +89,7 @@ class _MyLocksScreenState extends State<MyLocksScreen> {
                                   background: Container(
                                     alignment: Alignment.centerRight,
                                     padding: const EdgeInsets.only(right: 40.0),
-                                    color: Colors.green,
+                                    color: Colors.red,
                                     child: Icon(
                                       Icons.delete,
                                       color: Colors.white,

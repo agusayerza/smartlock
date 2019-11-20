@@ -8,9 +8,9 @@ import 'authentication_state.dart';
 class AuthenticationBloc
     extends Bloc<AuthenticationEvent, AuthenticationState> {
   static const LOGIN_POST_URL = BASE_URL + '/login';
-  static const CREATE_POST_URL = BASE_URL +'/users';
-  static const DELETE_USER_URL = BASE_URL +'/users/';
-  static const LOG_OUT_URL = BASE_URL +'/logout';
+  static const CREATE_POST_URL = BASE_URL + '/users';
+  static const DELETE_USER_URL = BASE_URL + '/users/';
+  static const LOG_OUT_URL = BASE_URL + '/logout';
   static String id;
 
   HttpUserRepository _userRepository;
@@ -55,7 +55,7 @@ class AuthenticationBloc
       try {
         yield AuthLoadingState();
         print(event.body);
-        String token = await _userRepository.registerNewUser(
+        User token = await _userRepository.registerNewUser(
             url: CREATE_POST_URL, body: event.body);
         // Await for back to send token
         //yield AuthenticatedState(token);
