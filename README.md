@@ -15,7 +15,6 @@
     - 3.2.3 - [Server](#323-springboot-server-app)
 - 4 - [Docs](#4docs)
   - 4.1 - [Server](#41-server-documentation)
-  - 4.2 - [API](#42-server-api-documentation)
  
 ---
 
