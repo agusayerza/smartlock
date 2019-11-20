@@ -25,6 +25,8 @@ class _IndividualLockScreenState extends State<IndividualLockScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var textStyleOpen = TextStyle(fontSize: 30.0, color: Colors.green);
+    var textStyleClose = TextStyle(fontSize: 30.0, color: Colors.red);
     return PlatformScaffold(
       appBar: PlatformAppBar(
         title: Text('${widget.data.name}'),
@@ -64,6 +66,28 @@ class _IndividualLockScreenState extends State<IndividualLockScreen> {
 //                      ],
 //                    )
 //                  : Container(),
+              widget.data.opened
+                  ? Center(
+                      child: Text(
+                        'Lock is now opened',
+                        style: textStyleOpen,
+                      ),
+                    )
+                  : Center(
+                      child: Text(
+                        'Lock is now closed',
+                        style: textStyleClose,
+                      ),
+                    ),
+              SizedBox(height: 15.0),
+//              AnimatedContainer(
+//                color: Colors.blue,
+//                height: 50,
+//                width: widget.data.opened ? 100 : 50,
+//                duration: Duration(seconds: 1),
+//              ),
+//              SizedBox(height: 15.0),
+
               Center(
                 child: PlatformButton(
                   padding:
@@ -71,8 +95,13 @@ class _IndividualLockScreenState extends State<IndividualLockScreen> {
                   ios: (_) => CupertinoButtonData(
                       borderRadius: BorderRadius.circular(15.0)),
                   color: Colors.greenAccent,
-                  onPressed: () =>
-                      HttpLockRepository.openLock(widget.data.uuid, context),
+                  onPressed: () {
+                    HttpLockRepository.openLock(widget.data.uuid, context);
+                    setState(() {
+                      widget.data.opened = true;
+                      print(widget.data.opened);
+                    });
+                  },
                   android: (_) => MaterialRaisedButtonData(
                       padding: EdgeInsets.symmetric(
                           vertical: 12.0, horizontal: 30.0),
@@ -92,8 +121,13 @@ class _IndividualLockScreenState extends State<IndividualLockScreen> {
                   ios: (_) => CupertinoButtonData(
                       borderRadius: BorderRadius.circular(15.0)),
                   color: Colors.redAccent,
-                  onPressed: () =>
-                      HttpLockRepository.closeLock(widget.data.uuid, context),
+                  onPressed: () {
+                    HttpLockRepository.closeLock(widget.data.uuid, context);
+                    setState(() {
+                      widget.data.opened = false;
+                      print(widget.data.opened);
+                    });
+                  },
                   android: (_) => MaterialRaisedButtonData(
                       padding: EdgeInsets.symmetric(
                           vertical: 12.0, horizontal: 30.0),
@@ -119,6 +153,5 @@ class _IndividualLockScreenState extends State<IndividualLockScreen> {
   @override
   void initState() {
     super.initState();
-//    getUserId();
   }
 }

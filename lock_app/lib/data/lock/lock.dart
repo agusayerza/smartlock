@@ -3,7 +3,7 @@ class Lock {
   final int id;
   final String uuid;
 //  final int userAdminId;
-//  bool isActive;
+  bool opened;
 
   Lock(this.name, this.id, this.uuid);
 
@@ -13,7 +13,7 @@ class Lock {
       "id": id,
       "uuid": uuid,
 //      "userAdminId": userAdminId,
-//      "isActive": isActive
+      "opened": opened
     };
     return map;
   }
@@ -21,7 +21,7 @@ class Lock {
   Lock.fromMap(Map map)
       : name = map['name'],
         id = map['id'],
-        uuid = map['uuid'];
+        uuid = map['uuid'],
 //        userAdminId = map['userAdminId'],
-//        isActive = map['isActive'];
+        opened = map['opened'];
 }

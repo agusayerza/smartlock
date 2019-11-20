@@ -6,6 +6,7 @@ public class LockDto {
     private Long id;
     private String uuid;
     private String name;
+    private boolean opened;
 
     public LockDto() {
     }
@@ -14,10 +15,19 @@ public class LockDto {
         this.id = lock.getId();
         this.uuid = lock.getUuid();
         this.name = lock.getName();
+        this.opened = lock.isOpen();
     }
 
     public Long getId() {
         return id;
+    }
+
+    public void setOpened(boolean opened) {
+        this.opened = opened;
+    }
+
+    public boolean isOpened() {
+        return opened;
     }
 
     public void setId(Long id) {

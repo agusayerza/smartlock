@@ -51,7 +51,7 @@ class HttpUserRepository {
 
   //new user
 
-  Future<String> registerNewUser({String url, Map body}) async {
+  Future<User> registerNewUser({String url, Map body}) async {
     if (await _checkInternetConnectivity()) {
       http.Response response = await http.post(url,
           body: json.encode(body),
@@ -72,7 +72,7 @@ class HttpUserRepository {
           print(response.body);
           return throw UserExistsException();
         } else {
-          return 'token';
+          return User.fromJson(jsonDecode(response.body));
         }
       }
     } else {
@@ -131,7 +131,7 @@ class HttpUserRepository {
     AuthenticatedState state =
         BlocProvider.of<AuthenticationBloc>(context).currentState;
 
-    return http.get(Uri.encodeFull(BASE_URL +'/users'), headers: {
+    return http.get(Uri.encodeFull(BASE_URL + '/users'), headers: {
       HttpHeaders.authorizationHeader: 'Bearer ${state.token}',
     }).then((http.Response response) {
       print(response.body);

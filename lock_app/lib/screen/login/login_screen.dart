@@ -89,14 +89,6 @@ class _LoginScreenState extends State<LoginScreen> {
                     style: TextStyle(fontSize: 16.0),
                   ),
                 ),
-                SizedBox(height: 15.0),
-                Center(
-                  child: PlatformButton(
-                    androidFlat: (_) => MaterialFlatButtonData(),
-                    child: PlatformText('Switch Platform'),
-                    onPressed: () => _switchPlatform(context),
-                  ),
-                ),
               ],
             ),
             padding: EdgeInsets.symmetric(horizontal: 30.0),
