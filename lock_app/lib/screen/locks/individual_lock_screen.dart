@@ -44,7 +44,7 @@ class _IndividualLockScreenState extends State<IndividualLockScreen> {
                                 horizontal: 30.0, vertical: 10.0),
                             ios: (_) => CupertinoButtonData(
                                 borderRadius: BorderRadius.circular(15.0)),
-                            color: Colors.red,
+                            color: Colors.green,
                             onPressed: () => openPage(
                                 (_) => InviteUsersScreen(widget.data), context),
                             android: (_) => MaterialRaisedButtonData(
@@ -70,7 +70,7 @@ class _IndividualLockScreenState extends State<IndividualLockScreen> {
                       EdgeInsets.symmetric(horizontal: 30.0, vertical: 10.0),
                   ios: (_) => CupertinoButtonData(
                       borderRadius: BorderRadius.circular(15.0)),
-                  color: Colors.red,
+                  color: Colors.greenAccent,
                   onPressed: () =>
                       HttpLockRepository.openLock(widget.data.uuid, context),
                   android: (_) => MaterialRaisedButtonData(
@@ -91,7 +91,7 @@ class _IndividualLockScreenState extends State<IndividualLockScreen> {
                       EdgeInsets.symmetric(horizontal: 30.0, vertical: 10.0),
                   ios: (_) => CupertinoButtonData(
                       borderRadius: BorderRadius.circular(15.0)),
-                  color: Colors.red,
+                  color: Colors.redAccent,
                   onPressed: () =>
                       HttpLockRepository.closeLock(widget.data.uuid, context),
                   android: (_) => MaterialRaisedButtonData(

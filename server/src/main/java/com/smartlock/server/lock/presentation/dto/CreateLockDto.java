@@ -1,5 +1,7 @@
 package com.smartlock.server.lock.presentation.dto;
 
+import org.springframework.lang.Nullable;
+
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
@@ -11,6 +13,7 @@ public class CreateLockDto {
     @Pattern(regexp = "([a-f0-9]{8}(-[a-f0-9]{4}){3}-[a-f0-9]{12})")
     private String uuid;
     @Size(min=4, max=32)
+    @Nullable
     private String name;
 
     public String getUuid() {

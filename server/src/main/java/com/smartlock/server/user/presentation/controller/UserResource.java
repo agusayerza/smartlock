@@ -1,6 +1,5 @@
 package com.smartlock.server.user.presentation.controller;
 
-import com.smartlock.server.lock.presentation.dto.UserLockDto;
 import com.smartlock.server.security.service.UserPrinciple;
 import com.smartlock.server.user.presentation.dto.CreateUserDto;
 import com.smartlock.server.user.service.UserService;
@@ -26,7 +25,7 @@ public class UserResource {
     /**
      * Endpoint used to post the data corresponding to a new user and create it.
      * @param createUserDto DTO that contains the user to be created data.
-     * @return {@code ResponseEntity}, OK if successful, BAD_REQUEST if it failed.
+     * @return returns ResponseEntity, OK if successful, BAD_REQUEST if it failed.
      */
     @PostMapping
     public ResponseEntity<?> createUser(@Valid @RequestBody CreateUserDto createUserDto) {
@@ -39,7 +38,7 @@ public class UserResource {
 
     /**
      * Endpoint used to get my own User Id.
-     * @return {@code ResponseEntity} OK, containing the User's Id.
+     * @return ResponseEntity OK, containing the User's Id.
      */
     @GetMapping("/me")
     public ResponseEntity getMyID(){
@@ -48,7 +47,7 @@ public class UserResource {
 
     /**
      * Endpoint used to get my own UserData.
-     * @return {@code ResponseEntity}, OK if successful, BAD_REQUEST if it failed.
+     * @return returns ResponseEntity, OK if successful, BAD_REQUEST if it failed.
      */
     @GetMapping()
     public ResponseEntity getUser() {
@@ -61,8 +60,8 @@ public class UserResource {
     }
 
     /**
-     * Endpoint to get a List for all the {@code Lock}s a {@code User} can access.
-     * @return {@code ResponseEntity}, OK if successful, BAD_REQUEST if it failed.
+     * Endpoint to get a List for all the Locks a User can access.
+     * @return returns ResponseEntity, OK if successful, BAD_REQUEST if it failed.
      */
     @GetMapping("/myLocks")
     public ResponseEntity getAllLocksThisUserCanAccess() {
@@ -75,23 +74,9 @@ public class UserResource {
     }
 
     /**
-     * Endpoint to get a List for all the {@code Lock}s a {@code User} owns.
-     * @return {@code ResponseEntity}, OK if successful, BAD_REQUEST if it failed.
-     */
-    @GetMapping("/myLocks/admin")
-    public ResponseEntity getAllLocksIAmAdmin() {
-        try {
-            Long id = UserPrinciple.getUserPrinciple().getId();
-            return new ResponseEntity<>(userService.getAllLocksIAmAdmin(id), HttpStatus.OK);
-        } catch (IllegalArgumentException e){
-            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
-        }
-    }
-
-    /**
-     * Endpoint to get a {@code Lock}s the {@code User} can access.
-     * @param id {@code @PathVariable} for the specific {@code Lock}.
-     * @return {@code ResponseEntity}, OK if successful, BAD_REQUEST if it failed.
+     * Endpoint to get a Locks the User can access.
+     * @param id @PathVariable for the specific Lock.
+     * @return returns ResponseEntity, OK if successful, BAD_REQUEST if it failed.
      */
     @GetMapping("/lock/{id}")
     public ResponseEntity getAllUsersThatCanAccessToThisLock(@PathVariable Long id){
@@ -104,41 +89,9 @@ public class UserResource {
     }
 
     /**
-     * Endpoint to add a {@code User} to a {@code Lock}.
-     * @param userLockDto DTO containing the data of the {@code Lock} to be created.
-     * @return {@code ResponseEntity}, OK if successful, BAD_REQUEST if it failed.
-     */
-    @PutMapping("/lock")
-    public ResponseEntity inviteUserToThisLock(@Valid @RequestBody UserLockDto userLockDto){
-        try {
-            Long userId = UserPrinciple.getUserPrinciple().getId();
-            userService.inviteUserToThisLock(userLockDto, userId);
-            return new ResponseEntity<>("User invited", HttpStatus.OK);
-        } catch (NotFoundException | IllegalArgumentException e){
-            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
-        }
-    }
-
-    /**
-     * Endpoint to delete a {@code User} from a {@code Lock}.
-     * @param userLockDto DTO containing the data of the {@code Lock} to be created.
-     * @return {@code ResponseEntity}, OK if successful, BAD_REQUEST if it failed.
-     */
-    @DeleteMapping("/lock")
-    public ResponseEntity removeUserToThisLock(@Valid @RequestBody UserLockDto userLockDto){
-        try {
-            Long userId = UserPrinciple.getUserPrinciple().getId();
-            userService.removeUserToThisLock(userLockDto, userId);
-            return new ResponseEntity<>("User deleted", HttpStatus.OK);
-        } catch (NotFoundException | IllegalArgumentException e){
-            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
-        }
-    }
-
-    /**
-     * Endpoint to delete a {@code Lock}.
-     * @param lockId the Id of the {@code Lock}.
-     * @return {@code ResponseEntity}, OK if successful, BAD_REQUEST if it failed.
+     * Endpoint to delete a Lock.
+     * @param lockId the Id of the Lock.
+     * @return returns ResponseEntity, OK if successful, BAD_REQUEST if it failed.
      */
     @DeleteMapping("/lock/{lockId}")
     public ResponseEntity leaveFromThisLock(@PathVariable Long lockId){

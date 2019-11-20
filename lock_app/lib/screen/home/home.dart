@@ -59,7 +59,7 @@ class _HomeState extends State<Home> {
               title: Text('Profile'),
             ),
             BottomNavigationBarItem(
-              icon: Icon(CupertinoIcons.car),
+              icon: Icon(Icons.lock),
               title: Text('Locks'),
             ),
           ],

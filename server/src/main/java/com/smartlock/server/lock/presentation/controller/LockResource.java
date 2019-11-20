@@ -28,9 +28,13 @@ public class LockResource {
         this.lockService = lockService;
     }
 
-
+    /**
+     * Used by the lock to get its current status
+     * @param uuid the locks UUID
+     * @return the lock status, OPEN or CLOSED
+     */
     @ApiIgnore
-    @PostMapping("/status/{uuid}") // todo: not really a post, should be get
+    @PostMapping("/status/{uuid}")
     private String getLockStatus(@PathVariable String uuid){
         try{
             return lockService.getLockStatus(uuid);
@@ -39,30 +43,40 @@ public class LockResource {
         }
     }
 
+    /**
+     * Used to open the lock with the corresponding UUID
+     * @param uuid the lock UUID
+     * @return String with the result
+     */
     @PostMapping("/open/{uuid}")
-    private String openLock(@PathVariable String uuid){
-        // todo: validacion de permisos
+    private ResponseEntity openLock(@PathVariable String uuid){
         try{
-            return lockService.getSetLockOpen(uuid, true);
-        }catch (NotFoundException e){
-            return e.getMessage();
+            Long id = UserPrinciple.getUserPrinciple().getId();
+            return new ResponseEntity<>(lockService.getSetLockOpen(uuid, true, id), HttpStatus.OK);
+        }catch (NotFoundException | IllegalArgumentException e){
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
     }
 
+    /**
+     * Used to close the lock with the corresponding UUID
+     * @param uuid the lock UUID
+     * @return String with the result
+     */
     @PostMapping("/close/{uuid}")
-    private String closeLock(@PathVariable String uuid){
-        // todo: validacion de permisos, en el mismo metodo
+    private ResponseEntity closeLock(@PathVariable String uuid){
         try{
-            return lockService.getSetLockOpen(uuid, false);
-        }catch (NotFoundException e){
-            return e.getMessage();
+            Long id = UserPrinciple.getUserPrinciple().getId();
+            return new ResponseEntity<>(lockService.getSetLockOpen(uuid, false, id), HttpStatus.OK);
+        }catch (NotFoundException | IllegalArgumentException e){
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
     }
 
     /**
      * Endpoint used to claim a lock, making the request user lock's admin
      * @param lockDto DTO containing Lock uuid and name for the lock
-     * @return {@code ResponseEntity}, OK if successful, BAD_REQUEST if it failed.
+     * @return returns ResponseEntity, OK if successful, BAD_REQUEST if it failed.
      */
     @PostMapping()
     public ResponseEntity addLock(@Valid @RequestBody CreateLockDto lockDto){
@@ -74,30 +88,28 @@ public class LockResource {
         }
     }
 
-    /**
-     * Endpoint to delete a lock, making it's active variable as false
-     * @param id of the lock to be deleted
-     * @return {@code ResponseEntity}, OK if successful, BAD_REQUEST if it failed.
-     */
-
-    @DeleteMapping("/{id}")
-    public ResponseEntity deleteLock(@PathVariable Long id) {
-        try {
-            Long userId = UserPrinciple.getUserPrinciple().getId();
-            lockService.deleteLock(id, userId);
-            return new ResponseEntity<>("Lock deleted", HttpStatus.OK);
-        } catch (NotFoundException | IllegalArgumentException e){
-            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
-        }
-    }
+//    /**
+//     * Endpoint to delete a lock, making it's active variable as false
+//     * @param id of the lock to be deleted
+//     * @return returns ResponseEntity, OK if successful, BAD_REQUEST if it failed.
+//     */
+//
+//    @DeleteMapping("/{id}")
+//    public ResponseEntity deleteLock(@PathVariable Long id) {
+//        try {
+//            Long userId = UserPrinciple.getUserPrinciple().getId();
+//            lockService.deleteLock(id);
+//            return new ResponseEntity<>("Lock deleted", HttpStatus.OK);
+//        } catch (NotFoundException | IllegalArgumentException e){
+//            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+//        }
+//    }
 
     /**
      * Endpoint to get data of the lock
      * @param id of the lock data requested
-     * @return {@code ResponseEntity}, OK if successful, BAD_REQUEST if it failed.
+     * @return returns ResponseEntity, OK if successful, BAD_REQUEST if it failed.
      */
-
-    //  todo verificar que user.getlocks contains lock y que este en dia y horario de schedule
     @GetMapping("/{id}")
     public ResponseEntity getLock(@PathVariable Long id) {
         try {

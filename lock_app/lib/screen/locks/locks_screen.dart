@@ -28,7 +28,7 @@ class _LocksScreenState extends State<LocksScreen> {
               padding: EdgeInsets.symmetric(horizontal: 30.0, vertical: 10.0),
               ios: (_) => CupertinoButtonData(
                   borderRadius: BorderRadius.circular(15.0)),
-              color: Colors.red,
+              color: Colors.green,
               onPressed: () => openPage((_) => NewLockScreen(), context),
               android: (_) => MaterialRaisedButtonData(
                   padding:
@@ -47,7 +47,7 @@ class _LocksScreenState extends State<LocksScreen> {
               padding: EdgeInsets.symmetric(horizontal: 30.0, vertical: 10.0),
               ios: (_) => CupertinoButtonData(
                   borderRadius: BorderRadius.circular(15.0)),
-              color: Colors.red,
+              color: Colors.green,
               onPressed: () {
                 openPage((_) => MyLocksScreen(), context);
               },

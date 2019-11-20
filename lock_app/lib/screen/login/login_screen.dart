@@ -28,11 +28,7 @@ class _LoginScreenState extends State<LoginScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 SizedBox(height: 50.0),
-                Container(
-                  width: 300,
-                  height: 150,
-                  child: Placeholder(),
-                ),
+                Icon(Icons.lock, size: 100, color: Colors.green),
                 SizedBox(height: 15.0),
                 PlatformTextField(
                   controller: _mailController,
@@ -71,7 +67,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   padding: EdgeInsets.symmetric(horizontal: 30.0),
                   ios: (_) => CupertinoButtonData(
                       borderRadius: BorderRadius.circular(15.0)),
-                  color: Colors.red,
+                  color: Colors.green,
                   onPressed: () => loginTapped(),
                   android: (_) => MaterialRaisedButtonData(
                       padding: EdgeInsets.symmetric(

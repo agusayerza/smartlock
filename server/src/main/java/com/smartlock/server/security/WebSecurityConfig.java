@@ -31,8 +31,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     /**
      * Class constructor.
-     * @param userDetailsService {@code UserDetailsService} instantiated class corresponding to the current Spring profile.
-     * @param unauthorizedHandler {@code UnauthorizedHandler} instantiated class corresponding to the current Spring profile.
+     * @param userDetailsService serDetailsService instantiated class corresponding to the current Spring profile.
+     * @param unauthorizedHandler UnauthorizedHandler instantiated class corresponding to the current Spring profile.
      */
     @Autowired
     public WebSecurityConfig(UserDetailsServiceImpl userDetailsService, JwtAuthEntryPoint unauthorizedHandler) {
@@ -42,7 +42,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     /**
      * Bean provider for the JwtAuthTokenFilter.
-     * @return {@code JwtAuthTokenFilter} instantiated class.
+     * @return JwtAuthTokenFilter instantiated class.
+     * @see JwtAuthTokenFilter
      */
     @Bean
     public JwtAuthTokenFilter authenticationJwtTokenFilter() {
@@ -75,6 +76,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 //Sign Up
                 .antMatchers(HttpMethod.POST,"/users").permitAll()
                 .antMatchers(HttpMethod.POST,"/login").permitAll()
+                .antMatchers(HttpMethod.GET, "/test").permitAll()
                 // Swagger and Swagger-UI
                 .antMatchers("/v2/api-docs",
                 "/configuration/ui",

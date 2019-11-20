@@ -2,11 +2,9 @@ package com.smartlock.server;
 
 import com.smartlock.server.lock.presentation.dto.CreateLockDto;
 import com.smartlock.server.lock.service.LockService;
-import com.smartlock.server.user.persistence.model.User;
 import com.smartlock.server.user.presentation.dto.CreateUserDto;
 import com.smartlock.server.user.presentation.dto.UserDto;
 import com.smartlock.server.user.service.UserService;
-import javassist.NotFoundException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,11 +27,11 @@ public class DemoRunner implements CommandLineRunner {
     private boolean createdData = false;
 
     /**
-     * {@code DemoRunner} constructor. The {@code DemoRunner} is a class used to instantiate and load into the
+     * DemoRunner constructor. The DemoRunner is a class used to instantiate and load into the
      * database the objects to be used during demos.
-     * @param userService {@code UserService} instantiated class corresponding to the current Spring profile.
-     * @param lockService {@code LockService} instantiated class corresponding to the current Spring profile.
-     * @param env {@code Environment} Spring Environment instantiated, corresponding to the current Spring profile, and
+     * @param userService UserService instantiated class corresponding to the current Spring profile.
+     * @param lockService LockService instantiated class corresponding to the current Spring profile.
+     * @param env Environment Spring Environment instantiated, corresponding to the current Spring profile, and
      *                               used to determine on runtime if the demo data has to be created or not.
      */
     @Autowired
@@ -77,13 +75,13 @@ public class DemoRunner implements CommandLineRunner {
 
         ArrayList<String> uidList = generateListOfUuid(5);
         for (int i = 0; i < uidList.size(); i++) {
-            lockService.createLockWithInvalidAdmin(uidList.get(i));
+            lockService.createRandomLock(uidList.get(i));
             logger.info("Creating lock " + uidList.get(i));
         }
 
         CreateLockDto createLockDto = new CreateLockDto();
+        createLockDto.setName("Test Lock");
         createLockDto.setUuid("18bfd86f-539e-40e2-a917-64c9ed1d42d9");
-//        createLockDto.setName("Test Lock");
 //        try {
 //            lockService.addLock(createLockDto, userDto.getId());
 //        } catch (NotFoundException e) {

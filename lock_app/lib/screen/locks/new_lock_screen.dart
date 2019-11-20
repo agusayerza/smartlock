@@ -29,7 +29,7 @@ class _NewLockScreenState extends State<NewLockScreen> {
       appBar: PlatformAppBar(
         ios: (_) => CupertinoNavigationBarData(transitionBetweenRoutes: false),
         title: Text('Add new lock'),
-        backgroundColor: Colors.red,
+        backgroundColor: Colors.green,
       ),
       body: ListView(
         children: <Widget>[
@@ -72,7 +72,7 @@ class _NewLockScreenState extends State<NewLockScreen> {
                         EdgeInsets.symmetric(horizontal: 30.0, vertical: 10.0),
                     ios: (_) => CupertinoButtonData(
                         borderRadius: BorderRadius.circular(15.0)),
-                    color: Colors.red,
+                    color: Colors.green,
                     onPressed: () async {
                       submit();
                     },
