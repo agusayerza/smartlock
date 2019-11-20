@@ -27,10 +27,11 @@
 
 To use your SmartLock simply download the app from the AppStore or PlayStore. Register a new account and use the lock, as simple as that.
 - 1 Download the App from the AppStore or PlayStore
-- 2 Register a new account if you don't have one
-- 3 Login to the new account
-- 4 Add the lock by navigating to `Locks -> Add Lock` and entering a Name as well as the lock UUID
-- 5 The lock is added an ready to use by navigating to `Locks -> name of the new lock`
+- 2 Modify /lockClient/lockClient.ino wifi config on lines 27 and 28 to match the desired one and compile it to the ESP8266
+- 3 Register a new account if you don't have one
+- 4 Login to the new account
+- 5 Add the lock by navigating to `Locks -> Add Lock` and entering a Name as well as the lock UUID
+- 6 The lock is added an ready to use by navigating to `Locks -> name of the new lock`
 
 # 3 Compiling
 
