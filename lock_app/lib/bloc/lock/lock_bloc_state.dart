@@ -11,7 +11,7 @@ class ListLockState extends LockBlocState {
 
   ListLockState(this.locks);
 
-  List<Lock> get allLocks => null;
+  List<Lock> get allLocks => locks;
 }
 
 class AdminLockListState extends LockBlocState {

@@ -35,10 +35,11 @@ class LockBloc extends Bloc<LockBlocEvent, LockBlocState> {
     } else if (event is ReloadLockListEvent) {
       final allLocksList = await repository.getMyLocks(event.context);
       yield ListLockState(allLocksList);
-    } else if (event is ReloadAdminLockListEvent) {
-      final adminLocksList = await repository.getMyAdminLocks(event.context);
-      yield AdminLockListState(adminLocksList);
     }
+//    else if (event is ReloadAdminLockListEvent) {
+//      final adminLocksList = await repository.getMyAdminLocks(event.context);
+//      yield AdminLockListState(adminLocksList);
+//    }
   }
 
   deleteLockFromList(BuildContext context, Lock data) =>
@@ -49,7 +50,7 @@ class LockBloc extends Bloc<LockBlocEvent, LockBlocState> {
   onNewLockTapped(BuildContext context, Map body) =>
       dispatch(NewLockEvent(context, body));
 
-  Lock get getLastLock {
-    return allLocks.last;
-  }
+//  Lock get getLastLock {
+//    return allLocks.last;
+//  }
 }

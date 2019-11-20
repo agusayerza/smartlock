@@ -21,7 +21,7 @@ class IndividualLockScreen extends StatefulWidget {
 }
 
 class _IndividualLockScreenState extends State<IndividualLockScreen> {
-  int userId;
+//  int userId;
 
   @override
   Widget build(BuildContext context) {
@@ -35,35 +35,35 @@ class _IndividualLockScreenState extends State<IndividualLockScreen> {
           ListView(
             children: <Widget>[
               SizedBox(height: 15.0),
-              widget.data.userAdminId == userId
-                  ? Column(
-                      children: <Widget>[
-                        Center(
-                          child: PlatformButton(
-                            padding: EdgeInsets.symmetric(
-                                horizontal: 30.0, vertical: 10.0),
-                            ios: (_) => CupertinoButtonData(
-                                borderRadius: BorderRadius.circular(15.0)),
-                            color: Colors.green,
-                            onPressed: () => openPage(
-                                (_) => InviteUsersScreen(widget.data), context),
-                            android: (_) => MaterialRaisedButtonData(
-                                padding: EdgeInsets.symmetric(
-                                    vertical: 12.0, horizontal: 30.0),
-                                shape: StadiumBorder(),
-                                textColor: Colors.white),
-                            child: PlatformText(
-                              'Invite users',
-                              style: TextStyle(fontSize: 16.0),
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          height: 15.0,
-                        )
-                      ],
-                    )
-                  : Container(),
+//              widget.data.userAdminId == userId
+//                  ? Column(
+//                      children: <Widget>[
+//                        Center(
+//                          child: PlatformButton(
+//                            padding: EdgeInsets.symmetric(
+//                                horizontal: 30.0, vertical: 10.0),
+//                            ios: (_) => CupertinoButtonData(
+//                                borderRadius: BorderRadius.circular(15.0)),
+//                            color: Colors.green,
+//                            onPressed: () => openPage(
+//                                (_) => InviteUsersScreen(widget.data), context),
+//                            android: (_) => MaterialRaisedButtonData(
+//                                padding: EdgeInsets.symmetric(
+//                                    vertical: 12.0, horizontal: 30.0),
+//                                shape: StadiumBorder(),
+//                                textColor: Colors.white),
+//                            child: PlatformText(
+//                              'Invite users',
+//                              style: TextStyle(fontSize: 16.0),
+//                            ),
+//                          ),
+//                        ),
+//                        SizedBox(
+//                          height: 15.0,
+//                        )
+//                      ],
+//                    )
+//                  : Container(),
               Center(
                 child: PlatformButton(
                   padding:
@@ -112,13 +112,13 @@ class _IndividualLockScreenState extends State<IndividualLockScreen> {
     );
   }
 
-  void getUserId() async {
-    userId = await HttpUserRepository.getUser(context);
-  }
+//  void getUserId() async {
+//    userId = await HttpUserRepository.getUser(context);
+//  }
 
   @override
   void initState() {
     super.initState();
-    getUserId();
+//    getUserId();
   }
 }
